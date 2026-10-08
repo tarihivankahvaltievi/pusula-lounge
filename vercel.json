@@ -1,0 +1,95 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/menu/index.html",
+      "destination": "/menu/",
+      "permanent": true
+    },
+    {
+      "source": "/rezervasyon/index.html",
+      "destination": "/rezervasyon/",
+      "permanent": true
+    },
+    {
+      "source": "/kahvalti/index.html",
+      "destination": "/kahvalti/",
+      "permanent": true
+    },
+    {
+      "source": "/konum/index.html",
+      "destination": "/konum/",
+      "permanent": true
+    },
+    {
+      "source": "/en/index.html",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/en/menu/index.html",
+      "destination": "/en/menu/",
+      "permanent": true
+    },
+    {
+      "source": "/en/breakfast/index.html",
+      "destination": "/en/breakfast/",
+      "permanent": true
+    },
+    {
+      "source": "/en/location/index.html",
+      "destination": "/en/location/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pusulalounge.com"
+        }
+      ],
+      "destination": "https://www.pusulalounge.com/:path*",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/404.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ]
+}

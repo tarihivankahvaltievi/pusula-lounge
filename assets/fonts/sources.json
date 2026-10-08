@@ -1,0 +1,22 @@
+{
+  "stylesheet": "https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=DM+Serif+Display&family=Noto+Sans:wdth,wght@87.5..100,400;87.5..100,500;87.5..100,600;87.5..100,700&family=Pinyon+Script&display=swap",
+  "files": {
+    "456ecf0522b5648b.woff2": "https://fonts.gstatic.com/s/bodonimodasc/v3/LYjUdGTykkIgA8197UwkzHp8F8_dYp-6A-YRBF-RX6nNRb3g0JYReA.woff2",
+    "c5312061f40add04.woff2": "https://fonts.gstatic.com/s/bodonimodasc/v3/LYjUdGTykkIgA8197UwkzHp8F8_dYp-6A-YRBF-RX6nNRb3u0JY.woff2",
+    "0786443707517311.woff2": "https://fonts.gstatic.com/s/bodonimodasc/v3/LYjWdGTykkIgA8197UwkzHp8F-XUUGBiao2LqliEl-oVD43syJI.woff2",
+    "d11185ec68e6d41b.woff2": "https://fonts.gstatic.com/s/bodonimodasc/v3/LYjWdGTykkIgA8197UwkzHp8F-XUUGBiao2LqliEl-oVAY3s.woff2",
+    "8fbaa36df2a892d0.woff2": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtGmSq17w.woff2",
+    "291655adcb38b6b4.woff2": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSo.woff2",
+    "1c85e676902fc697.woff2": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_5x0ujy.woff2",
+    "3f5fbefcaebcac71.woff2": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+    "ed9ca037f4702440.woff2": "https://fonts.gstatic.com/s/notosans/v42/o-0IIpQlx3QUlC5A4PNr6zRAW_0.woff2",
+    "6dbfee7fe8ef9452.woff2": "https://fonts.gstatic.com/s/notosans/v42/o-0IIpQlx3QUlC5A4PNr5TRA.woff2",
+    "74f6be8fc12b7cf6.woff2": "https://fonts.gstatic.com/s/pinyonscript/v24/6xKpdSJbL9-e9LuoeQiDRQR8WOvaOrbh.woff2",
+    "0451ffb02b41e4a9.woff2": "https://fonts.gstatic.com/s/pinyonscript/v24/6xKpdSJbL9-e9LuoeQiDRQR8WOXaOg.woff2"
+  },
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "reason": "Preserve existing typography and Turkish characters while removing third-party render-blocking CSS."
+}
