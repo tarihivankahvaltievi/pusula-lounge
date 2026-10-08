@@ -1,0 +1,3 @@
+Tool: built-in image_gen.imagegen
+Output: sofra-v3.webp
+Prompt: Use case: photorealistic-natural. Asset type: seamless repeating fabric texture for Pusula Lounge restaurant menu. Primary request: a flat scanned red and warm ivory gingham tablecloth matching a traditional Turkish breakfast menu. Orthographic flat scan, uniform scale, woven cotton fibers clearly visible but subtle. Alternating cherry red squares, warm cream squares, and diagonal red-and-cream thread woven mixed squares. Perfectly regular checker weave, no perspective, no folds, no shadows, no border, no food, no text. Entire square canvas is fabric. Tileable texture with a whole even number of checks along each edge. Premium real textile scan.

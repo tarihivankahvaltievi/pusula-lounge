@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4c430" />
+  <meta name="description" content="Pusula Lounge için tarih, saat ve kişi sayısıyla talep metni hazırlayın. Kopyalama işletmeye göndermez; rezervasyon işletme teyidiyle kesinleşir." />
+  <title>Rezervasyon Talebi Hazırlayın · Pusula Lounge</title>
+  <link rel="stylesheet" href="../assets/menu/fonts.css" />
+  <link rel="stylesheet" href="reservation.css?v=2" />
+  <script src="reservation.js?v=4" defer></script>
+
+<!-- SEO:START -->
+<link rel="canonical" href="https://www.pusulalounge.com/rezervasyon/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Pusula Lounge" />
+<meta property="og:title" content="Rezervasyon Talebi Hazırlayın · Pusula Lounge" />
+<meta property="og:description" content="Pusula Lounge için tarih, saat ve kişi sayısıyla talep metni hazırlayın. Kopyalama işletmeye göndermez; rezervasyon işletme teyidiyle kesinleşir." />
+<meta property="og:url" content="https://www.pusulalounge.com/rezervasyon/" />
+<meta property="og:locale" content="tr_TR" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Restaurant", "@id": "https://www.pusulalounge.com/#restaurant", "name": "Pusula Lounge", "url": "https://www.pusulalounge.com/", "hasMenu": "https://www.pusulalounge.com/menu/"}, {"@type": "WebSite", "@id": "https://www.pusulalounge.com/#website", "url": "https://www.pusulalounge.com/", "name": "Pusula Lounge", "inLanguage": ["tr", "en"], "publisher": {"@id": "https://www.pusulalounge.com/#restaurant"}}, {"@type": "WebPage", "@id": "https://www.pusulalounge.com/rezervasyon/#webpage", "url": "https://www.pusulalounge.com/rezervasyon/", "name": "Rezervasyon Talebi Hazırlayın · Pusula Lounge", "description": "Pusula Lounge için tarih, saat ve kişi sayısıyla talep metni hazırlayın. Kopyalama işletmeye göndermez; rezervasyon işletme teyidiyle kesinleşir.", "inLanguage": "tr", "isPartOf": {"@id": "https://www.pusulalounge.com/#website"}, "about": {"@id": "https://www.pusulalounge.com/#restaurant"}, "breadcrumb": {"@id": "https://www.pusulalounge.com/rezervasyon/#breadcrumb"}}, {"@type": "BreadcrumbList", "@id": "https://www.pusulalounge.com/rezervasyon/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://www.pusulalounge.com/"}, {"@type": "ListItem", "position": 2, "name": "Rezervasyon Talebi Hazırlayın", "item": "https://www.pusulalounge.com/rezervasyon/"}]}]}</script>
+<link rel="stylesheet" href="/seo-common.css?v=20261008" />
+<script src="/seo-events.js?v=20261008" defer></script>
+<!-- SEO:END -->
+</head>
+<body>
+  <a class="skip-link" href="#reservation-form">Rezervasyon formuna geç</a>
+  <header class="reservation-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Pusula Lounge ana sayfa"><img src="../assets/pusula-lounges-logo.webp" alt="" width="1295" height="1214" /></a>
+      <nav aria-label="Ana menü">
+        <a href="../">Ana sayfa</a>
+        <a href="../menu/">Menü</a>
+        <a href="../konum/">Konum</a><a href="./" aria-current="page">Rezervasyon</a>
+      </nav>
+      <span class="header-location">İstiklal <span aria-hidden="true">·</span> İstanbul</span>
+    </div>
+  </header>
+  <main class="reservation-layout">
+    <section class="reservation-sheet" aria-labelledby="form-title">
+      <div class="sheet-heading"><div><h1 id="form-title">Rezervasyon talebi</h1><p>Ziyaret bilgilerinizi yazın; paylaşabileceğiniz talep metnini hazırlayalım.</p></div></div>
+      <form id="reservation-form" aria-describedby="request-note" novalidate>
+        <fieldset><legend>Ziyaretiniz</legend><div class="visit-fields">
+          <div class="field"><label for="date">Tarih <span class="required-hint">(zorunlu)</span></label><input type="date" id="date" name="date" required aria-describedby="date-error" /><span class="field-error" id="date-error"></span></div>
+          <div class="field"><label for="time">Saat <span class="required-hint">(zorunlu)</span></label><input type="time" id="time" name="time" required aria-describedby="time-error" /><span class="field-error" id="time-error"></span></div>
+          <div class="field guest-field"><label id="guests-label" for="guests">Kişi sayısı <span class="required-hint">(zorunlu)</span></label><div class="guest-controls"><div class="guest-choices" aria-label="Kişi sayısı seçimi"><button type="button" data-guests="1" aria-pressed="false">1</button><button type="button" data-guests="2" aria-pressed="false">2</button><button type="button" data-guests="3" aria-pressed="false">3</button><button type="button" data-guests="4" aria-pressed="false">4</button><button type="button" id="custom-guests" aria-pressed="false" aria-controls="guests">5+</button></div><input type="number" id="guests" name="guests" min="5" step="1" placeholder="Kaç kişi?" aria-label="Beş veya daha fazla kişi sayısı" inputmode="numeric" required aria-describedby="guests-error" hidden /></div><span class="field-error" id="guests-error"></span></div>
+        </div></fieldset>
+        <fieldset><legend>Size nasıl ulaşalım?</legend><div class="contact-fields">
+          <div class="field"><label for="name">Adınız soyadınız <span class="required-hint">(zorunlu)</span></label><input type="text" id="name" name="name" autocomplete="name" maxlength="100" required aria-describedby="name-error" /><span class="field-error" id="name-error"></span></div>
+          <div class="field"><label for="phone">Telefonunuz <span class="required-hint">(zorunlu)</span></label><input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="05xx xxx xx xx" maxlength="25" required aria-describedby="phone-error" /><span class="field-error" id="phone-error"></span></div>
+        </div></fieldset>
+        <div class="field note-field"><label for="note">Eklemek istediğiniz bir şey? <span>(isteğe bağlı)</span></label><textarea id="note" name="note" rows="2" maxlength="500" placeholder="Çocuk sandalyesi, özel bir gün veya başka bir not…"></textarea></div>
+        <button class="submit-button" type="submit" disabled><span>Talep metnini hazırla</span><span aria-hidden="true">→</span></button>
+        <p class="privacy-note" id="request-note">Bu form bilgilerinizi göndermez. Talep metnini kopyalayıp işletmeyle paylaşın; rezervasyon onayla kesinleşir.</p>
+        <noscript><p class="no-script">Talep özeti için JavaScript’i etkinleştirin. Bu formdan bilgi gönderilmez.</p></noscript>
+      </form>
+      <section class="request-summary" id="request-summary" aria-labelledby="summary-title" hidden>
+        <div class="summary-heading"><h2 id="summary-title" tabindex="-1">Talebiniz hazır</h2><span class="unsent">Gönderilmedi</span></div>
+        <p>Henüz bir rezervasyon yapılmadı. Bu özeti kopyalayabilirsiniz; talebinizi işletmeyle paylaşmanız ve onay almanız gerekir.</p>
+        <dl id="summary-details"></dl>
+        <label class="copy-label" for="request-text">Kopyalanacak talep metni</label>
+        <textarea id="request-text" readonly rows="8"></textarea>
+        <div class="summary-actions"><button class="submit-button" type="button" id="copy-request">Talebi kopyala <span aria-hidden="true">↗</span></button><button class="edit-button" type="button" id="edit-request">Bilgileri düzenle</button></div>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+  </main>
+  <section class="reservation-gallery" aria-labelledby="gallery-title">
+    <div class="gallery-inner">
+      <div class="gallery-heading"><div><p>Pusula’dan kareler</p><h2 id="gallery-title">Masaya gelmeden<br />bir göz atın.</h2></div><span class="gallery-swipe">Fotoğrafları kaydır <span aria-hidden="true">→</span></span></div>
+      <div class="gallery-photos">
+        <figure class="gallery-frame"><img src="../assets/gallery/renkli-kose-1200.webp" alt="Çiçekli tavanın altında sarı sandalyeler ve Pusula’nın masaları" width="1066" height="1600" loading="lazy" decoding="async" /><figcaption>Rengârenk köşeler</figcaption></figure>
+        <figure class="gallery-frame"><img src="../assets/gallery/pusula-sofrasi-1200.webp" alt="Kırmızı kareli örtülü kahvaltı sofrası ve Pusula’nın yeşil duvarı" width="1200" height="800" loading="lazy" decoding="async" /><figcaption>Kareli örtü, uzun sohbet</figcaption></figure>
+        <figure class="gallery-frame"><img src="../assets/gallery/cicekli-mekan-1200.webp" alt="Ayçiçekleri ve sıcak ışıklar altında Pusula’nın oturma alanı" width="1066" height="1600" loading="lazy" decoding="async" /><figcaption>Çiçeklerin altında</figcaption></figure>
+      </div>
+      <a class="gallery-link" href="../#mekanimiz">Mekânın diğer fotoğrafları <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <footer class="reservation-footer"><a href="../">Pusula Lounge</a><span>İstiklal · İstanbul</span><a href="https://share.google/l1BSBLDwv6suQkW7Y" target="_blank" rel="noopener noreferrer">Harita kaydı <span aria-hidden="true">↗</span><span class="sr-only"> (yeni sekmede)</span></a></footer>
+</body>
+</html>

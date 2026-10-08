@@ -1,0 +1,240 @@
+:root{--paper:#f6dcc0;--ink:#252019;--gold:#b98a3d;--cloth:36%;--tabs:48px;--header:0px;--search-height:0px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tabs) + var(--search-height) + 16px)}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}img{max-width:100%;display:block}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #9b1824;outline-offset:4px}.skip-link{position:fixed;top:-100px;left:12px;z-index:50;background:var(--paper);padding:12px}.skip-link:focus{top:12px}
+.menu-header{max-width:1000px;margin:38px auto 38px;background:#ffcc35;height:112px}.header-wrap{height:100%;padding:0 42px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font:400 46px/1 Georgia,serif;letter-spacing:-.04em}.search-toggle{width:50px;height:50px;padding:0;border:2px solid #382414;border-radius:38%;background:transparent;font:400 42px/.8 Arial;display:grid;place-items:center}.search-toggle[aria-expanded=true]{background:#382414;color:#ffcc35}.category-nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid #b9987350}.category-inner{max-width:1000px;margin:auto;height:var(--tabs);display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 20px}.category-nav a{font-size:14px;min-height:44px;display:flex;align-items:center}.category-nav a[aria-current=true]{color:#a71b29;text-decoration:underline;text-underline-offset:7px}.currency-note{font-size:12px}.menu-search{position:sticky;top:var(--tabs);z-index:19;padding:12px 20px;background:var(--paper);border-bottom:1px solid #b9987350}.search-form{max-width:1000px;display:flex;gap:14px;margin:auto}.search-form input{width:100%;min-width:0;border:1px solid #b99873;background:#fff4e6;padding:12px;font-size:16px;border-radius:4px}.clear-search{border:0;background:none}.search-status{max-width:1000px;margin:8px auto 0;font-size:13px}.search-status:empty{display:none}
+.menu-book{max-width:1080px;margin:auto;position:relative;overflow:hidden}.cloth-texture{position:absolute;inset:0 auto 0 0;width:var(--cloth);pointer-events:none;overflow:hidden;border-radius:55px 0 0 0}.cloth-texture span{display:block;width:100%;aspect-ratio:422/606;background:url('../assets/menu/reference-gozleme.webp') no-repeat;background-size:279.38% 421.78%;background-position:0 15.385%}.menu-section{position:relative;padding-left:var(--cloth)}.menu-content{padding:72px 42px 95px 112px}.section-title{text-align:center;margin:0 0 42px;position:relative}.printed-seal{width:95px;aspect-ratio:1;margin:0 auto 38px;background:url('../assets/menu/reference-gozleme.webp') no-repeat;background-size:1016.38% auto;background-position:73.47% 20.61%;mix-blend-mode:multiply}.section-title h2{font:400 56px/1.25 Kalam,cursive;color:var(--gold);margin:0 -28px;white-space:nowrap}.section-title:after{content:'';display:block;height:28px;margin:14px auto 0;width:88%;background:url('../assets/menu/reference-gozleme.webp') no-repeat;background-size:287.56% 5680%;background-position:81.92% 29.63%;mix-blend-mode:multiply}
+.items{list-style:none;margin:0;padding:0}.menu-item{position:relative;text-align:center;padding:0 0 22px}.item-heading h3{font-size:20px;line-height:1.25;margin:0 0 8px;font-weight:700}.item-detail p{font-size:16px;line-height:1.18;margin:0}.item-detail [lang=en]{display:block}.item-detail p+p{margin-top:16px}.english-name{font-size:15px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin:0 0 26px}.item-meta{display:flex;align-items:center;justify-content:center;gap:25px;margin-top:14px}.price{border:1px solid #9f8b71;border-radius:12px;min-width:110px;padding:3px 12px;font-size:18px;font-weight:700;white-space:nowrap}.price small{font-size:12px;margin-left:4px}.calories{font-size:14px;white-space:nowrap}.breakfast-item{min-height:345px;padding-bottom:60px;text-align:left}.breakfast-item:first-child{min-height:410px}.breakfast-item .item-heading{text-align:center}.breakfast-item h3{text-transform:uppercase;letter-spacing:.14em;font-size:20px}.breakfast-item .item-meta{flex-direction:column;align-items:flex-end;gap:12px;margin-top:8px}.breakfast-item .price{min-width:62px;text-align:center}.breakfast-item .calories{order:-1}.breakfast-photo{position:absolute;right:calc(100% + 32px);top:-68px;width:325px;aspect-ratio:1;border-radius:50%;background-image:url('../assets/menu/reference-breakfast.webp');background-repeat:no-repeat;background-size:331.7% auto;border:1px solid #443024}.breakfast-photo--van{background-position:20.6% 34.84%}.breakfast-photo--plate{background-position:20.6% 54.71%}.breakfast-photo--pisi{background-position:20.6% 73.37%}.portion-prices{display:flex;gap:14px;width:100%;justify-content:flex-end}.portion-prices>span{display:flex;align-items:center;gap:6px}.portion-prices>span>small{font-size:11px;white-space:nowrap}.portion-prices b{border:1px solid #9f8b71;border-radius:12px;padding:3px 8px;font-size:16px;white-space:nowrap}.portion-prices b small{font-size:11px}.menu-cover p{font-size:15px;line-height:1.3;font-weight:700;margin:0}.menu-cover p span{margin-right:6px}.tea-badge{position:absolute;right:-12px;top:-65px;width:82px;height:112px;background:url('../assets/menu/reference-breakfast.webp') no-repeat;background-size:1438% auto;background-position:97.6% 49%;mix-blend-mode:multiply}.botanical{position:absolute;inset:-75px 15px -20px 35px;background:url('../assets/menu/reference-breakfast.webp') no-repeat;background-size:350% auto;background-position:82% 70%;opacity:.12;pointer-events:none;z-index:-1}
+.dish-story{position:absolute;left:0;top:350px;width:var(--cloth)}.dish-photo{position:relative;left:calc(100% - 220px);width:325px;aspect-ratio:1;border-radius:50%;background-repeat:no-repeat;border:1px solid #40352b}.dish-photo--gozleme{background-image:url('../assets/menu/reference-gozleme.webp');background-size:314.4% auto;background-position:24.38% 46.68%}.dish-photo--menemen{background-image:url('../assets/menu/reference-menemen.webp');background-size:316.1% auto;background-position:24.63% 42.83%}.dish-caption{position:relative;margin:45px -100px 0 140px;background:var(--paper);border:5px solid #97aa79;border-radius:24px;padding:22px;text-align:center;font-size:15px;line-height:1.2}.dish-caption p{margin:0}.omelet-story{display:none}.menu-footer{max-width:1080px;margin:auto;padding:35px 30px 40px calc(var(--cloth) + 55px);font-size:12px;line-height:1.5}.menu-footer strong{font-family:Georgia,serif;font-size:22px}.menu-footer p{margin:8px 0}.top-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:underline}.search-empty{position:relative;padding:70px 24px 70px calc(var(--cloth) + 25px);min-height:350px}.search-empty button{min-height:44px;background:#ffcc35;border:0;padding:10px}.is-searching .dish-story{display:none}
+@media(max-width:700px){:root{--cloth:36%}.menu-header{height:64px;margin:22px 16px 16px}.header-wrap{padding:0 18px}.brand{font-size:28px;letter-spacing:-.045em}.search-toggle{width:32px;height:32px;font-size:30px;border-width:1.5px}.header-actions{min-height:44px;display:flex;align-items:center}.category-inner{padding:0 12px;gap:8px}.category-nav a{font-size:12px}.currency-note{display:none}.cloth-texture{border-radius:25px 0 0}.menu-content{padding:34px 22px 68px 43px}.printed-seal{width:43px;margin-bottom:25px}.section-title{margin-bottom:26px}.section-title h2{font-size:28px;margin:0 -18px}.breakfast-section .section-title h2{font-size:23px;margin:0 -25px}.section-title:after{height:15px;width:92%;margin-top:8px}.item-heading h3{font-size:13px;margin-bottom:5px}.item-detail p{font-size:11px;line-height:1.18}.item-detail p+p{margin-top:10px}.english-name{font-size:9px;letter-spacing:.13em;margin-bottom:16px}.breakfast-item{min-height:225px;padding-bottom:38px}.breakfast-item:first-child{min-height:285px}.breakfast-item h3{font-size:12px;letter-spacing:.12em}.breakfast-photo{width:calc(100vw * .30);right:calc(100% + 13px);top:-30px}.breakfast-item .item-meta{gap:8px;margin-top:5px}.calories{font-size:10px}.price{font-size:12px;border-radius:7px;min-width:55px;padding:2px 8px}.price small{font-size:9px}.portion-prices{gap:6px;justify-content:space-between}.portion-prices>span{flex-direction:column;gap:3px}.portion-prices>span>small{font-size:9px}.portion-prices b{font-size:11px;border-radius:7px;padding:2px 5px}.portion-prices b small{font-size:8px;margin-left:1px}.menu-cover p,.menu-cover:after{font-size:10px}.menu-cover strong{white-space:nowrap}.tea-badge{width:40px;height:55px;top:-30px;right:-10px}.menu-item:not(.breakfast-item){padding-bottom:16px}.item-meta{margin-top:7px;gap:12px}.dish-story{top:235px}.dish-photo{width:calc(100vw * .31);left:calc(100% - 100vw * .23)}.dish-caption{margin:28px -42px 0 48px;border-width:3px;border-radius:14px;padding:10px;font-size:10px}.menu-footer{padding:24px 22px 30px calc(var(--cloth) + 43px);font-size:10px}.menu-footer strong{font-size:18px}.menu-search{padding:10px 14px}.search-empty{font-size:13px}.search-empty h2{font-size:20px}}
+@media(min-width:701px) and (max-width:1100px){.menu-header{margin-inline:4%}.menu-content{padding-left:90px;padding-right:40px}.section-title h2{font-size:48px}.breakfast-photo,.dish-photo{width:28vw}.dish-photo{left:calc(100% - 20vw)}.portion-prices{gap:8px}.portion-prices>span{flex-direction:column}.dish-caption{margin-left:10vw;margin-right:-8vw}}
+@media(max-width:360px){.brand{font-size:25px}.menu-content{padding-left:36px;padding-right:16px}.breakfast-section .section-title h2{font-size:21px}.item-detail p{font-size:10.5px}.breakfast-item h3{font-size:11px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{--paper:#f2ddc4}.printed-seal,.section-title:after,.tea-badge{mix-blend-mode:normal}.cloth-texture{filter:saturate(1.35)}.tea-badge{background-size:1053% auto;background-position:93.5% 50%}.botanical{background-image:url('../assets/menu/illustrations/03-leaf-sprig.webp');background-size:contain;background-position:center;background-repeat:no-repeat;inset:-30px 0 10px;opacity:.08;z-index:0}.breakfast-item>.item-heading,.breakfast-item>.item-detail,.breakfast-item>.item-meta{position:relative}.search-toggle{position:relative;isolation:isolate;border:0;border-radius:0}.search-toggle:before{content:'';position:absolute;inset:0;border:2px solid #382414;border-radius:35%;transform:rotate(22.5deg);z-index:-1}.search-toggle:after{content:'';position:absolute;inset:0;border:2px solid #382414;border-radius:35%;transform:rotate(-22.5deg);z-index:-1}.search-toggle[aria-expanded=true]{background:transparent;color:#382414}.search-toggle[aria-expanded=true]:before,.search-toggle[aria-expanded=true]:after{background:#e5ad23}.item-heading h3[lang=en]{text-transform:none}
+@media(max-width:700px){.search-toggle:before,.search-toggle:after{border-width:1.5px}.breakfast-item:first-child{min-height:0;padding-bottom:34px}.breakfast-item{min-height:190px;padding-bottom:34px}.breakfast-photo{top:-28px}.tea-badge{top:-22px}.menu-cover{padding-top:0}}
+@media(max-width:700px){.item-detail p{font-size:9.5px;line-height:1.16}.item-detail p+p{margin-top:9px}.breakfast-item{min-height:170px;padding-bottom:28px}.breakfast-item h3{font-size:11px}.english-name{font-size:8px;margin-bottom:13px}.brand{font-size:25px}.menu-item:not(.breakfast-item) .item-heading h3{font-size:11px}}
+@media(max-width:700px){.breakfast-item:first-child .portion-prices>span{flex-direction:column;gap:3px}.portion-prices>span>small{font-size:9px}.portion-prices>span>small:before{display:none}.portion-prices b small{display:inline}.portion-prices b{font-size:11px}.portion-prices{gap:6px}}
+
+.search-toggle:before,.search-toggle:after{display:none}.search-toggle svg{width:100%;height:100%}.search-toggle:hover{color:#8a341c}.search-toggle[aria-expanded=true]{color:#8a341c}
+
+/* Türkçe menü: tek dil için rahat okuma ölçüleri. */
+.item-detail p+p{margin-top:0}
+.breakfast-item{min-height:0;padding-bottom:74px}
+.breakfast-item:first-child{min-height:0}
+.breakfast-item .item-heading{margin-bottom:18px}
+.menu-cover{margin-top:4px}
+@media(max-width:700px){
+  :root{--cloth:28%}
+  .menu-content{padding:36px 18px 54px 22px}
+  .section-title{margin-bottom:30px}
+  .section-title h2,.breakfast-section .section-title h2{font-size:clamp(25px,7.2vw,32px);margin:0 -12px;white-space:normal}
+  .item-heading h3,.menu-item:not(.breakfast-item) .item-heading h3,.breakfast-item h3{font-size:clamp(15px,4vw,18px);line-height:1.28;letter-spacing:.07em}
+  .item-detail p{font-size:clamp(13px,3.55vw,15px);line-height:1.38}
+  .breakfast-item,.breakfast-item:first-child{min-height:0;padding-bottom:52px}
+  .breakfast-item .item-heading{margin-bottom:14px}
+  .breakfast-photo{width:25vw;right:calc(100% + 10px);top:-14px}
+  .item-meta{margin-top:12px}
+  .breakfast-item .item-meta{margin-top:12px;gap:12px}
+  .calories{font-size:12px}
+  .price{font-size:16px;padding:3px 9px}
+  .price small{font-size:11px}
+  .portion-prices{gap:4px}
+  .portion-prices>span>small{font-size:10px}
+  .portion-prices b{font-size:13px;padding:3px 5px}
+  .portion-prices b small{font-size:9px}
+  .dish-story{top:235px}
+  .dish-photo{width:27vw;left:calc(100% - 20vw)}
+  .dish-caption{font-size:11px;line-height:1.3}
+  .menu-item:not(.breakfast-item){padding-bottom:24px}
+  .menu-cover p{font-size:12px}
+}
+@media(max-width:360px){.tea-badge{display:none}}
+
+/* QR browsing: retain the printed menu, make its controls and prices immediate. */
+:root{--gold:#87601f;--tabs:58px}
+.menu-header{margin-bottom:18px}
+.search-toggle{width:44px;height:44px;padding:7px}
+.category-nav{box-shadow:0 3px 6px #3824140d}
+.category-inner{justify-content:flex-start;gap:28px;overflow-x:auto;scrollbar-width:none}
+.category-inner::-webkit-scrollbar{display:none}
+.category-nav a{flex:none;font-size:15px;font-weight:600;min-height:var(--tabs);border-bottom:3px solid transparent;padding:3px 0 0;transition:color 160ms ease,border-color 160ms ease}
+.category-nav a[aria-current=true]{text-decoration:none;border-color:#a71b29}
+.menu-search{position:relative;top:auto;z-index:auto;border:0;padding:16px 20px 0}
+.search-form{position:relative;align-items:center;background:#fff4e6;border:1px solid #ad9070;border-radius:8px;overflow:visible}
+.search-form:focus-within{outline:2px solid #9b1824;outline-offset:3px}
+.search-form:before{content:'';width:12px;height:12px;border:1.5px solid currentColor;border-radius:50%;margin-left:16px;flex:none}
+.search-form:after{content:'';position:absolute;width:6px;height:1.5px;background:currentColor;top:30px;left:28px;transform:rotate(45deg);pointer-events:none}
+.search-form input{border:0;background:none;border-radius:8px;min-height:48px;padding:12px 10px;outline:none}
+.search-form input:focus-visible{outline:none}
+.search-form input::placeholder{color:#705c49;opacity:1}
+.clear-search{min-height:48px;padding:0 14px;color:#86202b;font-size:14px;font-weight:600}
+.search-status{color:#60482e;line-height:1.4}
+.menu-info{max-width:1000px;margin:12px auto 18px;padding:0 2px;display:flex;justify-content:space-between;gap:12px;font-size:13px;line-height:1.5;color:#60482e}
+.menu-info strong{font-weight:600;white-space:nowrap}
+html{scroll-padding-top:calc(var(--tabs) + 18px)}
+.menu-section{scroll-margin-top:0}
+.menu-item:not(.breakfast-item){text-align:left;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid #9f8b713d}
+.item-heading{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.item-heading h3{min-width:0;text-wrap:pretty}
+.item-heading .price{flex:none;min-width:0;padding:3px 8px;font-variant-numeric:tabular-nums}
+.item-detail p{line-height:1.45;text-wrap:pretty}
+.menu-item:not(.breakfast-item) .item-meta{justify-content:flex-start;margin-top:8px}
+.calories{color:#70563e;font-size:12px}
+.breakfast-item .item-heading{justify-content:center;flex-wrap:wrap;gap:8px 14px}
+.breakfast-item h3{letter-spacing:.06em}
+.breakfast-item .item-meta{align-items:flex-start}
+.portion-prices{justify-content:space-between;gap:8px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.portion-prices>span{flex-direction:column;align-items:flex-start;gap:5px}
+.portion-prices>span>small{font-size:12px;color:#60482e}
+.portion-prices b{font-size:17px;padding:4px 8px}
+.breakfast-item .calories{order:0}
+.search-empty{padding-top:44px;min-height:280px}
+.search-empty p{line-height:1.5}
+.search-empty button{border-radius:6px;padding:12px 16px}
+.is-searching .menu-section:not(.breakfast-section) .section-title{margin-bottom:28px}
+.is-searching .printed-seal{display:none}
+.menu-footer .allergen{font-size:13px;line-height:1.5}
+@media(max-width:700px){
+ :root{--cloth:22%;--tabs:54px}
+ .menu-header{margin:12px 12px 10px;height:64px}
+ .header-wrap{padding:0 16px}
+ .brand{font-size:28px;letter-spacing:-.04em}
+ .category-inner{padding:0 16px;gap:22px}
+ .category-nav a{font-size:14px}
+ .menu-search{padding:12px 14px 0}
+ .menu-info{margin:10px 14px 16px;padding:0;font-size:12px;gap:8px}
+ .menu-content{padding:24px 16px 40px 20px}
+ .printed-seal{width:42px;margin-bottom:14px}
+ .section-title{margin-bottom:26px}
+ .section-title h2,.breakfast-section .section-title h2{font-size:32px;margin:0 -8px}
+ .section-title:after{margin-top:4px}
+ .item-heading h3,.menu-item:not(.breakfast-item) .item-heading h3,.breakfast-item h3{font-size:17px;letter-spacing:0;line-height:1.35}
+ .item-heading{gap:10px}
+ .item-heading .price{font-size:17px;padding:3px 7px;border-radius:7px}
+ .item-detail p{font-size:14px;line-height:1.5}
+ .breakfast-item,.breakfast-item:first-child{padding-bottom:30px;margin-bottom:24px;border-bottom:1px solid #9f8b713d}
+ .breakfast-item .item-heading{margin-bottom:10px;justify-content:flex-start;text-align:left}
+ .breakfast-item h3{text-transform:none}
+ .breakfast-item .item-heading .price{margin-left:auto}
+ .breakfast-photo{width:23vw;right:calc(100% + 2px);top:0}
+ .portion-prices{gap:6px;flex-wrap:nowrap}
+ .portion-prices>span>small{font-size:11px}
+ .portion-prices b{font-size:15px;padding:4px 6px;border-radius:7px}
+ .portion-prices b small{font-size:10px}
+ .calories{font-size:12px}
+ .tea-badge{display:none}
+ .dish-story{top:180px}
+ .dish-photo{width:23vw;left:calc(100% - 21vw)}
+ .dish-caption{margin:24px 0 0 10px;padding:9px 5px;border-width:2px;border-radius:10px;font-size:11px;line-height:1.4}
+ .menu-item:not(.breakfast-item){padding-bottom:18px;margin-bottom:18px}
+ .menu-cover{margin-top:0}
+ .menu-cover p{font-size:13px;line-height:1.5}
+ .menu-cover p span{display:block}
+ .menu-footer{padding:24px 18px 28px calc(var(--cloth) + 20px);font-size:12px}
+ .menu-footer strong{font-size:20px}
+ .search-empty{padding:30px 20px 40px calc(var(--cloth) + 20px)}
+}
+@media(max-width:360px){
+ .brand{font-size:25px}
+ .category-inner{gap:20px}
+ .menu-content{padding-left:16px;padding-right:12px}
+ .item-heading h3,.menu-item:not(.breakfast-item) .item-heading h3,.breakfast-item h3{font-size:16px}
+ .portion-prices b{font-size:14px;padding-inline:4px}
+ .item-detail p{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.category-nav a{transition:none}}
+.breakfast-item>.portion-prices{margin:0 0 16px}
+@media(max-width:700px){
+ .dish-story{position:static;width:auto}
+ .dish-photo{position:absolute;top:180px;left:calc(var(--cloth) - 21vw)}
+ .dish-caption{margin:0 0 24px;padding:12px;border-radius:10px;font-size:13px;line-height:1.45}
+ .omelet-story{display:none}
+}
+@media(min-width:701px){.tea-badge{right:0}}
+.menu-info{width:calc(100% - 40px)}
+@media(max-width:700px){.menu-info{width:auto}}
+
+/* Second usability pass: complete category access and optional price scanning. */
+:root{--accent:#9b1824;--muted:#70563e;--line:#9f8b714d}
+.search-toggle{display:flex;align-items:center;justify-content:center;gap:7px;width:auto;padding:8px;min-height:44px;font:600 14px/1 Arial,sans-serif}
+.search-toggle svg{width:26px;height:26px;flex:none}
+.category-nav a:hover{color:var(--accent)}
+.category-nav a:active,.view-toggle:active{background:#9b18240c}
+.category-nav a:focus-visible{outline-offset:-5px}
+.menu-info{margin-bottom:4px}
+.menu-options{max-width:1000px;width:calc(100% - 40px);margin:0 auto 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+.view-toggle{display:flex;align-items:center;gap:8px;min-height:44px;border:0;background:transparent;color:var(--ink);padding:8px 0;font-size:13px}
+.view-toggle-indicator{width:17px;height:17px;flex:none;border:1px solid #8c7054;border-radius:4px;display:grid;place-items:center}
+.view-toggle[aria-pressed=true] .view-toggle-indicator{background:var(--accent);border-color:var(--accent)}
+.view-toggle[aria-pressed=true] .view-toggle-indicator:after{content:'';width:8px;height:4px;border:solid #fff4e6;border-width:0 0 2px 2px;transform:translateY(-1px) rotate(-45deg)}
+.view-toggle:hover .view-toggle-label{text-decoration:underline;text-underline-offset:3px}
+.is-searching .menu-search{position:sticky;top:var(--tabs);z-index:19;padding-bottom:10px;border-bottom:1px solid var(--line)}
+html{scroll-padding-top:calc(var(--tabs) + var(--search-height) + 16px)}
+.prices-only .item-detail,.prices-only .item-meta,.prices-only .dish-caption{display:none}
+.prices-only .dish-photo{top:200px}
+.prices-only .breakfast-item{padding-bottom:28px;margin-bottom:24px;min-height:125px}
+.prices-only .breakfast-photo{width:155px;top:-20px}
+.prices-only .menu-item:not(.breakfast-item){padding-bottom:16px;margin-bottom:16px}
+.prices-only .menu-item h3{margin-bottom:0}
+.prices-only .dish-story{top:180px}
+.prices-only .section-title{margin-bottom:28px}
+.prices-only .portion-prices{margin-bottom:0}
+.search-empty button:hover{background:#f2ba20}
+.search-empty button:active{background:#e8ac0c}
+@media(min-width:701px) and (max-width:1000px){
+ .menu-content{padding-top:40px;padding-bottom:56px;padding-left:80px;padding-right:28px}
+ .printed-seal{width:64px;margin-bottom:20px}
+ .section-title{margin-bottom:30px}
+ .section-title h2{font-size:42px}
+ .item-heading h3{font-size:18px}
+ .item-detail p{font-size:15px}
+ .portion-prices b{font-size:16px}
+ .tea-badge{display:none}
+}
+@media(max-width:700px){
+ :root{--cloth:19%}
+ .header-wrap{padding-inline:16px;gap:8px}
+ .search-toggle{padding:8px 0 8px 8px;gap:4px;font-size:13px}
+ .search-toggle svg{width:24px;height:24px}
+ .category-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0 8px;gap:0;overflow:visible}
+ .category-nav a{justify-content:center;font-size:13px;padding-inline:3px;white-space:nowrap}
+ .menu-options{width:auto;margin:0 14px 12px;font-size:12px}
+ .menu-info{margin-bottom:0}
+ .menu-content{padding-top:20px;padding-left:18px}
+ .section-title{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 10px;margin-bottom:24px}
+ .printed-seal{width:34px;margin:0}
+ .section-title h2,.breakfast-section .section-title h2{font-size:31px;margin:0}
+ .section-title:after{flex-basis:100%;margin-top:6px;height:13px}
+ .item-heading h3{margin-bottom:6px}
+ .breakfast-item .item-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:10px;margin-bottom:10px}
+ .breakfast-item .item-heading h3{margin:0}
+ .breakfast-item .item-heading .price{margin-left:0}
+ .breakfast-item:first-child .item-heading{grid-template-columns:1fr}
+ .item-detail p{font-size:15px;line-height:1.45}
+ .breakfast-photo{width:20vw;right:calc(100% + 4px);top:0}
+ .dish-photo{width:20vw;top:115px;left:calc(var(--cloth) - 18vw)}
+ .dish-caption{text-align:left;padding:11px 12px;font-size:13px;margin-bottom:20px}
+ .breakfast-item,.breakfast-item:first-child{padding-bottom:24px;margin-bottom:22px}
+ .menu-item:not(.breakfast-item){padding-bottom:16px;margin-bottom:16px}
+ .menu-footer{padding-left:calc(var(--cloth) + 18px)}
+ .is-searching .menu-search{padding-top:8px;padding-bottom:8px}
+ .is-searching .section-title{margin-bottom:20px}
+ .prices-only .breakfast-item,.prices-only .breakfast-item:first-child{min-height:82px;padding-bottom:18px;margin-bottom:18px}
+ .prices-only .breakfast-photo{width:20vw;top:0}
+ .prices-only .dish-photo{display:none}
+ .prices-only .dish-story{display:none}
+ .prices-only .menu-section:not(.breakfast-section) .menu-content{padding-top:16px;padding-bottom:24px}
+ .prices-only .section-title{margin-bottom:20px}
+ .prices-only .portion-prices{margin-bottom:0}
+ .prices-only .menu-item:not(.breakfast-item){min-height:44px;padding-bottom:14px;margin-bottom:14px}
+}
+@media(max-width:360px){
+ .brand{font-size:24px}
+ .category-nav a{font-size:12px}
+ .menu-content{padding-left:16px}
+ .item-heading .price{font-size:16px}
+ .portion-prices b{font-size:15px}
+ .item-detail p{font-size:15px}
+}
+@media(forced-colors:active){.view-toggle[aria-pressed=true] .view-toggle-indicator:after{border-color:ButtonText}}
+.search-form{gap:8px}
+.search-form input::-webkit-search-cancel-button{display:none}
+@media(min-width:701px){.prices-only .breakfast-item{min-height:155px}.prices-only .breakfast-photo{top:0}}
+html{scroll-behavior:auto}

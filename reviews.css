@@ -1,0 +1,82 @@
+/* Artwork gives each card its silhouette; the content is accessible HTML. */
+.guest-reviews { position: relative; padding: 0 20px 86px; overflow: hidden; background: var(--paper); text-align: center; scroll-margin-top: calc(var(--header-height) + 24px); }
+.reviews-intro { position: relative; z-index: 1; margin: 0 auto 28px; max-width: 760px; }
+.reviews-intro h2 { margin: 0 0 18px; color: #56050d; font: italic 500 clamp(46px, 5.3vw, 76px)/1.05 'Cormorant Garamond', Georgia, serif; letter-spacing: -.035em; text-wrap: balance; }
+.reviews-intro h2 span { display: inline-block; }
+.reviews-intro p { margin: 0 0 24px; font: 400 16px/1.65 'Noto Sans', Arial, sans-serif; text-wrap: pretty; }
+.reviews-google { display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 10px; min-height: 44px; color: #18392d; font: 500 15px/1.4 'Noto Sans', Arial, sans-serif; text-decoration: none; }
+.reviews-google .google-mark { width: 23px; height: 23px; }
+.reviews-google strong { margin-left: 5px; font-size: 18px; }
+.reviews-stars { color: #976005; font: 700 17px/1.2 Arial, sans-serif; letter-spacing: .035em; }
+.reviews-count { padding-left: 11px; border-left: 1px solid #b8b3a8; font-size: 14px; }
+.reviews-table { position: relative; width: min(1120px, 100%); margin: 0 auto 18px; }
+.reviews-table::before { content: ''; position: absolute; inset: 20% 8% 4%; background: url('assets/kareli-sofra-bezi-kucuk.webp') center / cover; transform: rotate(-5deg); border-radius: 4px; }
+.reviews-pan { position: relative; width: 100%; aspect-ratio: 4 / 3; }
+.reviews-pan-art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
+.reviews-track { position: absolute; inset: 19% 17% 14%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2% 1%; text-align: left; }
+.review-serving { display: flex; align-items: center; justify-content: center; min-width: 0; }
+.review-egg { --egg-angle: -4deg; position: relative; width: 100%; height: 100%; background: url('assets/reviews/egg.webp') center / 100% 100% no-repeat; color: #263a2b; transform: rotate(var(--egg-angle)); transition: transform 220ms cubic-bezier(.16, 1, .3, 1); }
+.review-serving:nth-child(2) .review-egg { --egg-angle: 5deg; }
+.review-serving:nth-child(3) .review-egg { --egg-angle: 3deg; }
+.review-initials { position: absolute; top: 30%; left: 23%; transform: translate(-50%, -50%); color: #613503; font: 600 22px/1 'Noto Sans', Arial, sans-serif; }
+.review-author { position: absolute; top: 13%; left: 41%; right: 8%; }
+.review-author h3 { margin: 5px 0 2px; color: #243729; font: 700 clamp(13px, 1.04vw, 15px)/1.3 'Noto Sans', Arial, sans-serif; overflow-wrap: anywhere; }
+.review-author > span:last-child { font: 400 11px/1.4 'Noto Sans', Arial, sans-serif; }
+.review-egg blockquote { position: absolute; inset: 46% 12% auto; margin: 0; }
+.review-egg blockquote p { margin: 0; font: 400 clamp(14px, 1.1vw, 16px)/1.55 'Noto Sans', Arial, sans-serif; text-wrap: pretty; }
+.review-source { position: absolute; bottom: 9%; left: 12%; display: inline-flex; align-items: center; gap: 10px; min-height: 32px; color: #6e2024; font: 600 12px/1.3 'Noto Sans', Arial, sans-serif; text-decoration: underline; text-underline-offset: 4px; }
+.review-source span { font-size: 17px; }
+.reviews-controls { align-items: center; justify-content: center; gap: 24px; margin: 8px 0 24px; }
+.reviews-controls:not([hidden]) { display: flex; }
+.reviews-controls button { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid #18392d; border-radius: 50%; background: transparent; color: #18392d; cursor: pointer; transition: transform 150ms cubic-bezier(.16, 1, .3, 1), background-color 160ms ease, color 160ms ease; }
+.reviews-controls button svg { display: block; width: 20px; height: 20px; }
+.reviews-controls button:not(:disabled):active { transform: scale(.94); }
+.reviews-controls button:disabled { color: #77776f; border-color: #c1bcae; cursor: default; }
+.reviews-position { min-width: 46px; color: #18392d; font: 500 14px/1.4 'Noto Sans', Arial, sans-serif; font-variant-numeric: tabular-nums; }
+.reviews-footnote { margin: 0 0 12px; color: #535849; font: 400 12px/1.5 'Noto Sans', Arial, sans-serif; }
+.reviews-all { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; color: var(--red); font: 600 15px/1.5 'Noto Sans', Arial, sans-serif; text-decoration: underline; text-underline-offset: 6px; }
+@media (hover: hover) { .reviews-all:hover, .review-source:hover { color: #18392d; } .reviews-controls button:not(:disabled):hover { background: #18392d; color: #fbf7ed; } }
+@media (min-width: 1000px) and (hover: hover) { .review-egg:hover { transform: translateY(-4px) rotate(var(--egg-angle)); } }
+/* A separate mobile composition: one complete sahan, drawn at its native ratio. */
+@media (max-width: 999px) {
+  .guest-reviews { padding: 0 0 48px; }
+  .reviews-intro { max-width: 440px; padding: 0 24px; margin-bottom: 0; }
+  .reviews-intro h2 { max-width: 340px; margin: 0 auto 12px; font-size: clamp(36px, 10vw, 42px); line-height: 1.06; letter-spacing: -.025em; }
+  .reviews-intro p { margin-bottom: 15px; font-size: 13px; line-height: 1.5; }
+  .reviews-google { gap: 8px; min-height: 36px; font-size: 13px; }
+  .reviews-google .google-mark { width: 19px; height: 19px; }
+  .reviews-google strong { margin-left: 2px; font-size: 16px; }
+  .reviews-google > .reviews-stars { display: none; }
+  .reviews-count { padding-left: 9px; font-size: 12px; }
+  .reviews-table { width: min(440px, 100%); margin: -18px auto 0; }
+  .reviews-table::before, .reviews-pan-art { display: none; }
+  .reviews-pan { aspect-ratio: auto; isolation: isolate; }
+  .reviews-pan::before { content: ''; position: absolute; inset: 0 8px; background: url('assets/reviews/mobile-sahan-v2.webp') center / contain no-repeat; pointer-events: none; filter: drop-shadow(0 5px 4px rgba(43, 31, 17, .1)); }
+  .reviews-track { position: relative; inset: auto; display: flex; gap: 0; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .reviews-track::-webkit-scrollbar { display: none; }
+  .review-serving { flex: 0 0 100%; padding: 0 8px; scroll-snap-align: center; scroll-snap-stop: always; }
+  .review-egg, .review-serving:nth-child(n) .review-egg { width: 100%; max-width: none; height: auto; aspect-ratio: 1169 / 1346; background: none; transform: none; transition: opacity 180ms ease; }
+  .reviews-enhanced .review-serving:not(.is-current) .review-egg { opacity: 0; }
+  .review-initials { top: 38.5%; left: 36%; color: #4b300e; font: 600 24px/1 'Cormorant Garamond', Georgia, serif; letter-spacing: -.02em; }
+  .review-author { top: 32%; left: 49%; right: 18%; }
+  .review-author .reviews-stars { font-size: 13px; letter-spacing: .015em; }
+  .review-author h3 { margin-top: 6px; font-size: 14px; line-height: 1.35; font-weight: 600; }
+  .review-author > span:last-child { display: none; }
+  .review-egg blockquote { inset: 50.5% 21% auto; text-align: center; }
+  .review-egg blockquote p { font-size: 15.5px; line-height: 1.48; text-wrap: pretty; }
+  .review-source { display: none; }
+  .reviews-controls { position: relative; gap: 24px; margin: -24px 0 16px; }
+  .reviews-controls button { width: 44px; height: 44px; font-size: 21px; border-color: #c5c5b9; }
+  .reviews-position { min-width: 40px; font-size: 12px; }
+  .reviews-footnote { margin: 0 20px 5px; font-size: 11px; }
+  .reviews-all { margin-inline: 20px; min-height: 44px; font-size: 13px; text-underline-offset: 4px; }
+}
+@media (max-width: 360px) {
+  .reviews-intro { padding-inline: 18px; }
+  .review-initials { font-size: 22px; }
+  .review-author h3 { font-size: 12px; }
+  .review-author .reviews-stars { font-size: 12px; }
+  .review-egg blockquote { right: 24%; left: 24%; }
+  .review-egg blockquote p { font-size: 13.5px; line-height: 1.45; }
+}
+@media (prefers-reduced-motion: reduce) { .reviews-controls button, .review-egg { transition: none !important; } .reviews-controls button:not(:disabled):active { transform: none; } .reviews-track { scroll-behavior: auto; } }
