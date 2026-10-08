@@ -10,7 +10,7 @@
 .reviews-stars { color: #976005; font: 700 17px/1.2 Arial, sans-serif; letter-spacing: .035em; }
 .reviews-count { padding-left: 11px; border-left: 1px solid #b8b3a8; font-size: 14px; }
 .reviews-table { position: relative; width: min(1120px, 100%); margin: 0 auto 18px; }
-.reviews-table::before { content: ''; position: absolute; inset: 20% 8% 4%; background: url('assets/kareli-sofra-bezi-kucuk.webp') center / cover; transform: rotate(-5deg); border-radius: 4px; }
+.reviews-table::before { content: ''; position: absolute; inset: 20% 8% 4%; background: url('assets/kareli-sofra-bezi-kucuk-fast.webp') center / cover; transform: rotate(-5deg); border-radius: 4px; }
 .reviews-pan { position: relative; width: 100%; aspect-ratio: 4 / 3; }
 .reviews-pan-art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
 .reviews-track { position: absolute; inset: 19% 17% 14%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2% 1%; text-align: left; }

@@ -194,13 +194,13 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
   inset: 50% 0 auto;
   height: 190px;
   transform: translateY(-50%);
-  background: url('assets/aycicegi-gecis-seridi.webp') center center / auto 100% repeat-x;
+  background: url('assets/aycicegi-gecis-seridi-fast.webp') center center / auto 100% repeat-x;
   pointer-events: none;
 }
 
 .tablecloth {
   padding: clamp(94px, 10vw, 136px) clamp(18px, 4vw, 60px) 100px;
-  background: #b8202a url('assets/kareli-sofra-bezi-kucuk.webp') center top / 700px auto repeat;
+  background: #b8202a url('assets/kareli-sofra-bezi-kucuk-fast.webp') center top / 700px auto repeat;
 }
 @font-face { font-family: 'Sofra Kalam'; src: url('assets/menu/kalam.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 .services-wrap { width: min(100%, 1060px); margin-inline: auto; }
