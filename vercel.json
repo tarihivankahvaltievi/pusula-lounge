@@ -58,6 +58,26 @@
       "permanent": true
     },
     {
+      "source": "/sik-sorulan-sorular/index.html",
+      "destination": "/sik-sorulan-sorular/",
+      "permanent": true
+    },
+    {
+      "source": "/en/faq/index.html",
+      "destination": "/en/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/site-haritasi/index.html",
+      "destination": "/site-haritasi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/site-map/index.html",
+      "destination": "/en/site-map/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

@@ -143,4 +143,32 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://www.pusulalounge.com/sik-sorulan-sorular/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/faq/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/faq/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/faq/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/site-haritasi/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/site-haritasi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/site-map/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/site-haritasi/" />
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/site-map/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/site-haritasi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/site-map/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/site-haritasi/" />
+  </url>
 </urlset>
