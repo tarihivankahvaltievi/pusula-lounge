@@ -123,4 +123,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/konum/" />
   </url>
+  <url>
+    <loc>https://www.pusulalounge.com/kahvalti-rehberi/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/breakfast-guide/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+  </url>
 </urlset>

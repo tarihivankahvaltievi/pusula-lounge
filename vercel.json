@@ -48,6 +48,16 @@
       "permanent": true
     },
     {
+      "source": "/kahvalti-rehberi/index.html",
+      "destination": "/kahvalti-rehberi/",
+      "permanent": true
+    },
+    {
+      "source": "/en/breakfast-guide/index.html",
+      "destination": "/en/breakfast-guide/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
