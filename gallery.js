@@ -23,9 +23,12 @@
   let current = 0, frame = 0, previous = 0;
   let geometry = null;
   let nearScene = false;
+  let lastProgress = -1;
+  const preparedImages = new WeakSet();
   const clamp = value => Math.max(0, Math.min(1, value));
 
   function buildWall() {
+    lastProgress = -1;
     matrix.replaceChildren();
     columns = Array.from({length: mobile.matches ? 2 : 4}, (_, columnIndex) => {
       const column = document.createElement('div');
@@ -55,6 +58,7 @@
   }
   // Read layout only when its dimensions change, never during scroll frames.
   function measureScene() {
+    lastProgress = -1;
     columnCycles = columns.map(column => {
       const gap = parseFloat(getComputedStyle(column).gap) || 0;
       return (column.firstElementChild.offsetHeight + gap) * column.children.length / 3;
@@ -68,10 +72,13 @@
       travel: Math.max(1, wall.offsetHeight - wall.querySelector('.wall-sticky').offsetHeight) };
   }
   function render(progress) {
+    if (progress === lastProgress) return;
+    lastProgress = progress;
     // The opening completes before either column starts travelling.
     const opening = clamp(progress / .26);
     const unfold = opening * opening * (3 - 2 * opening);
-    const parallax = reduced.matches ? 0 : clamp((progress - .26) / .74);
+    const travelProgress = clamp((progress - .26) / .74);
+    const parallax = reduced.matches ? 0 : travelProgress * travelProgress * (3 - 2 * travelProgress);
     const mix = (from, to) => from + (to - from) * unfold;
     const small = mobile.matches;
     matrix.style.transform = `translateZ(${mix(small ? -180 : -600, 0)}px) rotateY(${mix(small ? -30 : -45, small ? 0 : -5)}deg) rotateX(${mix(small ? 18 : 25, small ? 0 : 2)}deg) rotateZ(${mix(small ? 9 : 15, 0)}deg)`;
@@ -84,6 +91,7 @@
     hint.style.opacity = 1 - clamp(progress / .3);
   }
   function tick(time) {
+    if (document.hidden) { frame = 0; previous = 0; return; }
     const {header, wallTop, introTop, startLine, openingDistance, travel} = geometry;
     const scroll = window.scrollY;
     const opening = clamp((startLine - introTop + scroll) / openingDistance);
@@ -92,14 +100,18 @@
     const dt = Math.min(time - (previous || time - 16.67), 64);
     previous = time;
     // Exact exponential damping: same response at 60/120 Hz, without spring jitter.
-    current = reduced.matches || !nearScene ? target : current + (target - current) * (1 - Math.exp(-dt / 75));
+    current = reduced.matches || !nearScene ? target : current + (target - current) * (1 - Math.exp(-dt / 65));
     if (Math.abs(target - current) < .00002) current = target;
     render(clamp(current));
     if (current !== target) frame = requestAnimationFrame(tick);
     else { frame = 0; previous = 0; }
   }
   function requestUpdate() { if (!frame && geometry) frame = requestAnimationFrame(tick); }
-  window.addEventListener('scroll', requestUpdate, {passive: true});
+  window.addEventListener('scroll', () => { if (nearScene) requestUpdate(); }, {passive: true});
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(frame); frame = 0; previous = 0; }
+    else { measureScene(); requestUpdate(); }
+  });
   window.addEventListener('resize', () => { measureScene(); requestUpdate(); }, {passive: true});
   new ResizeObserver(() => { measureScene(); requestUpdate(); }).observe(document.querySelector('main') || section);
   reduced.addEventListener('change', () => {
@@ -112,6 +124,8 @@
     nearScene = entries[0].isIntersecting;
     section.classList.toggle('is-animating', nearScene && !reduced.matches);
     if (nearScene) matrix.querySelectorAll('img').forEach(image => {
+      if (preparedImages.has(image)) return;
+      preparedImages.add(image);
       image.loading = 'eager';
       if (image.decode) image.decode().catch(() => {});
     });

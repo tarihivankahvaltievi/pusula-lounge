@@ -24,11 +24,12 @@
   let current = visible[0];
   visible.forEach(section => { if (section.getBoundingClientRect().top <= threshold) current = section; });
   if (scrollY > 0 && document.documentElement.scrollHeight > innerHeight + 4 && innerHeight + scrollY >= document.documentElement.scrollHeight - 4) current = visible.at(-1);
+  const selected = current && links.find(link => link.hash === '#' + current.id);
+  if (selected === active) { scheduled = false; return; }
   links.forEach(link => {
-   if (current && link.hash === '#' + current.id) link.setAttribute('aria-current', 'true');
+   if (link === selected) link.setAttribute('aria-current', 'true');
    else link.removeAttribute('aria-current');
   });
-  const selected = links.find(link => link.hasAttribute('aria-current'));
   if (selected && selected !== active) {
    const bounds = selected.getBoundingClientRect();
    const container = rail.getBoundingClientRect();
