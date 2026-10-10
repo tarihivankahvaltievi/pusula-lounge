@@ -10,12 +10,12 @@
 .reviews-stars { color: #976005; font: 700 17px/1.2 Arial, sans-serif; letter-spacing: .035em; }
 .reviews-count { padding-left: 11px; border-left: 1px solid #b8b3a8; font-size: 14px; }
 .reviews-table { position: relative; width: min(1120px, 100%); margin: 0 auto 18px; }
-.reviews-table::before { content: ''; position: absolute; inset: 20% 8% 4%; background: url('assets/kareli-sofra-bezi-kucuk-fast.webp') center / cover; transform: rotate(-5deg); border-radius: 4px; }
+.reviews-table::before { content: ''; position: absolute; inset: 20% 8% 4%; background: url("assets/kareli-sofra-bezi-kucuk-fast.webp?v=28ead1bb5ba3") center / cover; transform: rotate(-5deg); border-radius: 4px; }
 .reviews-pan { position: relative; width: 100%; aspect-ratio: 4 / 3; }
 .reviews-pan-art { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
 .reviews-track { position: absolute; inset: 19% 17% 14%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2% 1%; text-align: left; }
 .review-serving { display: flex; align-items: center; justify-content: center; min-width: 0; }
-.review-egg { --egg-angle: -4deg; position: relative; width: 100%; height: 100%; background: url('assets/reviews/egg.webp') center / 100% 100% no-repeat; color: #263a2b; transform: rotate(var(--egg-angle)); transition: transform 220ms cubic-bezier(.16, 1, .3, 1); }
+.review-egg { --egg-angle: -4deg; position: relative; width: 100%; height: 100%; background: url("assets/reviews/egg.webp?v=7059c9051672") center / 100% 100% no-repeat; color: #263a2b; transform: rotate(var(--egg-angle)); transition: transform 220ms cubic-bezier(.16, 1, .3, 1); }
 .review-serving:nth-child(2) .review-egg { --egg-angle: 5deg; }
 .review-serving:nth-child(3) .review-egg { --egg-angle: 3deg; }
 .review-initials { position: absolute; top: 30%; left: 23%; transform: translate(-50%, -50%); color: #613503; font: 600 22px/1 'Noto Sans', Arial, sans-serif; }
@@ -51,7 +51,7 @@
   .reviews-table { width: min(440px, 100%); margin: -18px auto 0; }
   .reviews-table::before, .reviews-pan-art { display: none; }
   .reviews-pan { aspect-ratio: auto; isolation: isolate; }
-  .reviews-pan::before { content: ''; position: absolute; inset: 0 8px; background: url('assets/reviews/mobile-sahan-v2.webp') center / contain no-repeat; pointer-events: none; filter: drop-shadow(0 5px 4px rgba(43, 31, 17, .1)); }
+  .reviews-pan::before { content: ''; position: absolute; inset: 0 8px; background: url("assets/reviews/mobile-sahan-v2.webp?v=bfb5d83b5bf9") center / contain no-repeat; pointer-events: none; filter: drop-shadow(0 5px 4px rgba(43, 31, 17, .1)); }
   .reviews-track { position: relative; inset: auto; display: flex; gap: 0; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
   .reviews-track::-webkit-scrollbar { display: none; }
   .review-serving { flex: 0 0 100%; padding: 0 8px; scroll-snap-align: center; scroll-snap-stop: always; }

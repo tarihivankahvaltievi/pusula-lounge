@@ -36,7 +36,12 @@
   }
   primary.addEventListener('load', () => { primaryReady = true; update(); }, {once: true});
   update();
-  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; update(); }).observe(hero);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; update(); }).observe(hero);
+  } else {
+    visible = true;
+    update();
+  }
   document.addEventListener('visibilitychange', update);
   reduced.addEventListener('change', update);
 })();

@@ -100,6 +100,22 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'sha256-26ci1JLTYH3fGDs9M32wIKkzCyIiLlC0eEp0sdOP9mU=' 'sha256-3FNivbacoLtawKIdYJMuvrncTjZXlSWsgfGOatFJeSg=' 'sha256-LjTCmxcRFmN1SiMa+xxv9Y6vuATJ/3xsZrnsyW/klog=' 'sha256-N0HoSgp8nM83dKUMGkAPmQs6Ux8A4kvUlKy0eZqGTmE=' 'sha256-Qf2T4A9SLGMjqTOOAZ42LtTvw7vgi6fMmf4R3HKYNlI=' 'sha256-Qy3H6dfOzM9cuwZgVn8fyDM0iN+o6+RGPtphH0nZ2FQ=' 'sha256-VbnkLoW3KsS5HTaLmJx6Dk2QcJMG9RopUOU8NGTw3mY=' 'sha256-XOnp0jsPjez2rKdWURtHSo6ln9gYYOFKsgYv6QDdLWA=' 'sha256-aCmJQ/xLqrwVl8eMYEZYvwpW03kXALaRzq9tQMMrQTI=' 'sha256-duFfIktIoEP7W7uW4ZMYJk0ZvDdirlw5jtXh6EnrZfk=' 'sha256-hm8YCZ1QPmXu4/cKOuR671B/PpjKHzERmKwUxBXz1d0=' 'sha256-mx0cj6QRtrHpK7kcJ+90OX3J/iuQZ9q5TQ5cuXLKUmU=' 'sha256-ryR4Ga5DCluAy7XCT8SjPt9kkCoyLpIudyu20pJWnag=' 'sha256-xaQJHc6N2OX9r+8loRa57TCRYKNly5Ia4L3dbkhKPDY=' 'sha256-ySs4HCXOuV8FBXJoJWMDxO96qqTf6zsjiAfmUDDFWB0='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'none'; form-action 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000"
         }
       ]
     },
@@ -127,6 +143,22 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=2592000, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/:path*.:ext(css|js|woff2|webp|png)",
+      "has": [
+        {
+          "type": "query",
+          "key": "v",
+          "value": "[a-f0-9]{12}"
+        }
+      ],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }

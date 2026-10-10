@@ -3,42 +3,42 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./font-0.woff2) format('woff2');
+  src: url("./font-0.woff2?v=6200aaaf8add") format('woff2');
 }
 @font-face {
   font-family: 'Caveat';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(./font-1.woff2) format('woff2');
+  src: url("./font-1.woff2?v=501d0f64193b") format('woff2');
 }
 @font-face {
   font-family: 'Source Sans 3';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./font-2.woff2) format('woff2');
+  src: url("./font-2.woff2?v=201017af616f") format('woff2');
 }
 @font-face {
   font-family: 'Source Sans 3';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(./font-3.woff2) format('woff2');
+  src: url("./font-3.woff2?v=c42e44621c25") format('woff2');
 }
 @font-face {
   font-family: 'Source Sans 3';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./font-4.woff2) format('woff2');
+  src: url("./font-4.woff2?v=1b2e3584faf4") format('woff2');
 }
 @font-face {
   font-family: 'Source Sans 3';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(./font-5.woff2) format('woff2');
+  src: url("./font-5.woff2?v=20f3e74b5123") format('woff2');
 }
 
-@font-face{font-family:Kalam;font-style:normal;font-weight:400;font-display:swap;src:url('./kalam.woff2') format('woff2')}
+@font-face{font-family:Kalam;font-style:normal;font-weight:400;font-display:swap;src:url("./kalam.woff2?v=2e20f1c67975") format('woff2')}
