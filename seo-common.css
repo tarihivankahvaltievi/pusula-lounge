@@ -5,16 +5,4 @@
 .breakfast-glossary{margin:28px 0 0}.breakfast-glossary>div{padding:24px 0;border-top:1px solid #bba47e;scroll-margin-top:32px}.breakfast-glossary dt{font-weight:700;font-size:22px;color:#193d27}.breakfast-glossary dd{margin:12px 0 0;max-width:72ch}.breakfast-glossary dd p{margin-bottom:12px}.breakfast-glossary a{display:inline-block;padding:8px 0}.business-source{font-size:14px;line-height:1.6;max-width:70ch;margin-top:18px}address{font-style:normal;max-width:65ch;margin:0 0 18px;line-height:1.6}.business-contact{max-width:1140px;margin:auto;padding:28px;line-height:1.6}.business-contact p{margin:0 0 14px}.business-contact a{color:inherit;text-underline-offset:4px}.business-contact address{overflow-wrap:break-word}.menu-item[id]{scroll-margin-top:180px}.menu-row[id]{scroll-margin-top:30px}.visit-page .location-sheet{border-left:0;padding-left:0}.visit-page .note{border-left:0;padding-left:0}body:not(.visit-page) main>.menu-reading-guide{font-family:'Noto Sans',Arial,sans-serif}body:not(.visit-page) main>.menu-reading-guide h2{font-family:'Noto Sans',Arial,sans-serif;font-size:clamp(26px,4vw,36px)}@media(max-width:480px){.breakfast-glossary dt{font-size:20px}.business-contact{padding:24px 20px}}
 .guide-photo{max-width:900px;margin:0 0 36px}.guide-photo img{width:100%;height:auto;max-height:480px;object-fit:cover}
 
-/* Shared red navigation, with readable cream text on every visitor route. */
-.visit-header, .reservation-header, .menu-header { background: #a51f2a; color: #fff5e6; border-bottom-color: #821923; }
-.visit-header a:focus-visible, .reservation-header a:focus-visible, .menu-header a:focus-visible, .menu-header button:focus-visible { outline-color: #f4d976; }
-.reservation-header .brand img { padding: 4px; background: #f2e7d0; border-radius: 8px; }
-.menu-header .search-toggle, .menu-header .search-toggle[aria-expanded=true] { color: #fff5e6; }
-.menu-header .search-toggle::before, .menu-header .search-toggle::after { border-color: #fff5e6; }
-.menu-header .search-toggle[aria-expanded=true]::before, .menu-header .search-toggle[aria-expanded=true]::after { background: #821923; }
-.category-nav { background: #a51f2a; color: #fff5e6; }
-.category-nav a[aria-current=true] { color: #f4d976; }
-.category-nav a:focus-visible { outline-color: #f4d976; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-.category-nav a:hover, .category-nav a[aria-current=true] { color: #f4d976; border-color: #f4d976; }

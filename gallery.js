@@ -23,11 +23,13 @@
   let current = 0, frame = 0, previous = 0;
   let geometry = null;
   let nearScene = false;
+  let wallBuilt = false;
   let lastProgress = -1;
   const preparedImages = new WeakSet();
   const clamp = value => Math.max(0, Math.min(1, value));
 
   function buildWall() {
+    wallBuilt = true;
     lastProgress = -1;
     matrix.replaceChildren();
     columns = Array.from({length: mobile.matches ? 2 : 4}, (_, columnIndex) => {
@@ -42,7 +44,11 @@
         link.setAttribute('aria-label', source.dataset.caption);
         if (repeatIndex >= group.length) { link.tabIndex = -1; link.setAttribute('aria-hidden', 'true'); }
         const image = document.createElement('img');
-        image.src = source.getAttribute('href').replace('-1200.webp', '-600.webp');
+        const displaySource = source.getAttribute('href').replace('-1200.webp', '-screen-600.webp');
+        image.src = displaySource;
+        image.srcset = `${displaySource.replace('-600.webp', '-400.webp')} 400w, ${displaySource} 600w`;
+        image.sizes = '(max-width: 760px) 58vw, 30vw';
+        image.fetchPriority = 'low';
         image.alt = source.dataset.alt;
         image.loading = 'lazy';
         image.decoding = 'async';
@@ -119,9 +125,10 @@
     measureScene();
     requestUpdate();
   });
-  mobile.addEventListener('change', buildWall);
+  mobile.addEventListener('change', () => { if (wallBuilt) buildWall(); });
   new IntersectionObserver(entries => {
     nearScene = entries[0].isIntersecting;
+    if (nearScene && !wallBuilt) buildWall();
     section.classList.toggle('is-animating', nearScene && !reduced.matches);
     if (nearScene) matrix.querySelectorAll('img').forEach(image => {
       if (preparedImages.has(image)) return;
@@ -131,7 +138,8 @@
     });
     requestUpdate();
   }, {rootMargin: '600px'}).observe(wall);
-  buildWall();
+  measureScene();
+  requestUpdate();
   open.hidden = false;
   function openViewer(nextIndex, trigger) {
     returnFocus = trigger;
