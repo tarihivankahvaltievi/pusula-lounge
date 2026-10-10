@@ -20,7 +20,9 @@
   let returnFocus = open;
   let columns = [];
   let columnCycles = [];
-  let current = 0, velocity = 0, frame = 0, previous = 0;
+  let current = 0, frame = 0, previous = 0;
+  let geometry = null;
+  let nearScene = false;
   const clamp = value => Math.max(0, Math.min(1, value));
 
   function buildWall() {
@@ -48,15 +50,27 @@
       matrix.append(column);
       return column;
     });
-    measureColumns();
+    measureScene();
     requestUpdate();
   }
-  function measureColumns() {
-    columnCycles = columns.map(column => (column.firstElementChild.offsetHeight + parseFloat(getComputedStyle(column).gap)) * sources.length / columns.length);
+  // Read layout only when its dimensions change, never during scroll frames.
+  function measureScene() {
+    columnCycles = columns.map(column => {
+      const gap = parseFloat(getComputedStyle(column).gap) || 0;
+      return (column.firstElementChild.offsetHeight + gap) * column.children.length / 3;
+    });
+    const header = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
+    const wallTop = wall.getBoundingClientRect().top + window.scrollY;
+    const introTop = intro.getBoundingClientRect().top + window.scrollY;
+    const startLine = window.innerHeight * .86;
+    geometry = { header, wallTop, introTop, startLine,
+      openingDistance: Math.max(1, startLine - header + wallTop - introTop),
+      travel: Math.max(1, wall.offsetHeight - wall.querySelector('.wall-sticky').offsetHeight) };
   }
   function render(progress) {
     // The opening completes before either column starts travelling.
-    const unfold = clamp(progress / .26);
+    const opening = clamp(progress / .26);
+    const unfold = opening * opening * (3 - 2 * opening);
     const parallax = reduced.matches ? 0 : clamp((progress - .26) / .74);
     const mix = (from, to) => from + (to - from) * unfold;
     const small = mobile.matches;
@@ -65,39 +79,44 @@
     columns.forEach((column, i) => {
       // Left/even columns descend; right/odd columns rise by a full photo sequence.
       const offset = (i % 2 ? -1 : 1) * parallax * columnCycles[i];
-      column.style.transform = `translateY(${offset}px)`;
+      column.style.transform = `translate3d(0, ${offset}px, 0)`;
     });
     hint.style.opacity = 1 - clamp(progress / .3);
   }
   function tick(time) {
-    const header = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
-    const travel = wall.offsetHeight - wall.querySelector('.wall-sticky').offsetHeight;
-    const wallTop = wall.getBoundingClientRect().top;
-    const introTop = intro.getBoundingClientRect().top;
-    const viewportHeight = window.visualViewport?.height || window.innerHeight;
-    // Begin when the gallery heading reaches the lower screen, as it enters from the story.
-    // Finish unfolding at the sticky position; then start opposing column travel.
-    const startLine = viewportHeight * .86;
-    const openingDistance = Math.max(1, startLine - header + (wallTop - introTop));
-    const opening = clamp((startLine - introTop) / openingDistance);
-    const columnTravel = clamp((header - wallTop) / Math.max(1, travel));
+    const {header, wallTop, introTop, startLine, openingDistance, travel} = geometry;
+    const scroll = window.scrollY;
+    const opening = clamp((startLine - introTop + scroll) / openingDistance);
+    const columnTravel = clamp((header - wallTop + scroll) / travel);
     const target = reduced.matches ? 1 : .26 * opening + .74 * columnTravel;
-    const dt = Math.min((time - (previous || time - 16)) / 1000, .032);
+    const dt = Math.min(time - (previous || time - 16.67), 64);
     previous = time;
-    if (reduced.matches) { current = target; velocity = 0; }
-    else { velocity += ((target - current) * 200 - velocity * 40) * dt; current += velocity * dt; }
+    // Exact exponential damping: same response at 60/120 Hz, without spring jitter.
+    current = reduced.matches || !nearScene ? target : current + (target - current) * (1 - Math.exp(-dt / 75));
+    if (Math.abs(target - current) < .00002) current = target;
     render(clamp(current));
-    if (Math.abs(target - current) > .0005 || Math.abs(velocity) > .0005) frame = requestAnimationFrame(tick);
-    else { current = target; render(target); frame = 0; previous = 0; }
+    if (current !== target) frame = requestAnimationFrame(tick);
+    else { frame = 0; previous = 0; }
   }
-  function requestUpdate() { if (!frame) frame = requestAnimationFrame(tick); }
+  function requestUpdate() { if (!frame && geometry) frame = requestAnimationFrame(tick); }
   window.addEventListener('scroll', requestUpdate, {passive: true});
-  window.addEventListener('resize', () => { measureColumns(); requestUpdate(); }, {passive: true});
-  reduced.addEventListener('change', requestUpdate);
+  window.addEventListener('resize', () => { measureScene(); requestUpdate(); }, {passive: true});
+  new ResizeObserver(() => { measureScene(); requestUpdate(); }).observe(document.querySelector('main') || section);
+  reduced.addEventListener('change', () => {
+    section.classList.toggle('is-animating', nearScene && !reduced.matches);
+    measureScene();
+    requestUpdate();
+  });
   mobile.addEventListener('change', buildWall);
   new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) matrix.querySelectorAll('img').forEach(image => { image.loading = 'eager'; });
-  }, {rootMargin: '200px'}).observe(wall);
+    nearScene = entries[0].isIntersecting;
+    section.classList.toggle('is-animating', nearScene && !reduced.matches);
+    if (nearScene) matrix.querySelectorAll('img').forEach(image => {
+      image.loading = 'eager';
+      if (image.decode) image.decode().catch(() => {});
+    });
+    requestUpdate();
+  }, {rootMargin: '600px'}).observe(wall);
   buildWall();
   open.hidden = false;
   function openViewer(nextIndex, trigger) {

@@ -331,6 +331,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
 .wall-banner { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 28px; transform: scale(.94, .88); }
 .wall-perspective { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
 .wall-matrix { display: flex; align-items: center; gap: 20px; width: 120vw; flex-shrink: 0; height: 150%; transform-style: preserve-3d; transform: translateZ(-600px) rotateY(-45deg) rotateX(25deg) rotateZ(15deg); }
+.venue-gallery.is-animating .wall-matrix, .venue-gallery.is-animating .wall-column, .venue-gallery.is-animating .wall-banner { will-change: transform; }
 .wall-column { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
 .wall-photo { display: block; flex-shrink: 0; height: clamp(260px, 29vw, 400px); overflow: hidden; border-radius: 12px; background: #f1f1ed; }
 .wall-photo img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 1; transition: opacity 220ms ease, transform 400ms ease; }
