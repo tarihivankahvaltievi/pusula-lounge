@@ -291,8 +291,13 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
   text-shadow: 0 1px 8px #fbf7edb3;
   text-transform: uppercase;
 }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .story-content {
   position: relative;
+  isolation: isolate;
+  /* Text stays readable before the lazy paper image loads or if it fails. */
+  background-color: #f2e2c1;
+  background-clip: content-box;
   width: min(70%, 650px);
   margin: 0 auto;
   padding: 78px clamp(48px, 6vw, 76px) 84px;
@@ -305,7 +310,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: .9;
+  opacity: 1;
   filter: drop-shadow(0 9px 9px #170e0b4a);
   pointer-events: none;
 }
@@ -567,7 +572,7 @@ html.nav-enhanced body:has(.site-menu:target):not(.menu-is-open) { overflow: vis
     margin: auto;
     padding: clamp(38px, 5.6svh, 52px) clamp(24px, 7vw, 34px) clamp(42px, 6svh, 56px);
   }
-  .story-paper { opacity: .92; filter: drop-shadow(0 7px 7px #170e0b52); }
+  .story-paper { opacity: 1; filter: drop-shadow(0 7px 7px #170e0b52); }
   .story-location { right: 15px; bottom: 14px; font-size: 9px; }
   .story h2 { margin-bottom: 15px; font-size: clamp(47px, 12.5vw, 61px); }
   .story-content p { font-size: clamp(17px, 4.45vw, 20px); line-height: 1.4; }
