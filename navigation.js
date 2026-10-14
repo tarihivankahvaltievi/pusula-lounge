@@ -4,6 +4,7 @@
         const menu = document.querySelector('.site-menu');
         const backdrop = document.querySelector('.menu-backdrop');
         const mobile = matchMedia('(max-width: 760px)');
+        const label = toggle.querySelector('.menu-toggle-label');
         const background = [document.querySelector('main'), document.querySelector('.site-footer'), document.querySelector('.brand')];
         let open = false;
         // Keep the anchor-based menu usable when JavaScript is unavailable.
@@ -18,21 +19,24 @@
           document.body.classList.toggle('menu-is-open', open);
           toggle.setAttribute('aria-expanded', String(open));
           toggle.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+          label.textContent = open ? 'Kapat' : 'Menü';
+          if (open) menu.scrollTop = 0;
           background.forEach(element => { element.inert = open; });
           if (open) menu.querySelector('nav a').focus({ preventScroll: true });
           else if (restoreFocus) toggle.focus({ preventScroll: true });
         }
         toggle.addEventListener('click', event => { event.preventDefault(); setOpen(!open); });
         backdrop.addEventListener('click', event => { event.preventDefault(); setOpen(false); });
-        menu.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
         document.addEventListener('keydown', event => {
           if (!open) return;
           if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
           if (event.key === 'Tab') {
-            const controls = [...menu.querySelectorAll('nav a'), toggle];
+            const controls = [...menu.querySelectorAll('a')].filter(link => link.getClientRects().length).concat(toggle);
             const current = controls.indexOf(document.activeElement);
-            if (event.shiftKey && current <= 0) { event.preventDefault(); toggle.focus(); }
-            else if (!event.shiftKey && current === controls.length - 1) { event.preventDefault(); controls[0].focus(); }
+            event.preventDefault();
+            const next = (current + (event.shiftKey ? -1 : 1) + controls.length) % controls.length;
+            controls[next].focus();
           }
         });
         mobile.addEventListener('change', () => { if (open) setOpen(false, false); });
