@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.pusulalounge.com/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/" />
@@ -54,14 +54,14 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/menu/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/menu/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/rezervasyon/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <image:image>
       <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
     </image:image>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/kahvalti/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti/" />
@@ -84,14 +84,14 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/konum/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/konum/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/" />
@@ -101,14 +101,14 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/menu/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/menu/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/breakfast/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti/" />
@@ -118,14 +118,14 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/location/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/konum/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/kahvalti-rehberi/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast-guide/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
@@ -135,7 +135,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/breakfast-guide/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast-guide/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
@@ -145,28 +145,28 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/sik-sorulan-sorular/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/faq/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/faq/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/faq/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/site-haritasi/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/site-haritasi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/site-map/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/site-haritasi/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/site-map/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/site-haritasi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/site-map/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/site-haritasi/" />
