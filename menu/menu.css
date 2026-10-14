@@ -243,7 +243,7 @@ html{scroll-behavior:auto}
 /* SEO-IMAGES:END */
 
 /* Continuous woven cloth and a compact closing section. */
-.cloth-texture{background:url("../assets/menu/cloth-seamless.svg?v=f2f250b88fa9") repeat;background-size:48px 48px;filter:none}
+.cloth-texture{background:url("../assets/menu/cloth-woven.webp?v=36814ded3f0a") repeat;background-size:36.5% auto;filter:saturate(1.35)}
 .cloth-texture span{display:none}
 body main>.menu-reading-guide{max-width:1000px;margin:12px auto 0;padding:32px 28px 28px;border-top:1px solid #b99873;font-size:15px;line-height:1.65}
 body main>.menu-reading-guide h2{font-family:Georgia,serif!important;font-size:28px!important;font-weight:400;margin-bottom:14px}
