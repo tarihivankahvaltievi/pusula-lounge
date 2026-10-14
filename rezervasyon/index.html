@@ -7,7 +7,7 @@
   <meta name="description" content="Pusula Lounge için tarih, saat ve kişi sayısıyla talep metni hazırlayın. Kopyalama işletmeye göndermez; rezervasyon işletme teyidiyle kesinleşir." />
   <title>Rezervasyon Talebi Hazırlayın · Pusula Lounge</title>
   <link rel="stylesheet" href="../assets/menu/fonts.css?v=84a050ae93bb" integrity="sha256-hKBQrpO7VolKUWgBY6QPmkxjY3u5LvbS8faJf7qJQjs=" crossorigin="anonymous">
-  <link rel="stylesheet" href="reservation.css?v=38db000dd34d" integrity="sha256-ONsADdNNE0J8eCjMRDvAVhkeXFVw0qscAQxLHGaiVAI=" crossorigin="anonymous">
+  <link rel="stylesheet" href="reservation.css?v=8330a0c2a15b" integrity="sha256-gzCgwqFbAoJ3/NW9b3XSGz5Z/+b0sxJsb2uyRRFDvN8=" crossorigin="anonymous">
   <script src="reservation.js?v=0b3835307fc5" defer integrity="sha256-Czg1MH/FwJkOx9796V2/U2KvexaN+3cSIQfgziMwnJM=" crossorigin="anonymous"></script>
 
 <!-- SEO:START -->
@@ -50,7 +50,7 @@
   </header>
   <main class="reservation-layout"><!-- BREADCRUMB:START --><nav class="seo-breadcrumb" aria-label="Sayfa yolu"><ol><li><a href="/">Ana sayfa</a></li><li aria-current="page">Rezervasyon Talebi Hazırlayın</li></ol></nav><!-- BREADCRUMB:END -->
     <section class="reservation-sheet" aria-labelledby="form-title">
-      <div class="sheet-heading"><div><h1 id="form-title">Rezervasyon talebi</h1><p>Ziyaret bilgilerinizi yazın; paylaşabileceğiniz talep metnini hazırlayalım.</p></div></div>
+      <div class="sheet-heading"><div><h1 id="form-title">Masanızı planlayalım</h1><p>Bilgilerinizi girin; işletmeyle paylaşabileceğiniz bir talep hazırlayın.</p></div></div>
       <form id="reservation-form" aria-describedby="request-note" novalidate>
         <fieldset><legend>Ziyaretiniz</legend><div class="visit-fields">
           <div class="field"><label for="date">Tarih <span class="required-hint">(zorunlu)</span></label><input type="date" id="date" name="date" required aria-describedby="date-error" /><span class="field-error" id="date-error"></span></div>
@@ -63,7 +63,7 @@
         </div></fieldset>
         <div class="field note-field"><label for="note">Eklemek istediğiniz bir şey? <span>(isteğe bağlı)</span></label><textarea id="note" name="note" rows="2" maxlength="500" placeholder="Çocuk sandalyesi, özel bir gün veya başka bir not…"></textarea></div>
         <button class="submit-button" type="submit" disabled><span>Talep metnini hazırla</span><span aria-hidden="true">→</span></button>
-        <p class="privacy-note" id="request-note">Bu form bilgilerinizi göndermez. Talep metnini kopyalayıp işletmeyle paylaşın; rezervasyon onayla kesinleşir.</p>
+        <p class="privacy-note" id="request-note">Talep otomatik gönderilmez. Metni ekibimizle paylaşın; rezervasyon onayla kesinleşir.</p>
         <noscript><p class="no-script">Talep özeti için JavaScript’i etkinleştirin. Bu formdan bilgi gönderilmez.</p></noscript>
       </form>
       <section class="request-summary" id="request-summary" aria-labelledby="summary-title" hidden>
@@ -76,18 +76,7 @@
         <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
       </section>
     </section>
-  <!-- GUIDE:START --><section class="reservation-visit-guide"><h2>Kahvaltınızı tanıyın</h2><p>Serpme mi, tek tabak mı? Pişi, gözleme, menemen ve kahvaltı eşlikçilerini <a href="/kahvalti-rehberi/">kahvaltı rehberimizde</a> keşfedin.</p></section><!-- GUIDE:END --><!-- DISCOVERY:START --><section class="reservation-visit-guide"><h2>Ziyaret için diğer bilgiler</h2><p><a href="/sik-sorulan-sorular/">Sık sorulan sorular ve cevapları</a> · <a href="/site-haritasi/">Tüm sayfalar</a></p></section><!-- DISCOVERY:END --><!-- GEO:START --><section class="reservation-visit-guide"><h2>Talep öncesinde ziyaretinizi planlayın</h2><p>Pusula Lounge, İstanbul’un Beyoğlu ilçesinde, İstiklal çevresindedir. <a href="/konum/">Konum ve işletme kaydını</a> kontrol edin; ziyaret gününüz için servis saatini ve masa uygunluğunu ekibimizle teyit edin.</p><p><a href="/menu/">Kahvaltı menüsü ve fiyatlar</a> · <a href="/kahvalti/">Serpme Van kahvaltısı seçenekleri</a></p><p>Bu sayfada talep metni hazırlamak rezervasyon oluşturmaz. Rezervasyon, talebinizi işletmeyle paylaşıp ekipten onay aldığınızda kesinleşir.</p></section><!-- GEO:END --></main>
-  <section class="reservation-gallery" aria-labelledby="gallery-title">
-    <div class="gallery-inner">
-      <div class="gallery-heading"><div><p>Pusula’dan kareler</p><h2 id="gallery-title">Masaya gelmeden<br />bir göz atın.</h2></div><span class="gallery-swipe">Fotoğrafları kaydır <span aria-hidden="true">→</span></span></div>
-      <div class="gallery-photos">
-        <figure class="gallery-frame"><img src="../assets/gallery/renkli-kose-1200.webp" alt="Çiçekli tavanın altında sarı sandalyeler ve Pusula’nın masaları" width="1066" height="1600" loading="lazy" decoding="async"    /><figcaption>Rengârenk köşeler</figcaption></figure>
-        <figure class="gallery-frame"><img src="../assets/gallery/pusula-sofrasi-1200.webp" alt="Kırmızı kareli örtülü kahvaltı sofrası ve Pusula’nın yeşil duvarı" width="1200" height="800" loading="lazy" decoding="async"    /><figcaption>Kareli örtü, uzun sohbet</figcaption></figure>
-        <figure class="gallery-frame"><img src="../assets/gallery/cicekli-mekan-1200.webp" alt="Ayçiçekleri ve sıcak ışıklar altında Pusula’nın oturma alanı" width="1066" height="1600" loading="lazy" decoding="async"    /><figcaption>Çiçeklerin altında</figcaption></figure>
-      </div>
-      <a class="gallery-link" href="../#mekanimiz">Mekânın diğer fotoğrafları <span aria-hidden="true">↗</span></a>
-    </div>
-  </section>
-  <footer class="reservation-footer"><a href="../">Pusula Lounge</a><span>İstiklal · İstanbul</span><a href="https://share.google/l1BSBLDwv6suQkW7Y" target="_blank" rel="noopener noreferrer">Harita kaydı <span aria-hidden="true">↗</span><span class="sr-only"> (yeni sekmede)</span></a><!-- BUSINESS:START --><div class="business-contact"><p><strong>Pusula Lounge</strong><br>Beyoğlu · İstanbul · Türkiye</p><address>Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu / İstanbul</address><p><a href="tel:+905078162994">Telefon: 0507 816 29 94</a></p><p>Çalışma saatleri: Her gün 24 saat açık</p><p>Kahvaltı servisi: Her gün 08:00–17:00</p><a class="text-link" href="https://share.google/l1BSBLDwv6suQkW7Y" target="_blank" rel="noopener noreferrer">Google işletme kaydını açın ↗</a><p class="business-source">Adres, telefon ve saatler Google işletme kaydından kontrol edildi: 2026-10-09. Özel gün saatlerini ve uygunluğu ziyaret öncesinde teyit edin.</p></div><!-- BUSINESS:END --></footer>
+  <!-- GUIDE:START --><section class="reservation-visit-guide visit-links"><p><a href="/menu/">Menü ve fiyatlar</a> · <a href="/kahvalti-rehberi/">Kahvaltı rehberi</a> · <a href="/sik-sorulan-sorular/">Sık sorulan sorular</a></p></section><!-- GUIDE:END --><!-- DISCOVERY:START --><!-- DISCOVERY:END --><!-- GEO:START --><section class="reservation-visit-guide visit-note"><p>Pusula Lounge, Beyoğlu’nda İstiklal çevresindedir. Ziyaret saatini ve masa uygunluğunu ekibimizle teyit edin. <a href="/konum/">Konum bilgisi</a></p></section><!-- GEO:END --></main>
+  <footer class="reservation-footer"><a href="../">Pusula Lounge</a><span>İstiklal · İstanbul</span><a href="https://share.google/l1BSBLDwv6suQkW7Y" target="_blank" rel="noopener noreferrer">Harita kaydı <span aria-hidden="true">↗</span><span class="sr-only"> (yeni sekmede)</span></a><!-- BUSINESS:START --><div class="business-contact"><p><strong>Pusula Lounge</strong> · Beyoğlu, İstanbul<br><a href="tel:+905078162994">0507 816 29 94</a> · Her gün açık · Kahvaltı 08:00–17:00</p><address>Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3</address><a class="text-link" href="https://share.google/l1BSBLDwv6suQkW7Y" target="_blank" rel="noopener noreferrer">Google işletme kaydını açın ↗</a></div><!-- BUSINESS:END --></footer>
 </body>
 </html>
