@@ -44,9 +44,9 @@
         link.setAttribute('aria-label', source.dataset.caption);
         if (repeatIndex >= group.length) { link.tabIndex = -1; link.setAttribute('aria-hidden', 'true'); }
         const image = document.createElement('img');
-        const displaySource = source.getAttribute('href').replace('-1200.webp', '-screen-600.webp');
+        const displaySource = source.dataset.display;
         image.src = displaySource;
-        image.srcset = `${displaySource.replace('-600.webp', '-400.webp')} 400w, ${displaySource} 600w`;
+        image.srcset = source.dataset.displaySrcset;
         image.sizes = '(max-width: 760px) 58vw, 30vw';
         image.fetchPriority = 'low';
         image.alt = source.dataset.alt;

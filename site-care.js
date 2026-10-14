@@ -5,13 +5,15 @@
   const primary = hero.querySelector('.hero-slide--venue');
   const deferred = [...hero.querySelectorAll('img[data-src]')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const connection = navigator.connection;
+  const saveData = () => Boolean(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType)));
   let visible = false;
   let primaryReady = primary.complete && primary.naturalWidth > 0;
   let ready = deferred.length === 0;
   let loading = false;
   let timer = 0;
   function update() {
-    const active = visible && !document.hidden && !reduced.matches;
+    const active = visible && !document.hidden && !reduced.matches && !saveData();
     hero.classList.toggle('motion-paused', !active || !ready);
     hero.classList.toggle('motion-running', active && ready);
     if (!active && timer) { clearTimeout(timer); timer = 0; }
@@ -44,4 +46,5 @@
   }
   document.addEventListener('visibilitychange', update);
   reduced.addEventListener('change', update);
+  if (connection) connection.addEventListener('change', update);
 })();
