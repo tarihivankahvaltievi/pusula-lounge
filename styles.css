@@ -389,15 +389,14 @@ body.stream-viewer-open { overflow: hidden; }
   .stream-open span, .wall-photo img { transition: none; }
 }
 
-/* Frequently asked questions continue the gallery's paper tone into the footer. */
-.faq { padding: clamp(58px, 6vw, 86px) clamp(24px, 5vw, 76px) clamp(38px, 4vw, 56px); background: var(--gallery-end); color: #413c38; font-family: 'Noto Sans', Arial, sans-serif; scroll-margin-top: var(--header-height); }
-.faq-inner { display: grid; grid-template-columns: minmax(240px, .82fr) minmax(0, 1.18fr); gap: clamp(54px, 7vw, 116px); width: min(100%, 1200px); margin-inline: auto; }
-.faq-intro { padding-top: 6px; }
-.faq-kicker { display: block; margin-bottom: 13px; color: #8a2731; font: 600 11px/1.4 'Noto Sans', Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
-.faq h2 { margin: 0; color: #56050d; font: italic 500 clamp(43px, 4.1vw, 58px)/1.06 'Cormorant Garamond', Georgia, serif; letter-spacing: -.03em; text-wrap: balance; }
-.faq-list { border-top: 1px solid #867b7059; }
-.faq-item { border-bottom: 1px solid #867b7059; }
-.faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 69px; padding: 15px 2px; color: #292a26; font: 500 clamp(15px, 1.35vw, 17px)/1.4 'Noto Sans', Arial, sans-serif; cursor: pointer; list-style: none; }
+/* FAQ keeps the site's warm palette, with a direct heading and quiet, readable rows. */
+.faq { padding: clamp(64px, 7vw, 104px) clamp(24px, 5vw, 76px) clamp(52px, 5vw, 76px); background: var(--gallery-end); color: #292a26; font-family: 'Noto Sans', Arial, sans-serif; scroll-margin-top: var(--header-height); }
+.faq-inner { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr); gap: clamp(48px, 6vw, 100px); width: min(100%, 1200px); margin-inline: auto; }
+.faq-intro { padding-top: 2px; }
+.faq h2 { max-width: 440px; margin: 0; color: #56050d; font: 600 clamp(43px, 4.5vw, 62px)/1.14 'Noto Sans', Arial, sans-serif; letter-spacing: -.035em; text-wrap: balance; }
+.faq-list { border-top: 1px solid #9d918377; }
+.faq-item { border-bottom: 1px solid #9d918377; }
+.faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; padding: 19px 2px; color: #292a26; font: 500 clamp(16px, 1.35vw, 18px)/1.45 'Noto Sans', Arial, sans-serif; cursor: pointer; list-style: none; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::marker { content: ''; }
 .faq-item summary:hover { color: #8a2731; }
@@ -406,22 +405,21 @@ body.stream-viewer-open { overflow: hidden; }
 .faq-icon::before, .faq-icon::after { content: ''; position: absolute; top: 50%; left: 50%; width: 13px; height: 1px; background: currentColor; transform: translate(-50%, -50%); }
 .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform 180ms ease; }
 .faq-item[open] .faq-icon::after { transform: translate(-50%, -50%) rotate(0); }
-.faq-answer { padding: 0 42px 22px 2px; }
+.faq-answer { padding: 0 42px 26px 2px; }
 .faq-answer p { margin: 0; max-width: 540px; color: #554d46; font-size: 15px; line-height: 1.7; text-wrap: pretty; }
 .faq-answer a { color: #8a2731; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .faq-answer a:hover { color: #56050d; }
 .faq-answer a:focus-visible { outline: 2px solid #8a2731; outline-offset: 3px; }
 .faq-external { white-space: nowrap; }
 @media (max-width: 760px) {
-  .faq { padding: 50px 24px 32px; }
-  .faq-inner { grid-template-columns: 1fr; gap: 29px; }
-  .faq-kicker { margin-bottom: 8px; font-size: 10px; }
-  .faq h2 { font-size: clamp(42px, 9.5vw, 52px); }
-  .faq-item summary { min-height: 65px; gap: 14px; padding-block: 14px; font-size: 15px; }
+  .faq { padding: 58px 24px 44px; }
+  .faq-inner { grid-template-columns: 1fr; gap: 32px; }
+  .faq h2 { max-width: 520px; font-size: clamp(36px, 9vw, 48px); line-height: 1.16; }
+  .faq-item summary { min-height: 70px; gap: 18px; padding-block: 18px; font-size: 16px; }
   .faq-answer { padding-right: 30px; padding-bottom: 18px; }
   .faq-answer p { font-size: 14px; line-height: 1.65; }
 }
-@media (max-width: 359px) { .faq { padding-inline: 20px; } .faq-item summary { font-size: 14px; } }
+@media (max-width: 359px) { .faq { padding-inline: 20px; } .faq h2 { font-size: 34px; } .faq-item summary { font-size: 15px; } }
 @media (prefers-reduced-motion: reduce) { .faq-icon::after { transition: none; } }
 
 /* A compact closing composition built from the homepage's lettering and tablecloth. */
