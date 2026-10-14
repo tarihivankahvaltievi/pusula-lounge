@@ -63,9 +63,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
   object-fit: cover;
   transform-origin: center center;
 }
-.hero-slide--venue { object-position: center 55%; animation: hero-venue 21s linear infinite; }
-.hero-slide--breakfast { object-position: center center; animation: hero-breakfast 21s linear infinite; }
-.hero-slide--drinks { object-position: center 48%; animation: hero-drinks 21s linear infinite; }
+.hero-slide--venue { object-position: center 55%; animation: hero-venue 24s linear infinite; }
+.hero-slide--breakfast { object-position: center center; animation: hero-breakfast 24s linear infinite; }
+.hero-slide--drinks { object-position: center 48%; animation: hero-drinks 24s linear infinite; }
 .hero::after {
   content: '';
   position: absolute;
@@ -163,23 +163,24 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
 .hero-button:active { transform: translateY(0); }
 .hero-button:focus-visible, .hero-rating:focus-visible { outline: 3px solid #e4ca87; outline-offset: 4px; }
 @keyframes hero-venue {
-  0% { opacity: 1; transform: scale(1.015); }
-  27% { opacity: 1; transform: scale(1.13); }
-  35% { opacity: 0; transform: scale(1.16); }
-  95% { opacity: 0; transform: scale(1.015); }
-  100% { opacity: 1; transform: scale(1.015); }
+  0% { opacity: 1; transform: scale(1.022); }
+  27% { opacity: 1; transform: scale(1.09); }
+  35%, 36% { opacity: 0; transform: scale(1.11); }
+  94%, 95% { opacity: 0; transform: scale(1.01); }
+  100% { opacity: 1; transform: scale(1.022); }
 }
 @keyframes hero-breakfast {
-  0%, 27% { opacity: 0; transform: scale(1.015); }
-  35% { opacity: 1; transform: scale(1.04); }
-  60% { opacity: 1; transform: scale(1.13); }
-  68%, 100% { opacity: 0; transform: scale(1.16); }
+  0%, 27% { opacity: 0; transform: scale(1.11); }
+  35% { opacity: 1; transform: scale(1.09); }
+  60% { opacity: 1; transform: scale(1.029); }
+  68% { opacity: 0; transform: scale(1.01); }
+  69%, 100% { opacity: 0; transform: scale(1.11); }
 }
 @keyframes hero-drinks {
-  0%, 60% { opacity: 0; transform: scale(1.015); }
-  68% { opacity: 1; transform: scale(1.04); }
-  95% { opacity: 1; transform: scale(1.13); }
-  100% { opacity: 0; transform: scale(1.16); }
+  0%, 60% { opacity: 0; transform: scale(1.01); }
+  68% { opacity: 1; transform: scale(1.03); }
+  95% { opacity: 1; transform: scale(1.0975); }
+  100% { opacity: 0; transform: scale(1.11); }
 }
 .floral-divider {
   position: relative;
@@ -637,14 +638,3 @@ html.nav-enhanced body:has(.site-menu:target):not(.menu-is-open) { overflow: vis
 .hero.hero-images-failed .hero-slide--venue { opacity: 1; transform: none; }
 .hero.hero-images-failed .hero-slide--breakfast, .hero.hero-images-failed .hero-slide--drinks { opacity: 0; }
 @media (hover: none) { .wall-photo:hover img { transform: none; } }
-
-/* Mobile keeps photo crossfades without continuously scaling three large layers. */
-@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
-  .hero-slide--venue { animation-name: hero-mobile-venue; }
-  .hero-slide--breakfast { animation-name: hero-mobile-breakfast; }
-  .hero-slide--drinks { animation-name: hero-mobile-drinks; }
-  .hero.motion-running .hero-slide { will-change: opacity; }
-}
-@keyframes hero-mobile-venue { 0%, 27%, 100% { opacity: 1; } 35%, 95% { opacity: 0; } }
-@keyframes hero-mobile-breakfast { 0%, 27%, 68%, 100% { opacity: 0; } 35%, 60% { opacity: 1; } }
-@keyframes hero-mobile-drinks { 0%, 60%, 100% { opacity: 0; } 68%, 95% { opacity: 1; } }

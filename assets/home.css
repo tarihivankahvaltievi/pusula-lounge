@@ -298,9 +298,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
   object-fit: cover;
   transform-origin: center center;
 }
-.hero-slide--venue { object-position: center 55%; animation: hero-venue 21s linear infinite; }
-.hero-slide--breakfast { object-position: center center; animation: hero-breakfast 21s linear infinite; }
-.hero-slide--drinks { object-position: center 48%; animation: hero-drinks 21s linear infinite; }
+.hero-slide--venue { object-position: center 55%; animation: hero-venue 24s linear infinite; }
+.hero-slide--breakfast { object-position: center center; animation: hero-breakfast 24s linear infinite; }
+.hero-slide--drinks { object-position: center 48%; animation: hero-drinks 24s linear infinite; }
 .hero::after {
   content: '';
   position: absolute;
@@ -398,23 +398,24 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-o
 .hero-button:active { transform: translateY(0); }
 .hero-button:focus-visible, .hero-rating:focus-visible { outline: 3px solid #e4ca87; outline-offset: 4px; }
 @keyframes hero-venue {
-  0% { opacity: 1; transform: scale(1.015); }
-  27% { opacity: 1; transform: scale(1.13); }
-  35% { opacity: 0; transform: scale(1.16); }
-  95% { opacity: 0; transform: scale(1.015); }
-  100% { opacity: 1; transform: scale(1.015); }
+  0% { opacity: 1; transform: scale(1.022); }
+  27% { opacity: 1; transform: scale(1.09); }
+  35%, 36% { opacity: 0; transform: scale(1.11); }
+  94%, 95% { opacity: 0; transform: scale(1.01); }
+  100% { opacity: 1; transform: scale(1.022); }
 }
 @keyframes hero-breakfast {
-  0%, 27% { opacity: 0; transform: scale(1.015); }
-  35% { opacity: 1; transform: scale(1.04); }
-  60% { opacity: 1; transform: scale(1.13); }
-  68%, 100% { opacity: 0; transform: scale(1.16); }
+  0%, 27% { opacity: 0; transform: scale(1.11); }
+  35% { opacity: 1; transform: scale(1.09); }
+  60% { opacity: 1; transform: scale(1.029); }
+  68% { opacity: 0; transform: scale(1.01); }
+  69%, 100% { opacity: 0; transform: scale(1.11); }
 }
 @keyframes hero-drinks {
-  0%, 60% { opacity: 0; transform: scale(1.015); }
-  68% { opacity: 1; transform: scale(1.04); }
-  95% { opacity: 1; transform: scale(1.13); }
-  100% { opacity: 0; transform: scale(1.16); }
+  0%, 60% { opacity: 0; transform: scale(1.01); }
+  68% { opacity: 1; transform: scale(1.03); }
+  95% { opacity: 1; transform: scale(1.0975); }
+  100% { opacity: 0; transform: scale(1.11); }
 }
 .floral-divider {
   position: relative;
@@ -872,17 +873,6 @@ html.nav-enhanced body:has(.site-menu:target):not(.menu-is-open) { overflow: vis
 .hero.hero-images-failed .hero-slide--venue { opacity: 1; transform: none; }
 .hero.hero-images-failed .hero-slide--breakfast, .hero.hero-images-failed .hero-slide--drinks { opacity: 0; }
 @media (hover: none) { .wall-photo:hover img { transform: none; } }
-
-/* Mobile keeps photo crossfades without continuously scaling three large layers. */
-@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
-  .hero-slide--venue { animation-name: hero-mobile-venue; }
-  .hero-slide--breakfast { animation-name: hero-mobile-breakfast; }
-  .hero-slide--drinks { animation-name: hero-mobile-drinks; }
-  .hero.motion-running .hero-slide { will-change: opacity; }
-}
-@keyframes hero-mobile-venue { 0%, 27%, 100% { opacity: 1; } 35%, 95% { opacity: 0; } }
-@keyframes hero-mobile-breakfast { 0%, 27%, 68%, 100% { opacity: 0; } 35%, 60% { opacity: 1; } }
-@keyframes hero-mobile-drinks { 0%, 60%, 100% { opacity: 0; } 68%, 95% { opacity: 1; } }
 
 .hero-local-summary{color:white;font:500 clamp(13px,2vw,18px)/1.4 'Noto Sans',sans-serif;margin:12px 0 20px;text-align:center;text-shadow:0 1px 7px #000}.menu-scope,.menu-approval{max-width:900px;margin:12px auto;padding:0 22px;text-align:center;font:16px/1.5 'Source Sans 3',sans-serif}.menu-approval{font-size:14px}.menu-related{display:flex;flex-wrap:wrap;gap:12px 20px;margin:16px 0}.business-contact{padding:20px;font-size:16px;line-height:1.6}.reservation-header nav{flex-wrap:wrap}
 .seo-breadcrumb{max-width:1140px;margin:20px auto;padding:0 20px;font:15px/1.5 'Source Sans 3',sans-serif;color:inherit}.seo-breadcrumb ol{display:flex;flex-wrap:wrap;gap:8px 12px;list-style:none;margin:0;padding:0}.seo-breadcrumb li+li:before{content:'›';margin-right:12px}.seo-breadcrumb a:focus-visible{outline:3px solid currentColor;outline-offset:4px}.reservation-layout>.seo-breadcrumb{grid-column:1/-1;width:100%;padding:0}.breakfast-table-wrap{overflow-x:auto}.breakfast-table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.5}.breakfast-table caption{text-align:left;margin:0 0 16px}.breakfast-table th,.breakfast-table td{text-align:left;padding:16px 12px;border-bottom:1px solid #bba47e;vertical-align:top}.breakfast-table thead{background:#ffcc35}.breakfast-table th:first-child{padding-left:8px}.breakfast-table td{min-width:100px}.visit-page .seo-breadcrumb{padding:0;margin:24px 0 0}.visit-page .seo-breadcrumb+.visit-intro{padding-top:36px}@media(max-width:480px){.breakfast-table{font-size:15px}.breakfast-table th,.breakfast-table td{padding:12px 6px}.breakfast-table td{min-width:78px}}
