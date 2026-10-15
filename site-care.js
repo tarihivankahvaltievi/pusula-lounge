@@ -23,6 +23,8 @@
         loading = true;
         try {
           await Promise.all(deferred.map(image => {
+            const source = image.parentElement.querySelector('source[data-srcset]');
+            if (source) source.srcset = source.dataset.srcset;
             if (image.dataset.srcset) image.srcset = image.dataset.srcset;
             image.src = image.dataset.src;
             return image.decode();
