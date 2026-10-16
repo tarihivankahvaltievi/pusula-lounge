@@ -661,3 +661,7 @@ html.nav-enhanced body:has(.site-menu:target):not(.menu-is-open) { overflow: vis
 .hero.hero-images-failed .hero-slide--venue { opacity: 1; transform: none; }
 .hero.hero-images-failed .hero-slide--breakfast, .hero.hero-images-failed .hero-slide--drinks { opacity: 0; }
 @media (hover: none) { .wall-photo:hover img { transform: none; } }
+
+/* Keyboard access to the landing page, above the fixed navigation. */
+.home-skip{position:fixed;top:12px;left:12px;z-index:101;background:#ffcc35;color:#193d27;padding:12px 20px;font:600 16px/1.5 Arial,sans-serif;transform:translateY(calc(-100% - 20px))}
+.home-skip:focus{transform:none;outline:3px solid #193d27;outline-offset:3px}

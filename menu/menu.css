@@ -275,3 +275,17 @@ body main>.menu-reading-guide h2{font-family:Georgia,serif!important;font-size:2
  .menu-footer .top-link{order:4;align-self:flex-start;margin-top:2px}
 }
 .menu-reading-guide p:nth-of-type(2){max-width:none;width:100%}
+/* MENU-CROPS:START */
+/* Dedicated crops preserve the printed artwork without fetching whole scans. */
+.breakfast-photo{background-image:url("../assets/menu/breakfast-crop.webp?v=d74835dfc969");background-size:100% 100%;background-position:center}
+.dish-photo--gozleme{background-image:url("../assets/menu/gozleme-crop.webp?v=c2a000b80b6a");background-size:100% 100%;background-position:center}
+.dish-photo--menemen{background-image:url("../assets/menu/menemen-crop.webp?v=9d2051c41716");background-size:100% 100%;background-position:center}
+.printed-seal{background-image:url("../assets/menu/printed-seal-crop.webp?v=4d38f814f588");background-size:100% 100%;background-position:center}
+.section-title:after{background-image:url("../assets/menu/title-rule-crop.webp?v=6f72aa334572");background-size:100% 100%;background-position:center}
+.tea-badge{background-image:url("../assets/menu/tea-crop.webp?v=9bd3e71be1ef");background-size:100% 100%;background-position:center}
+@media(max-width:700px){
+.breakfast-photo{background-image:url("../assets/menu/breakfast-crop-160.webp?v=e25472878f9e")}
+.dish-photo--gozleme{background-image:url("../assets/menu/gozleme-crop-160.webp?v=20688baf40a0")}
+.dish-photo--menemen{background-image:url("../assets/menu/menemen-crop-160.webp?v=c8e209b299aa")}
+}
+/* MENU-CROPS:END */
