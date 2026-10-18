@@ -101,14 +101,34 @@
       row.append(term, description);
       details.append(row);
     });
-    requestText.value = `Merhaba, Pusula Lounge için rezervasyon talebim var.\n\n${pairs.map(([label, value]) => `${label}: ${value}`).join('\n')}\n\nMüsaitliği ve rezervasyonumu teyit edebilir misiniz?`;
+    requestText.value = `Merhaba, Pusula Lounge için rezervasyon talebim var.\n\n${pairs.map(([label, value]) => `• ${label}: ${value}`).join('\n')}\n\nMüsaitliği ve rezervasyonumu teyit edebilir misiniz?`;
+    const targetNumber = '905078162994';
+    const whatsappUrl = `https://wa.me/${targetNumber}?text=${encodeURIComponent(requestText.value)}`;
     const whatsapp = document.querySelector('#whatsapp-request');
-    if (whatsapp) whatsapp.href = `https://wa.me/${whatsapp.dataset.number}?text=${encodeURIComponent(requestText.value)}`;
-    window.dispatchEvent(new CustomEvent('pusula:interaction', { detail: { name: 'reservation_text_prepared', path: location.pathname, language: 'tr' } }));
-    status.textContent = '';
+    if (whatsapp) {
+      whatsapp.href = whatsappUrl;
+      whatsapp.dataset.number = targetNumber;
+    }
+    const sms = document.querySelector('#sms-request');
+    if (sms) {
+      sms.href = `sms:+${targetNumber}?body=${encodeURIComponent(requestText.value)}`;
+    }
+    window.dispatchEvent(new CustomEvent('pusula:interaction', { detail: { name: 'reservation_sent_whatsapp', path: location.pathname, language: 'tr' } }));
     form.hidden = true;
     summary.hidden = false;
     document.querySelector('#summary-title').focus();
+
+    // Automatically attempt to open WhatsApp in a new tab/app on submission
+    try {
+      const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        status.textContent = 'WhatsApp otomatik açılmadıysa lütfen yukarıdaki yeşil "WhatsApp ile Gönder" butonuna dokunun.';
+      } else {
+        status.textContent = 'WhatsApp yeni sekmede açıldı. Mesajınızı WhatsApp ekranında "Gönder"e basarak iletebilirsiniz.';
+      }
+    } catch {
+      status.textContent = 'Lütfen yukarıdaki yeşil "WhatsApp ile Gönder" butonuna dokunarak talebinizi iletin.';
+    }
   });
   document.querySelector('#edit-request').addEventListener('click', () => {
     summary.hidden = true;
@@ -121,12 +141,12 @@
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(requestText.value);
       window.dispatchEvent(new CustomEvent('pusula:interaction', { detail: { name: 'reservation_text_copied', path: location.pathname, language: 'tr' } }));
-      status.textContent = 'Talep metni kopyalandı. İşletmeye henüz gönderilmedi.';
+      status.textContent = 'Talep metni panoya kopyalandı.';
     } catch {
       requestText.focus();
       requestText.select();
       requestText.setSelectionRange(0, requestText.value.length);
-      status.textContent = 'Metni seçtik. Cihazınızın Kopyala seçeneğini kullanın; işletmeye henüz gönderilmedi.';
+      status.textContent = 'Metin seçildi. Cihazınızın Kopyala seçeneğini kullanabilirsiniz.';
     }
   });
 })();

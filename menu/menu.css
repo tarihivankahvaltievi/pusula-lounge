@@ -238,9 +238,7 @@ html{scroll-padding-top:calc(var(--tabs) + var(--search-height) + 16px)}
 .search-form input::-webkit-search-cancel-button{display:none}
 @media(min-width:701px){.prices-only .breakfast-item{min-height:155px}.prices-only .breakfast-photo{top:0}}
 html{scroll-behavior:auto}
-/* SEO-IMAGES:START */
-@media(max-width:700px){.breakfast-photo,.tea-badge{background-image:url("../assets/menu/reference-breakfast-600.webp?v=9cb3b9358eeb")}.dish-photo--gozleme{background-image:url("../assets/menu/reference-gozleme-600.webp?v=8ba8a1779172")}.dish-photo--menemen{background-image:url("../assets/menu/reference-menemen-600.webp?v=c8f0f0b113b1")}}
-/* SEO-IMAGES:END */
+
 
 /* Continuous woven cloth and a compact closing section. */
 .cloth-texture{background:url("../assets/menu/cloth-woven.webp?v=36814ded3f0a") repeat;background-size:36.5% auto;filter:saturate(1.35)}
@@ -275,6 +273,12 @@ body main>.menu-reading-guide h2{font-family:Georgia,serif!important;font-size:2
  .menu-footer .top-link{order:4;align-self:flex-start;margin-top:2px}
 }
 .menu-reading-guide p:nth-of-type(2){max-width:none;width:100%}
+
+
+
+/* SEO-IMAGES:START */
+@media(max-width:700px){.breakfast-photo,.tea-badge{background-image:url("../assets/menu/reference-breakfast-600.webp?v=9cb3b9358eeb")}.dish-photo--gozleme{background-image:url("../assets/menu/reference-gozleme-600.webp?v=8ba8a1779172")}.dish-photo--menemen{background-image:url("../assets/menu/reference-menemen-600.webp?v=c8f0f0b113b1")}}
+/* SEO-IMAGES:END */
 /* MENU-CROPS:START */
 /* Dedicated crops preserve the printed artwork without fetching whole scans. */
 .breakfast-photo{background-image:url("../assets/menu/breakfast-crop.webp?v=d74835dfc969");background-size:100% 100%;background-position:center}

@@ -98,3 +98,22 @@ textarea{min-height:76px}
  .visit-fields input{padding-inline:8px;font-size:15px}
 }
 @media(max-width:340px){.visit-fields{grid-template-columns:1fr}}
+
+/* Direct reservation actions & WhatsApp communication */
+.sent-badge{padding:4px 10px;border-radius:4px;background:#eaf7ee;color:#186c3b;font-size:14px;font-weight:700;border:1px solid #a3dcaf;white-space:nowrap}
+.summary-lead{margin:12px 0 16px;font-size:16px;line-height:1.5}
+.whatsapp-button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:56px;padding:14px 22px;border:0;border-radius:6px;background:#1f7a4d;color:#ffffff!important;text-decoration:none;font-size:18px;font-weight:700;box-shadow:0 3px 0 #14532d;transition:background-color .16s ease,transform .16s ease}
+.whatsapp-button:hover{background:#166534;color:#ffffff}
+.whatsapp-button:active{transform:translateY(2px);box-shadow:0 1px 0 #14532d}
+.whatsapp-button>span:last-child{font-size:24px;line-height:1}
+.secondary-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:18px}
+.action-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 16px;border:1.5px solid var(--ink);border-radius:6px;background:#fffefa;color:var(--ink);font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;transition:background-color .16s ease,color .16s ease}
+.action-secondary:hover{background:var(--ink);color:#fffefa}
+@media(max-width:760px){
+ .secondary-actions{gap:8px}
+ .secondary-actions .action-secondary{flex:1 1 calc(50% - 8px);text-align:center}
+ .secondary-actions .edit-button{width:100%;text-align:center;margin-top:4px}
+}
+@media(max-width:390px){
+ .secondary-actions .action-secondary{flex:1 1 100%}
+}
