@@ -3,6 +3,46 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/en/blog/index.html",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/istiklal-breakfast-walk-directions/index.html",
+      "destination": "/en/blog/istiklal-breakfast-walk-directions/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/shared-breakfast-portions-prices/index.html",
+      "destination": "/en/blog/shared-breakfast-portions-prices/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/turkish-breakfast-taksim/index.html",
+      "destination": "/en/blog/turkish-breakfast-taksim/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/istiklal-kahvalti-ulasim-gezi/index.html",
+      "destination": "/blog/istiklal-kahvalti-ulasim-gezi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/serpme-kahvalti-porsiyon-fiyat-rehberi/index.html",
+      "destination": "/blog/serpme-kahvalti-porsiyon-fiyat-rehberi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/taksimde-kahvalti-plani/index.html",
+      "destination": "/blog/taksimde-kahvalti-plani/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
