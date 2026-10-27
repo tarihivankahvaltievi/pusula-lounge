@@ -1,0 +1,86 @@
+{
+  "tr": {
+    "visitDetails": "Konum ve ziyaret bilgileri",
+    "guide": "Kahvaltı seçenekleri",
+    "questions": [
+      [
+        "Kahvaltı fiyatlarını ve porsiyonları nereden görebilirim?",
+        "Güncel fiyatlar kahvaltı menüsünde Türk lirası olarak listelenir. Serpme Van kahvaltısında 2, 3 ve 4 kişilik porsiyonlar; tek kişi için kahvaltı tabağı ve pişi tabağı seçenekleri bulunur. Porsiyon fiyatı kişi başı fiyat değildir; seçim yapmadan önce menüyü inceleyin."
+      ],
+      [
+        "Pusula Lounge nerede, rezervasyon için nasıl ulaşabilirim?",
+        "Pusula Lounge, Taksim’de İstiklal çevresinde, Beyoğlu / İstanbul’dadır. Açık adres: Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. Rezervasyon talebinizi bu formdan WhatsApp’a aktarabilir veya +90 507 816 29 94 numarasını arayabilirsiniz."
+      ]
+    ]
+  },
+  "en": {
+    "visitDetails": "Location & visiting information",
+    "guide": "Explore breakfast options",
+    "questions": [
+      [
+        "Where can I see breakfast prices and portion sizes?",
+        "Current prices are listed in Turkish lira on our breakfast menu. Shared Van breakfast comes in portions for two, three or four people. Individual breakfast plates and pişi plates are also available. A shared portion price is not a per-person price; check the menu before choosing."
+      ],
+      [
+        "Where is Pusula Lounge and how can I contact you for a table?",
+        "Pusula Lounge is in the İstiklal area of Taksim, Beyoğlu, Istanbul. Address: Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. Use this form to prepare a WhatsApp table request or call +90 507 816 29 94."
+      ]
+    ]
+  },
+  "ru": {
+    "visitDetails": "Адрес и информация для визита",
+    "guide": "Варианты завтрака",
+    "questions": [
+      [
+        "Где посмотреть цены и размеры порций?",
+        "Актуальные цены в турецких лирах указаны в меню завтраков. Ванский завтрак на компанию предлагается на двоих, троих или четверых. Есть также индивидуальная тарелка завтрака и тарелка пиши. Цена общей порции указана за всю порцию, а не за человека; ознакомьтесь с меню перед выбором."
+      ],
+      [
+        "Где находится Pusula Lounge и как связаться для брони?",
+        "Pusula Lounge находится рядом с Истикляль в Таксиме, Бейоглу, Стамбул. Адрес: Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. Подготовьте запрос через эту форму для отправки в WhatsApp или позвоните по номеру +90 507 816 29 94."
+      ]
+    ]
+  },
+  "ko": {
+    "visitDetails": "위치 및 방문 안내",
+    "guide": "아침 식사 메뉴 안내",
+    "questions": [
+      [
+        "가격과 몇 인분인지 어디에서 확인하나요?",
+        "현재 가격은 아침 식사 메뉴에 터키 리라로 표시됩니다. 나눠 먹는 반 지역식 아침 식사는 2인, 3인, 4인용이며, 1인용 아침 식사 플레이트와 피시 플레이트도 있습니다. 공유 메뉴 가격은 1인당 가격이 아닌 해당 인원 전체의 가격이므로 메뉴를 확인해 주세요."
+      ],
+      [
+        "매장은 어디에 있으며 예약 문의는 어떻게 하나요?",
+        "Pusula Lounge는 이스탄불 베이올루 탁심의 이스티클랄 인근에 있습니다. 주소: Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. 이 양식으로 WhatsApp 예약 요청을 준비하거나 +90 507 816 29 94로 전화해 주세요."
+      ]
+    ]
+  },
+  "ar": {
+    "visitDetails": "الموقع ومعلومات الزيارة",
+    "guide": "خيارات الفطور",
+    "questions": [
+      [
+        "أين أجد أسعار الفطور وأحجام الحصص؟",
+        "الأسعار الحالية مدرجة بالليرة التركية في قائمة الفطور. يتوفر فطور فان للمشاركة بحصص لشخصين أو ثلاثة أو أربعة، إضافة إلى طبق فطور فردي وطبق بيشي. سعر الحصة المشتركة هو للحصة كاملة وليس للشخص الواحد؛ يرجى مراجعة القائمة قبل الاختيار."
+      ],
+      [
+        "أين يقع Pusula Lounge وكيف أتواصل للحجز؟",
+        "يقع Pusula Lounge قرب شارع الاستقلال في تقسيم، بيوغلو، إسطنبول. العنوان: Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. استخدم هذا النموذج لتجهيز طلب حجز عبر واتساب أو اتصل على +90 507 816 29 94."
+      ]
+    ]
+  },
+  "zh": {
+    "visitDetails": "位置及到访信息",
+    "guide": "了解早餐选择",
+    "questions": [
+      [
+        "在哪里查看早餐价格和份量？",
+        "早餐菜单以土耳其里拉列出当前价格。共享凡城早餐有两人、三人和四人份，也提供单人早餐盘和 pişi 炸面包盘。共享套餐价格是整份价格，并非每人价格；选择前请查看菜单。"
+      ],
+      [
+        "Pusula Lounge 在哪里，如何联系订位？",
+        "Pusula Lounge 位于伊斯坦布尔贝伊奥卢塔克西姆独立大街附近。地址：Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3。您可以通过本表单准备 WhatsApp 订位请求，或致电 +90 507 816 29 94。"
+      ]
+    ]
+  }
+}

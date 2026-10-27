@@ -14,6 +14,7 @@ The deployment checkout is `/Users/baran/Desktop/pusula-lounge-github`; Vercel s
 
 ```sh
 python3 scripts/build_reservations.py .
+python3 scripts/strengthen_reservation_discovery.py .
 python3 scripts/check_reservations.py .
 ```
 
