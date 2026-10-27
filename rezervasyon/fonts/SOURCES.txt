@@ -1,0 +1,3 @@
+Reservation display fonts from Google Fonts, licensed under SIL Open Font License 1.1.
+Each font is subset to the localized headings and captions; see adjacent license files.
+https://fonts.google.com/
