@@ -12,6 +12,8 @@ The reservation builder now uses intent-focused title and description copy on Ru
 
 `robots.txt` explicitly permits `OAI-SearchBot` to crawl public business and visit information. The general allow rule is retained. GPTBot policy was not changed. This is a crawl-access setting, not a promise of ChatGPT visibility.
 
+The linked Google Maps business entity confirms the No:3 address, postal code 34221, and pin at 41.0352493, 28.9825902. These verified values are now included on the shared Restaurant entity as `PostalAddress.postalCode` and `GeoCoordinates`; every generated route uses the same values. Google recommends complete local business address information and geographic coordinates where available. This helps disambiguate the local entity but does not guarantee a ranking or map placement.
+
 ## What search guidance supports
 
 - Google describes local ranking as primarily relevance, distance, and prominence/popularity; complete, accurate Business Profile data, reviews, photos and other prominence signals matter. No website edit can guarantee first place.
@@ -39,3 +41,4 @@ These are profile-owner actions; no Google, Yandex, or Search Console account wa
 - [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
 - [Google Search Central: Generative AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
 - [OpenAI: Overview of crawlers](https://developers.openai.com/api/docs/bots)
+- [Google Search Central: Local business structured data](https://developers.google.com/search/docs/appearance/structured-data/local-business)

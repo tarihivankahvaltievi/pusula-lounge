@@ -13,6 +13,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
+from business_entity import apply_restaurant_location
 
 ROOT = Path(sys.argv[1]).resolve()
 ORIGIN = 'https://www.pusulalounge.com'
@@ -245,6 +246,7 @@ for file in ROOT.rglob('index.html'):
         for node in data.get('@graph',[]):
             if node.get('@type') == 'Restaurant':
                 node['hasMenu'] = [{'@type':'Menu','@id':ORIGIN+p+'#menu','url':ORIGIN+p,'inLanguage':code} for code,p in GROUPS[1].items()]
+                apply_restaurant_location(node)
         return '<script type="application/ld+json">' + dump(data) + '</script>'
     text = re.sub(r'<script type="application/ld\+json">(.*?)</script>', normalize_schema, text, flags=re.S)
     # Refresh only references to assets we changed, preserving all other markup.
