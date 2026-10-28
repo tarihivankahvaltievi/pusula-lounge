@@ -31,8 +31,9 @@ def ref(path,kind):
     return f'<link rel="stylesheet" href="{url}" integrity="{sri}" crossorigin="anonymous">' if kind=='css' else f'<script src="{url}" defer integrity="{sri}" crossorigin="anonymous"></script>'
 ARROW='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>'
 for lang,(language,path,locale) in LANGS.items():
-    c=COPY[lang]; url=BASE+path; home='/' if lang=='tr' else '/en/'; menu='/menu/' if lang=='tr' else '/en/menu/'
-    location='/konum/' if lang=='tr' else '/en/location/'
+    c=COPY[lang]; url=BASE+path; home='/' if lang=='tr' else f'/{lang}/' if lang in ('ru','ar') else '/en/'; menu='/menu/' if lang=='tr' else f'/{lang}/menu/' if lang in ('ru','ar') else '/en/menu/'
+    breakfast_hours=e(c['breakfast']).replace('08:00–17:00','<bdi dir="ltr">08:00–17:00</bdi>') if lang=='ar' else e(c['breakfast'])
+    location='/konum/' if lang=='tr' else f'/{lang}/location/' if lang in ('ru','ar') else '/en/location/'
     guide='/kahvalti-rehberi/' if lang=='tr' else '/en/breakfast-guide/'
     alternates='\n'.join(f'<link rel="alternate" hreflang="{l}" href="{BASE+p}">' for l,(_,p,_) in LANGS.items())+f'\n<link rel="alternate" hreflang="x-default" href="{BASE}/en/reservation/">'
     switch=''.join(f'<a href="{p}" lang="{l}" hreflang="{l}" dir="auto"'+(' aria-current="page"' if l==lang else '')+f'>{label}</a>' for l,(label,p,_) in LANGS.items())
@@ -87,7 +88,7 @@ for lang,(language,path,locale) in LANGS.items():
 <section id="request-summary" class="request-summary" hidden aria-labelledby="summary-title"><h2 id="summary-title" tabindex="-1">{e(c['ready'])}</h2><p>{e(c['readyText'])}</p><a class="submit-button" id="whatsapp-request" href="https://wa.me/905078162994" rel="noreferrer"><span>{e(c['open'])}</span>{ARROW}</a><label for="request-text">{e(c['message'])}</label><textarea id="request-text" readonly rows="8" dir="auto"></textarea><div class="secondary-actions"><button type="button" id="copy-request">{e(c['copy'])}</button><button type="button" id="edit-request">{e(c['edit'])}</button><a id="sms-request" href="sms:+905078162994">{e(c['sms'])}</a></div><p id="copy-status" role="status" aria-live="polite"></p></section>
 <p class="direct-contact"><a href="tel:+905078162994">{e(c['call'])} <bdi>+90 507 816 29 94</bdi></a></p>
 </section>
-<aside class="place-aside" aria-label="Pusula Lounge"><figure><img src="/assets/gallery/pusula-sofrasi-600.webp" srcset="/assets/gallery/pusula-sofrasi-600.webp 600w, /assets/gallery/pusula-sofrasi-1200.webp 1200w" sizes="(max-width: 800px) calc(100vw - 40px), 400px" width="1200" height="800" alt="{e(c['alt'])}" loading="lazy" decoding="async"><figcaption>{e(c['photo'])}</figcaption></figure><div class="visit-info"><h2>{e(c['visitTitle'])}</h2><p>{e(c['visitText'])}</p><p class="breakfast-hours">{e(c['breakfast'])}</p><address dir="auto">{e(ADDRESS)}</address><div class="visit-links"><a href="{menu}">{e(c['menu'])}</a><a href="{MAP}" rel="noreferrer">{e(c['location'])}</a><a href="{location}">{e(c['visitDetails'])}</a><a href="{guide}">{e(c['guide'])}</a></div></div></aside>
+<aside class="place-aside" aria-label="Pusula Lounge"><figure><img src="/assets/gallery/pusula-sofrasi-600.webp" srcset="/assets/gallery/pusula-sofrasi-600.webp 600w, /assets/gallery/pusula-sofrasi-1200.webp 1200w" sizes="(max-width: 800px) calc(100vw - 40px), 400px" width="1200" height="800" alt="{e(c['alt'])}" loading="lazy" decoding="async"><figcaption>{e(c['photo'])}</figcaption></figure><div class="visit-info"><h2>{e(c['visitTitle'])}</h2><p>{e(c['visitText'])}</p><p class="breakfast-hours">{breakfast_hours}</p><address dir="auto">{e(ADDRESS)}</address><div class="visit-links"><a href="{menu}">{e(c['menu'])}</a><a href="{MAP}" rel="noreferrer">{e(c['location'])}</a><a href="{location}">{e(c['visitDetails'])}</a><a href="{guide}">{e(c['guide'])}</a></div></div></aside>
 </div>
 <section class="reservation-faq" id="faq" aria-labelledby="faq-title"><h2 id="faq-title">{e(c['faqTitle'])}</h2><div>{faq}</div></section>
 </main>

@@ -12,7 +12,7 @@
     if (url.hostname === 'wa.me') emit('reservation_whatsapp_open');
     else if (url.protocol === 'tel:') emit('phone_click');
     else if (url.hostname === 'share.google' || url.hostname.endsWith('google.com') && url.pathname.includes('/maps')) emit('map_profile_click');
-    else if (url.pathname === '/menu/' || url.pathname === '/en/menu/') emit('menu_click');
-    else if (url.pathname === '/rezervasyon/') emit('reservation_page_click');
+    else if (url.origin === location.origin && /^\/(?:en\/|ru\/|ar\/)?menu\/$/.test(url.pathname)) emit('menu_click');
+    else if (url.origin === location.origin && (url.pathname === '/rezervasyon/' || /^\/(?:en|ru|ar|ko|zh)\/reservation\/$/.test(url.pathname))) emit('reservation_page_click');
   });
 })();

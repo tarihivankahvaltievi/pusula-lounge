@@ -5,6 +5,7 @@ from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
 import json,sys,hashlib,base64
+from datetime import date
 R=Path(sys.argv[1]);O='https://www.pusulalounge.com';ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9','x':'http://www.w3.org/1999/xhtml'}
 tree=ET.parse(R/'sitemap.xml');entries=tree.findall('s:url',ns);urls=[u.find('s:loc',ns).text for u in entries];assert len(urls)==len(set(urls))
 def target(url):
@@ -47,7 +48,9 @@ for entry,url in zip(entries,urls):
     check(node.get('telephone')=='+905078162994','business phone mismatch');check('aggregateRating' not in node,'self-serving ratings')
    if node['@type']=='BlogPosting':
     check(node['headline']==s.h1.get_text(),'article headline mismatch');check(node['mainEntityOfPage']['@id']==url+'#webpage','article main page')
-    check(node['datePublished'].startswith('2026-10-27'),'publication date')
+    published=node['datePublished'][:10]
+    check(date.fromisoformat(published)<=date.today(),'future publication date')
+    check(s.select_one('time[datetime="'+published+'"]') is not None,'visible publication date mismatch')
  if '/blog/' in path:
   check(s.html['lang'] in ['tr','en'],'blog language')
   check(len(s.select('link[hreflang]'))==3,'blog hreflang')
