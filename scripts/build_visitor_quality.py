@@ -32,10 +32,13 @@ def ref(path,script=False):
 for lang,c in COPY.items():
     file=file_for(LOCATION[lang])
     text=re.sub(r'<!-- ARRIVAL:START -->.*?<!-- ARRIVAL:END -->','',file.read_text(),flags=re.S)
-    body=f'<!-- ARRIVAL:START --><section class="arrival-guide" id="arrival-guide" aria-labelledby="arrival-title" data-copied="{e(c["copied"])}" data-copy-fallback="{e(c["fallback"])}"><h2 id="arrival-title">{e(c["heading"])}</h2><p>{e(c["intro"])}</p><dl class="arrival-routes">'
+    body=f'<!-- ARRIVAL:START --><section class="arrival-guide" id="arrival-guide" aria-labelledby="arrival-title" data-copied="{e(c["copied"])}" data-copy-fallback="{e(c["fallback"])}"><h2 id="arrival-title">{e(c["heading"])}</h2><p>{e(c["intro"])}</p>'
+    routes_html='<dl class="arrival-routes">'
     for title,description in c['routes']:
-        body+='<div><dt>'+e(title)+'</dt><dd>'+e(description)+'</dd></div>'
-    body+='</dl><div class="visit-card"><h3>Pusula Lounge</h3><address data-visit-address lang="tr" dir="ltr">'+e(ADDRESS)+'</address><p><bdi dir="ltr">+90 507 816 29 94</bdi></p><p>'+e(c['hours'])+'</p><div class="visit-tool-actions">'+link(directions,c['directions'],'visit-button')+link('tel:+905078162994',c['call'])+f'<button type="button" data-copy-address hidden>{e(c["copy"])}</button><button type="button" data-print-visit hidden>{e(c["print"])}</button></div><p role="status" aria-live="polite"></p></div><p>{e(c["note"])}</p>'
+        routes_html+='<div><dt>'+e(title)+'</dt><dd>'+e(description)+'</dd></div>'
+    routes_html+='</dl>'
+    body+='<div class="visit-card"><h3>Pusula Lounge</h3><address data-visit-address lang="tr" dir="ltr">'+e(ADDRESS)+'</address><p><bdi dir="ltr">+90 507 816 29 94</bdi></p><p>'+e(c['hours'])+'</p><div class="visit-tool-actions">'+link(directions,c['directions'],'visit-button')+link('tel:+905078162994',c['call'])+f'<button type="button" data-copy-address hidden>{e(c["copy"])}</button><button type="button" data-print-visit hidden>{e(c["print"])}</button></div><p role="status" aria-live="polite"></p></div><p>{e(c["note"])}</p>'
+    body+=routes_html
     body+='<div class="transport-sources"><h3>'+e(c['sources'])+'</h3><ul>'
     for line in ['M2','T1','F1']:
         body+='<li>'+link('https://metro.istanbul/Hatlarimiz/HatDetay?hat='+line,'Metro İstanbul · '+line)+'</li>'

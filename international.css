@@ -34,3 +34,6 @@ body:not(.visit-page) footer>.site-languages{max-width:1140px;margin-inline:auto
 @media(max-width:700px){.localized-page .visit-intro{padding-block:32px 28px}.localized-page .visit-header nav{gap:6px 18px}.localized-page .lead{font-size:20px}.localized-page:lang(ar) .lead{font-size:22px}.localized-page .visit-spread{gap:28px}.site-languages{gap:6px 20px}}
 
 .site-languages [lang=ru]{font-family:'Pusula Cyrillic Sans',sans-serif}.site-languages [lang=ar]{font-family:'Pusula Arabic',serif;font-size:20px}
+
+/* Keep language-only fonts off the initial render path; links remain searchable and accessible. */
+.site-languages{font-family:inherit;content-visibility:auto;contain-intrinsic-block-size:auto 44px}

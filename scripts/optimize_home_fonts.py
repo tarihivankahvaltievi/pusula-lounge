@@ -50,7 +50,7 @@ for source in sorted((ROOT/'assets/fonts').glob('*.woff2')):
 for file in [ROOT/'assets/home.css',ROOT/'styles.css',ROOT/'assets/fonts/site-fonts.css']:
     current=file.read_text()
     for name,replacement in mapping.items():
-        current=re.sub(r'(?<!optimized/)'+re.escape(name)+r'(?:\?v=[a-f0-9]+)?',replacement,current)
+        current=re.sub(r'(?:optimized/)?'+re.escape(name)+r'(?:\?v=[a-f0-9]+)?',replacement,current)
     file.write_text(current)
 (folder/'manifest.json').write_text(json.dumps({'corpus':'Published page text, accessible labels, printable ASCII and UI punctuation','originalsRetained':True,'fonts':report},ensure_ascii=False,indent=2)+'\n')
 print('Home font sources:',sum(f['originalBytes'] for f in report),'→',sum(f['optimizedBytes'] for f in report),'bytes; outlines/advance widths retained.')

@@ -1,0 +1,2 @@
+beautifulsoup4==4.15.0
+fonttools[woff]==4.60.2
