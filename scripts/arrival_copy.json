@@ -1,0 +1,58 @@
+{
+  "tr": {
+    "heading": "Pusula’ya ulaşım planınız",
+    "intro": "Önce Taksim’e ulaşımı, ardından Sinek Çıkmazı No:3’teki son yürüyüş bölümünü planlayın. Aşağıdaki seçenekler resmî hat bağlantılarını özetler; ziyaret gününüzde sefer duyurularını kontrol edin.",
+    "routes": [
+      ["Metro ile: M2 → Taksim", "M2 Yenikapı–Hacıosman hattında Taksim istasyonunu kullanabilirsiniz. İstasyondan çıktıktan sonra Pusula Lounge’un tam adresine yürüyüş yol tarifini açın. İstasyon çıkışı veya kesin yürüyüş süresi için sabit bir yön tarifi vermiyoruz; geçici çıkış kapanışları rotayı değiştirebilir."],
+      ["Sultanahmet veya Karaköy’den: T1 → Kabataş → F1 → Taksim", "T1’in Kabataş yönünü kullanıp Kabataş’ta F1 Taksim–Kabataş fünikülerine aktarma yapabilirsiniz. F1, Taksim’de M2 ile bağlantılıdır. Aktarmayı, beklemeyi ve istasyon sonrası yürüyüşü ziyaret planınıza ekleyin."],
+      ["İstiklal çevresinden: son bölümü yürüyerek", "Haritada hedefi yalnız İstiklal Caddesi olarak bırakmayın. Pusula Lounge, Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3 adresini kullanın. Girişi bulamazsanız +90 507 816 29 94 numarasından bizi arayın."]
+    ],
+    "directions": "Yürüyüş yol tarifini aç", "copy": "Türkçe adresi kopyala", "copied": "Adres kopyalandı. Sürücüyle veya yol arkadaşınızla paylaşabilirsiniz.", "fallback": "Adres seçildi. Cihazınızın kopyalama seçeneğini kullanın.", "print": "Ziyaret kartını yazdır", "call": "Pusula’yı ara",
+    "hours": "Kahvaltı: her gün 08:00–17:00 · İstanbul saati",
+    "note": "Yolculuk süresi ve ücret; başlangıç noktanıza, aktarmaya ve sefer durumuna bağlıdır. Hareket kısıtlılığı veya bebek arabası için istasyon ve mekân giriş koşullarını önceden teyit edin.",
+    "sources": "Resmî ulaşım kaynakları", "sourcesNote": "Hat bağlantıları 28 Ekim 2026’da resmî Metro İstanbul sayfalarından kontrol edildi. Güncel seferler ve geçici kapanışlar için işletmecinin duyurularını açın.",
+    "reservation": "Kahvaltı için masa talep edin", "menu": "Menü ve fiyatlar"
+  },
+  "en": {
+    "heading": "Plan your journey to Pusula",
+    "intro": "Plan your connection to Taksim first, then the final walk to Sinek Çıkmazı No:3. These options summarize the official line connections; check service notices on the day you travel.",
+    "routes": [
+      ["By metro: M2 → Taksim", "Use Taksim station on the M2 Yenikapı–Hacıosman line. After leaving the station, open walking directions to Pusula Lounge’s full address. Choose your exit using the current signs and map; temporary exit closures can change the final route."],
+      ["From Sultanahmet or Karaköy: T1 → Kabataş → F1 → Taksim", "Take the T1 towards Kabataş, then change at Kabataş to the F1 Taksim–Kabataş funicular. F1 connects with M2 at Taksim. Allow for the interchange, waiting time and the final walk when planning your breakfast."],
+      ["From the İstiklal area: the final walk", "Set your destination to the restaurant rather than İstiklal Avenue alone. Use Pusula Lounge, Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. If you cannot find the entrance, call us on +90 507 816 29 94."]
+    ],
+    "directions": "Open walking directions", "copy": "Copy address in Turkish", "copied": "Address copied. Share it with your driver or travel companion.", "fallback": "Address selected. Use your device’s copy option.", "print": "Print your visit card", "call": "Call Pusula",
+    "hours": "Breakfast: daily 08:00–17:00 · Istanbul time",
+    "note": "Travel time and fare depend on your starting point, connections and service conditions. Confirm station and restaurant access before travelling with a stroller or specific mobility requirements.",
+    "sources": "Official transport sources", "sourcesNote": "Line connections checked against Metro İstanbul’s official pages on 28 October 2026. Open the operator’s notices for current services and temporary closures.",
+    "reservation": "Request a breakfast table", "menu": "Menu and prices"
+  },
+  "ru": {
+    "heading": "Как доехать до Pusula",
+    "intro": "Сначала спланируйте поездку до Таксима, затем пеший участок до Sinek Çıkmazı No:3. Ниже — пересадки по официальным схемам линий. В день поездки проверьте сообщения об изменениях движения.",
+    "routes": [
+      ["На метро: M2 → Taksim", "На линии M2 Yenikapı–Hacıosman выходите на станции Taksim. После выхода откройте пеший маршрут до полного адреса Pusula Lounge. Выбирайте выход по актуальным указателям и карте: временные закрытия могут изменить маршрут."],
+      ["Из Султанахмета или Каракёя: T1 → Kabataş → F1 → Taksim", "Сядьте на T1 в направлении Kabataş и пересядьте в Kabataş на фуникулёр F1 Taksim–Kabataş. На Таксиме F1 соединяется с M2. Учтите время на пересадку, ожидание и прогулку от станции."],
+      ["Из района Истикляль: пешком до входа", "Указывайте на карте полный адрес ресторана, а не только улицу Истикляль: Pusula Lounge, Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. Если не можете найти вход, позвоните нам: +90 507 816 29 94."]
+    ],
+    "directions": "Открыть пеший маршрут", "copy": "Скопировать адрес на турецком", "copied": "Адрес скопирован. Его можно отправить водителю или спутнику.", "fallback": "Адрес выделен. Используйте функцию копирования на устройстве.", "print": "Распечатать карточку визита", "call": "Позвонить в Pusula",
+    "hours": "Завтраки: ежедневно 08:00–17:00 · время Стамбула",
+    "note": "Время поездки и стоимость зависят от отправной точки, пересадок и движения транспорта. При поездке с коляской или особыми требованиями к доступу заранее уточните условия на станции и в ресторане.",
+    "sources": "Официальные транспортные источники", "sourcesNote": "Пересадки проверены по официальным страницам Metro İstanbul 28 октября 2026 года. Актуальное движение и временные закрытия проверяйте в сообщениях перевозчика.",
+    "reservation": "Запросить столик на завтрак", "menu": "Меню и цены"
+  },
+  "ar": {
+    "heading": "خطط للوصول إلى Pusula",
+    "intro": "خطط أولاً للوصول إلى تقسيم، ثم للمشي إلى Sinek Çıkmazı No:3. تلخص الخيارات التالية الربط بين الخطوط وفق المعلومات الرسمية. تحقق من تنبيهات الخدمة يوم الزيارة.",
+    "routes": [
+      ["بالمترو: M2 → Taksim", "استخدم محطة Taksim على خط M2 Yenikapı–Hacıosman. بعد الخروج من المحطة، افتح اتجاهات المشي إلى العنوان الكامل لـ Pusula Lounge. اختر المخرج وفق اللوحات والخريطة الحالية؛ قد تتغير الطريق عند إغلاق بعض المخارج مؤقتاً."],
+      ["من السلطان أحمد أو كاراكوي: T1 → Kabataş → F1 → Taksim", "استقل T1 باتجاه Kabataş، ثم انتقل في Kabataş إلى القطار المائل F1 Taksim–Kabataş. يتصل F1 بخط M2 في تقسيم. احسب وقت التبديل والانتظار والمشي من المحطة ضمن خطة الفطور."],
+      ["من منطقة الاستقلال: المشي حتى المدخل", "حدد عنوان المطعم الكامل بدلاً من شارع الاستقلال وحده: Pusula Lounge, Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3. إذا لم تجد المدخل، اتصل بنا على ‎+90 507 816 29 94."]
+    ],
+    "directions": "افتح اتجاهات المشي", "copy": "انسخ العنوان باللغة التركية", "copied": "تم نسخ العنوان. يمكنك مشاركته مع السائق أو رفيق الرحلة.", "fallback": "تم تحديد العنوان. استخدم خيار النسخ في جهازك.", "print": "اطبع بطاقة الزيارة", "call": "اتصل بـ Pusula",
+    "hours": "الفطور: يومياً 08:00–17:00 · بتوقيت إسطنبول",
+    "note": "تعتمد مدة الرحلة والتكلفة على نقطة الانطلاق والربط وحالة الخدمة. تحقق مسبقاً من سهولة الوصول إلى المحطة ومدخل المطعم عند استخدام عربة أطفال أو عند وجود احتياجات حركية خاصة.",
+    "sources": "مصادر النقل الرسمية", "sourcesNote": "تم التحقق من الربط بين الخطوط عبر صفحات Metro İstanbul الرسمية في 28 أكتوبر 2026. راجع إعلانات المشغّل للخدمة الحالية والإغلاقات المؤقتة.",
+    "reservation": "اطلب طاولة للفطور", "menu": "القائمة والأسعار"
+  }
+}

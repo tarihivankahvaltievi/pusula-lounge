@@ -1,11 +1,11 @@
 {
   "tr": {
     "visitDetails": "Konum ve ziyaret bilgileri",
-    "guide": "Kahvaltı seçenekleri",
+    "guide": "Kahvaltı, yemek ve tatlı seçenekleri",
     "questions": [
       [
-        "Kahvaltı fiyatlarını ve porsiyonları nereden görebilirim?",
-        "Güncel fiyatlar kahvaltı menüsünde Türk lirası olarak listelenir. Serpme Van kahvaltısında 2, 3 ve 4 kişilik porsiyonlar; tek kişi için kahvaltı tabağı ve pişi tabağı seçenekleri bulunur. Porsiyon fiyatı kişi başı fiyat değildir; seçim yapmadan önce menüyü inceleyin."
+        "Kahvaltı, akşam yemeği ve waffle için masa talebi gönderebilir miyim?",
+        "Evet. Formda tarih, saat ve kişi sayısını seçip WhatsApp üzerinden masa talebi gönderebilirsiniz. Kahvaltı menüsü ve porsiyon fiyatları web menüsünde yer alır; akşam yemeği, waffle ve tatlı seçeneklerinin o günkü uygunluğunu ve fiyatını ekibimizden teyit edin. Rezervasyon, ekip masa uygunluğunu onaylayınca kesinleşir."
       ],
       [
         "Pusula Lounge nerede, rezervasyon için nasıl ulaşabilirim?",
@@ -15,11 +15,11 @@
   },
   "en": {
     "visitDetails": "Location & visiting information",
-    "guide": "Explore breakfast options",
+    "guide": "Explore food and dessert options",
     "questions": [
       [
-        "Where can I see breakfast prices and portion sizes?",
-        "Current prices are listed in Turkish lira on our breakfast menu. Shared Van breakfast comes in portions for two, three or four people. Individual breakfast plates and pişi plates are also available. A shared portion price is not a per-person price; check the menu before choosing."
+        "Can I request a table for dinner, waffles or breakfast?",
+        "Yes. Choose your date, time and guest count, then send a table request through WhatsApp. Breakfast items and portion prices are listed on our website menu. Ask the team to confirm evening dishes, waffles, desserts and current prices for your visit. Your reservation is confirmed when the team confirms table availability."
       ],
       [
         "Where is Pusula Lounge and how can I contact you for a table?",

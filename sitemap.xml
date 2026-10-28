@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/konum/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -107,7 +107,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/menu/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
@@ -126,7 +126,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/location/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -389,5 +389,45 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/menu/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/menu/" />
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/blog/taksimde-aksam-yemegi-waffle-kahve/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-aksam-yemegi-waffle-kahve/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/blog/kahvaltidan-sonra-beyoglu-sanat-muze/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/kahvaltidan-sonra-beyoglu-sanat-muze/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-aksam-yemegi-waffle-kahve/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/kahvaltidan-sonra-beyoglu-sanat-muze/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
   </url>
 </urlset>

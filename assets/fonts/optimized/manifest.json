@@ -1,0 +1,123 @@
+{
+  "corpus": "Published page text, accessible labels, printable ASCII and UI punctuation",
+  "originalsRetained": true,
+  "fonts": [
+    {
+      "source": "assets/fonts/0451ffb02b41e4a9.woff2",
+      "output": "assets/fonts/optimized/0451ffb02b41e4a9.woff2",
+      "originalFamily": "Pinyon Script",
+      "originalBytes": 39044,
+      "optimizedBytes": 27400,
+      "supportedCharacters": 120,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/0786443707517311.woff2",
+      "output": "assets/fonts/optimized/0786443707517311.woff2",
+      "originalFamily": "Bodoni Moda SC",
+      "originalBytes": 17664,
+      "optimizedBytes": 3140,
+      "supportedCharacters": 5,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/1a5a139ac94855fb.woff2",
+      "output": "assets/fonts/optimized/1a5a139ac94855fb.woff2",
+      "originalFamily": "Noto Sans",
+      "originalBytes": 78344,
+      "optimizedBytes": 3980,
+      "supportedCharacters": 4,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/1c85e676902fc697.woff2",
+      "output": "assets/fonts/optimized/1c85e676902fc697.woff2",
+      "originalFamily": "DM Serif Display",
+      "originalBytes": 10804,
+      "optimizedBytes": 3496,
+      "supportedCharacters": 5,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/291655adcb38b6b4.woff2",
+      "output": "assets/fonts/optimized/291655adcb38b6b4.woff2",
+      "originalFamily": "Cormorant Garamond Light",
+      "originalBytes": 39260,
+      "optimizedBytes": 22928,
+      "supportedCharacters": 122,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/3f5fbefcaebcac71.woff2",
+      "output": "assets/fonts/optimized/3f5fbefcaebcac71.woff2",
+      "originalFamily": "DM Serif Display",
+      "originalBytes": 24744,
+      "optimizedBytes": 17516,
+      "supportedCharacters": 120,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/456ecf0522b5648b.woff2",
+      "output": "assets/fonts/optimized/456ecf0522b5648b.woff2",
+      "originalFamily": "Bodoni Moda SC",
+      "originalBytes": 19004,
+      "optimizedBytes": 3136,
+      "supportedCharacters": 5,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/6dbfee7fe8ef9452.woff2",
+      "output": "assets/fonts/optimized/6dbfee7fe8ef9452.woff2",
+      "originalFamily": "Noto Sans",
+      "originalBytes": 59928,
+      "optimizedBytes": 37044,
+      "supportedCharacters": 120,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/74f6be8fc12b7cf6.woff2",
+      "output": "assets/fonts/optimized/74f6be8fc12b7cf6.woff2",
+      "originalFamily": "Pinyon Script",
+      "originalBytes": 36152,
+      "optimizedBytes": 4220,
+      "supportedCharacters": 5,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/8fbaa36df2a892d0.woff2",
+      "output": "assets/fonts/optimized/8fbaa36df2a892d0.woff2",
+      "originalFamily": "Cormorant Garamond Light",
+      "originalBytes": 34392,
+      "optimizedBytes": 2296,
+      "supportedCharacters": 5,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/c5312061f40add04.woff2",
+      "output": "assets/fonts/optimized/c5312061f40add04.woff2",
+      "originalFamily": "Bodoni Moda SC",
+      "originalBytes": 34676,
+      "optimizedBytes": 25428,
+      "supportedCharacters": 120,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/d11185ec68e6d41b.woff2",
+      "output": "assets/fonts/optimized/d11185ec68e6d41b.woff2",
+      "originalFamily": "Bodoni Moda SC",
+      "originalBytes": 30956,
+      "optimizedBytes": 22016,
+      "supportedCharacters": 120,
+      "metricsPreserved": true
+    },
+    {
+      "source": "assets/fonts/ed9ca037f4702440.woff2",
+      "output": "assets/fonts/optimized/ed9ca037f4702440.woff2",
+      "originalFamily": "Noto Sans",
+      "originalBytes": 289888,
+      "optimizedBytes": 4080,
+      "supportedCharacters": 5,
+      "metricsPreserved": true
+    }
+  ]
+}

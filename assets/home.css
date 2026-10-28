@@ -4,7 +4,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/456ecf0522b5648b.woff2?v=58ec32bfb6ad") format('woff2');
+  src: url("/assets/fonts/optimized/456ecf0522b5648b.woff2?v=4332cdf18859") format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
@@ -12,7 +12,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/c5312061f40add04.woff2?v=c759d8d2b3df") format('woff2');
+  src: url("/assets/fonts/optimized/c5312061f40add04.woff2?v=843d939a9078") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -20,7 +20,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/0786443707517311.woff2?v=7e066fdf5684") format('woff2');
+  src: url("/assets/fonts/optimized/0786443707517311.woff2?v=a0f1e3190b5a") format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
@@ -28,7 +28,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/d11185ec68e6d41b.woff2?v=2b9f90f9bd9d") format('woff2');
+  src: url("/assets/fonts/optimized/d11185ec68e6d41b.woff2?v=498bfc0b3b33") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -36,7 +36,7 @@
   font-style: italic;
   font-weight: 500 600;
   font-display: swap;
-  src: url("/assets/fonts/8fbaa36df2a892d0.woff2?v=cd5bf126b2c8") format('woff2');
+  src: url("/assets/fonts/optimized/8fbaa36df2a892d0.woff2?v=bb09c50e83ff") format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
@@ -44,7 +44,7 @@
   font-style: italic;
   font-weight: 500 600;
   font-display: swap;
-  src: url("/assets/fonts/291655adcb38b6b4.woff2?v=6f2f5c3b1abc") format('woff2');
+  src: url("/assets/fonts/optimized/291655adcb38b6b4.woff2?v=95483184098c") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -52,7 +52,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/1c85e676902fc697.woff2?v=3af47815d618") format('woff2');
+  src: url("/assets/fonts/optimized/1c85e676902fc697.woff2?v=9e65b8e89ac7") format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
@@ -60,7 +60,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/3f5fbefcaebcac71.woff2?v=fdf61e20fd2c") format('woff2');
+  src: url("/assets/fonts/optimized/3f5fbefcaebcac71.woff2?v=dcd14f674b63") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -69,7 +69,7 @@
   font-weight: 400 700;
   font-stretch: 87.5% 100%;
   font-display: swap;
-  src: url("/assets/fonts/1a5a139ac94855fb.woff2?v=1a5a139ac948") format('woff2');
+  src: url("/assets/fonts/optimized/1a5a139ac94855fb.woff2?v=488170de6037") format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
@@ -78,7 +78,7 @@
   font-weight: 400 700;
   font-stretch: 87.5% 100%;
   font-display: swap;
-  src: url("/assets/fonts/6dbfee7fe8ef9452.woff2?v=df8c8215937a") format('woff2');
+  src: url("/assets/fonts/optimized/6dbfee7fe8ef9452.woff2?v=f80b234c6c01") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -86,7 +86,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/74f6be8fc12b7cf6.woff2?v=c208ba67b4ef") format('woff2');
+  src: url("/assets/fonts/optimized/74f6be8fc12b7cf6.woff2?v=3f0eab0e1411") format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
@@ -94,7 +94,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/assets/fonts/0451ffb02b41e4a9.woff2?v=3e1f69a20157") format('woff2');
+  src: url("/assets/fonts/optimized/0451ffb02b41e4a9.woff2?v=40f390646a22") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
