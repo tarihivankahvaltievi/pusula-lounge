@@ -4,6 +4,9 @@
   if (!form) return;
   const text = JSON.parse(document.getElementById('reservation-copy').textContent);
   const fields = ['date', 'time', 'guests', 'name', 'phone'].map(id => form.elements[id]);
+  const visitType = form.elements.visitType;
+  const requestedVisit = new URLSearchParams(location.search).get('visit');
+  if (['breakfast', 'dinner', 'waffle', 'coffee', 'other'].includes(requestedVisit)) visitType.value = requestedVisit;
   const [date, time, guests] = fields;
   const summary = document.getElementById('request-summary');
   const requestText = document.getElementById('request-text');
@@ -81,6 +84,7 @@
     const pairs = [[text.date, date.value], [text.time, `${time.value} (Europe/Istanbul)`],
       [text.guests, guests.value], [text.name, form.elements.name.value.trim()],
       [text.phone, digits(form.elements.phone.value.trim())]];
+    if (visitType.value) pairs.splice(2, 0, [text.visitTypeMessage, visitType.options[visitType.selectedIndex].text]);
     const note = form.elements.note.value.trim();
     if (note) pairs.push([text.note, note]);
     requestText.value = `${text.intro}\n\n${pairs.map(([label, value]) => `${label}: ${value}`).join('\n')}\n\n${text.outro}`;

@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Permit ChatGPT Search to find public business and visit information.
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://www.pusulalounge.com/sitemap.xml
