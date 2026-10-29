@@ -1,0 +1,90 @@
+[
+  {
+    "requested": "https://www.pusulalounge.com/",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/",
+    "redirects": [],
+    "canonical": "https://www.pusulalounge.com/",
+    "xRobots": null,
+    "title": "Pusula Lounge Taksim · Beyoğlu’nda Van Kahvaltısı"
+  },
+  {
+    "requested": "https://pusulalounge.com/",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/",
+    "redirects": [
+      308
+    ],
+    "canonical": "https://www.pusulalounge.com/",
+    "xRobots": null,
+    "title": "Pusula Lounge Taksim · Beyoğlu’nda Van Kahvaltısı"
+  },
+  {
+    "requested": "http://pusulalounge.com/",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/",
+    "redirects": [
+      308,
+      308
+    ],
+    "canonical": "https://www.pusulalounge.com/",
+    "xRobots": null,
+    "title": "Pusula Lounge Taksim · Beyoğlu’nda Van Kahvaltısı"
+  },
+  {
+    "requested": "https://www.pusulalounge.com/menu/",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/menu/",
+    "redirects": [],
+    "canonical": "https://www.pusulalounge.com/menu/",
+    "xRobots": null,
+    "title": "Taksim Kahvaltı Menüsü ve Fiyatları | Pusula Lounge"
+  },
+  {
+    "requested": "https://www.pusulalounge.com/en/",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/en/",
+    "redirects": [],
+    "canonical": "https://www.pusulalounge.com/en/",
+    "xRobots": null,
+    "title": "Pusula Lounge Reviews & Turkish Breakfast in Taksim"
+  },
+  {
+    "requested": "https://www.pusulalounge.com/robots.txt",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/robots.txt",
+    "redirects": [],
+    "canonical": null,
+    "xRobots": null,
+    "title": null
+  },
+  {
+    "requested": "https://www.pusulalounge.com/sitemap.xml",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/sitemap.xml",
+    "redirects": [],
+    "canonical": null,
+    "xRobots": null,
+    "title": null
+  },
+  {
+    "requested": "https://www.pusulalounge.com/no-such-pusula-seo-check/",
+    "status": 404,
+    "url": "https://www.pusulalounge.com/no-such-pusula-seo-check/",
+    "redirects": [],
+    "canonical": null,
+    "xRobots": null,
+    "title": "Sayfa bulunamadı · Pusula Lounge"
+  },
+  {
+    "requested": "https://www.pusulalounge.com/menu/index.html",
+    "status": 200,
+    "url": "https://www.pusulalounge.com/menu/",
+    "redirects": [
+      308
+    ],
+    "canonical": "https://www.pusulalounge.com/menu/",
+    "xRobots": null,
+    "title": "Taksim Kahvaltı Menüsü ve Fiyatları | Pusula Lounge"
+  }
+]

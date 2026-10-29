@@ -40,6 +40,11 @@ for entry in tree.getroot():
         article = next((n for n in graph if n.get('@type') == 'BlogPosting'), None)
         for node in graph:
             if node.get('@id') == url + '#webpage':
+                # Reference the same real dishes that visitors can compare and
+                # open in the local-language menu. No separate AI-only facts.
+                choices = list(dict.fromkeys(urljoin(url, a['href']) for a in soup.select('a[data-menu-choice][href]')))
+                if choices:
+                    node['mentions'] = [{'@id': choice} for choice in choices]
                 if images:
                     node['primaryImageOfPage'] = images[0]
                 translations = [{'@id': a['href'] + '#webpage'} for a in soup.select('link[hreflang]')

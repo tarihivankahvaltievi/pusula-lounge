@@ -3,6 +3,7 @@ Run after editorial design and before font subsetting and asset integrity sealin
 """
 from pathlib import Path
 from html import escape
+import base64, hashlib
 import json, re, sys
 from bs4 import BeautifulSoup
 
@@ -26,17 +27,33 @@ def patch_metadata(text, title, description):
         return str(tag)
     return re.sub(r'<meta\b[^>]*>', replace, text)
 
+def plate_comparison(en):
+    """Use published product names, prices and tea wording, never a second price list."""
+    prefix = '/en/' if en else '/'
+    translated = BeautifulSoup((ROOT/'en/menu/index.html').read_text(), 'html.parser') if en else menu
+    rows = []
+    for slug in ['kahvalti-tabagi', 'pisi-tabagi', 'sade-menemen', 'peynirli-gozleme', 'kasarli-omlet']:
+        item = menu.find(id=slug)
+        name = translated.find(id=slug).h3.get_text(' ', strip=True)
+        price = int(re.sub(r'\D', '', item.select_one('.price').get_text()))
+        description = item.select_one('.item-detail').get_text(' ', strip=True)
+        tea = bool(re.search(r'\bçay\b', description, re.I))
+        tea_label = ('Tea listed' if tea else 'Tea not listed') if en else ('Çay listeleniyor' if tea else 'Çay listelenmiyor')
+        rows.append('<tr><th scope="row"><a data-menu-choice href="'+prefix+'menu/#'+slug+'">'+escape(name)+'</a></th><td>'+money(price, en)+'</td><td>'+tea_label+'</td></tr>')
+    headers = ['Dish', 'Menu price', 'Tea in the description'] if en else ['Seçenek', 'Menü fiyatı', 'Açıklamadaki çay kapsamı']
+    caption = 'Compare breakfast plates and hot dishes' if en else 'Tek tabak ve sıcak kahvaltı seçeneklerini karşılaştırın'
+    note = ('These are separate menu items, not a set with unlimited tea. Follow each dish for its contents; ask the team about extras, current prices and availability.' if en else 'Bunlar ayrı menü ürünleridir; sınırsız çay içeren bir set değildir. İçerik için ürün bağlantısını açın; ilaveleri, güncel fiyat ve uygunluğu ekibimize sorun.')
+    return ('<table class="breakfast-options"><caption>'+caption+'</caption><thead><tr>'+''.join('<th scope="col">'+h+'</th>' for h in headers)+'</tr></thead><tbody>'+''.join(rows)+'</tbody></table><p class="note">'+note+'</p>')
+
 def visit_answers(en):
     """Useful late-breakfast and solo-visitor answers, with menu-derived prices."""
     prefix = '/en/' if en else '/'
-    plate = int(re.sub(r'[^0-9]', '', menu.select_one('#kahvalti-tabagi .price').get_text()))
-    pisi = int(re.sub(r'[^0-9]', '', menu.select_one('#pisi-tabagi .price').get_text()))
     if en:
         heading = 'Late breakfast in Taksim: plan your visit'
         hours = 'Looking for Turkish breakfast after noon? Pusula Lounge serves breakfast every day from 08:00 to 17:00 near İstiklal Avenue in Beyoğlu. These breakfast hours also apply on weekends; check special-day hours and availability with our team.'
         timing = 'The venue is open 24 hours, but breakfast is served only during the breakfast hours above. If you are arriving close to 17:00, ask the team about the last breakfast order before setting off.'
         solo_title = 'Visiting on your own?'
-        solo = f'The individual breakfast plate is {money(plate, True)} and the pişi plate is {money(pisi, True)} in our web menu. The shared Van breakfast has portions for 2, 3 or 4 people. Choose an individual plate if you are not looking for a shared spread.'
+        solo = 'The shared Van breakfast has portions for 2, 3 or 4 people. If you prefer an individual plate or a hot dish, compare the options below. Menemen, gözleme and omelette are also listed as individual menu items.'
         menu_label = 'Compare individual breakfast plates'
         location_label = 'Find the entrance and walking directions'
         address = 'Find us at Sinek Çıkmazı No:3, off Küçük Parmak Kapı Sokak in Katip Mustafa Çelebi, Beyoğlu. Use the location page to open a route from your starting point.'
@@ -46,14 +63,14 @@ def visit_answers(en):
         hours = 'Öğleden sonra kahvaltı yapmak istiyorsanız Pusula Lounge, Beyoğlu’nda İstiklal yakınında her gün 08:00–17:00 arasında kahvaltı servis eder. Hafta sonu kahvaltı saatleri de aynıdır; özel gün saatlerini ve uygunluğu ekibimizle teyit edin.'
         timing = 'Mekân 24 saat açıktır; kahvaltı servisi ise yukarıdaki saatlerle sınırlıdır. Saat 17:00’ye yakın gelecekseniz yola çıkmadan önce son kahvaltı siparişi için ekibimize danışın.'
         solo_title = 'Tek kişi için kahvaltı seçenekleri'
-        solo = f'Web menümüzde kahvaltı tabağı {money(plate, False)}, pişi tabağı {money(pisi, False)} olarak listelenir. Serpme Van kahvaltısının 2, 3 ve 4 kişilik porsiyonları vardır. Paylaşmalı bir sofra istemiyorsanız tek tabak seçeneklerini değerlendirebilirsiniz.'
+        solo = 'Serpme Van kahvaltısının 2, 3 ve 4 kişilik porsiyonları vardır. Tek tabak veya sıcak bir kahvaltılık tercih ediyorsanız aşağıdaki seçenekleri karşılaştırabilirsiniz. Serpme sofra dışında menemen, gözleme ve omlet de menüde ayrı fiyatlarla listelenir.'
         menu_label = 'Tek tabak kahvaltı seçeneklerini karşılaştırın'
         location_label = 'Giriş adresini ve yürüyüş tarifini görün'
         address = 'Adresimiz Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu. Bulunduğunuz noktadan yürüyüş rotası açmak için konum sayfasını kullanın.'
         location = '/konum/'
     return ('<!-- VISIT-ANSWERS:START --><section class="visit-section" aria-labelledby="late-breakfast">'
             '<h2 id="late-breakfast">'+heading+'</h2><p>'+hours+'</p><p>'+timing+'</p>'
-            '<h3>'+solo_title+'</h3><p>'+solo+'</p><p><a href="'+prefix+'menu/#kahvalti-tabagi">'+menu_label+'</a></p>'
+            '<h3>'+solo_title+'</h3><p>'+solo+'</p>'+plate_comparison(en)+'<p><a href="'+prefix+'menu/#kahvalti-tabagi">'+menu_label+'</a></p>'
             '<p>'+address+' <a href="'+location+'">'+location_label+'</a></p>'
             '</section><!-- VISIT-ANSWERS:END -->')
 
@@ -105,3 +122,51 @@ for en in [False,True]:
         assert count==1,file
         file.write_text(text)
 print('Updated six search previews, two breakfast decision sections and ten article-to-breakfast links.')
+
+# Put the Turkish menu's next actions before the product list, just like the
+# visitor-language menus. Preserve category navigation and the working search.
+file = ROOT/'menu/index.html'
+text = re.sub(r'<!-- MENU-VISIT:START -->.*?<!-- MENU-VISIT:END -->', '', file.read_text(), flags=re.S)
+intro = ('<!-- MENU-VISIT:START --><section class="menu-visit" aria-labelledby="menu-visit-title">'
+         '<h1 id="menu-visit-title">Taksim’de kahvaltı menüsü ve fiyatları</h1>'
+         '<p>Serpme Van kahvaltısı, tek tabak ve sıcak kahvaltılık seçenekleri.</p>'
+         '<div class="menu-visit-actions"><a class="menu-visit-primary" href="/rezervasyon/?visit=breakfast">Kahvaltı için masa isteyin</a>'
+         '<a href="/konum/#arrival-guide">Yol tarifini açın</a></div>'
+         '<p class="menu-visit-note">Masa talebiniz ekibimizin onayıyla kesinleşir. Fiyat ve ürün uygunluğunu sipariş öncesinde teyit edin.</p>'
+         '</section><!-- MENU-VISIT:END -->')
+text, count = re.subn(r'<h1 class="sr-only">.*?</h1>', intro, text, count=1, flags=re.S)
+if not count:
+    # A standalone rerun no longer has the screen-reader-only heading.
+    assert '<nav aria-label="Menü kategorileri"' in text
+    text = text.replace('<nav aria-label="Menü kategorileri"', intro+'<nav aria-label="Menü kategorileri"', 1)
+text = text.replace('<div class="search-empty"', '<div data-nosnippet class="search-empty"') if 'data-nosnippet class="search-empty"' not in text else text
+file.write_text(text)
+
+# Only these three decision surfaces need the extra styles. Integrity and CSP
+# are sealed later by the release's existing visitor-quality step.
+css = '''/* Menu decisions use the existing paper, burgundy and green palette. */
+.menu-visit{max-width:1000px;margin:0 auto;padding:18px 28px 24px}
+.menu-visit h1{font:700 clamp(24px,3vw,34px)/1.2 'Source Sans 3',sans-serif;color:var(--ink);margin:0 0 10px;letter-spacing:normal}
+.menu-visit p{font-size:16px;line-height:1.5;margin:0 0 12px;max-width:70ch}
+.menu-visit-actions{display:flex;align-items:center;flex-wrap:wrap;gap:4px 22px;margin-bottom:10px}
+.menu-visit-actions a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.menu-visit-actions .menu-visit-primary{background:#193d27;color:#fff;padding:10px 18px;text-decoration:none}
+.menu-visit-actions a:hover{text-decoration:underline;text-decoration-thickness:2px}
+.menu-visit .menu-visit-note{font-size:14px;margin:0;max-width:72ch}
+.breakfast-options{width:100%;border-collapse:collapse;table-layout:fixed;margin:24px 0;font-size:17px;line-height:1.45}
+.breakfast-options caption{text-align:start;font-weight:700;margin-bottom:16px}
+.breakfast-options th,.breakfast-options td{text-align:start;padding:16px 12px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.breakfast-options thead{background:var(--sun)}
+.breakfast-options th:first-child{width:40%}.breakfast-options th:nth-child(2){width:24%}
+.breakfast-options tbody th{font-weight:600}.breakfast-options td:nth-child(2){font-variant-numeric:tabular-nums}
+.breakfast-options a{display:inline-block;min-height:44px}
+@media(max-width:700px){.menu-visit{padding:14px 20px 20px}.menu-visit h1{max-width:25ch}.breakfast-options{font-size:16px}.breakfast-options th,.breakfast-options td{padding:14px 6px}.breakfast-options th:first-child{width:39%}.breakfast-options th:nth-child(2){width:26%}}
+'''
+(ROOT/'search-decisions.css').write_text(css)
+digest = hashlib.sha256(css.encode()).digest()
+ref = '<link rel="stylesheet" href="/search-decisions.css?v='+digest.hex()[:12]+'" integrity="sha256-'+base64.b64encode(digest).decode()+'" crossorigin="anonymous">'
+for rel in ['menu/index.html', 'kahvalti/index.html', 'en/breakfast/index.html']:
+    file = ROOT/rel
+    text = re.sub(r'<link\b[^>]*href="/search-decisions.css(?:\?[^\"]*)?"[^>]*>', '', file.read_text())
+    file.write_text(text.replace('</head>', ref+'</head>'))
+print('Added early Turkish menu actions and source-derived bilingual dish comparisons.')

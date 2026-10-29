@@ -66,3 +66,17 @@ Late-breakfast and individual-plate answers are generated in the same search-gro
 step, using the published menu for prices. Four menu pages are linked to their Menu
 entities by the metadata finalizer. Research and validation for this follow-up:
 `seo/DISCOVERY-AND-CONVERSION-2026-10-29.md`.
+
+The Turkish menu now presents table-request and directions links before its
+products. The TR/EN breakfast pages compare five individual dishes using names
+from the local-language menus and prices/tea wording from the Turkish menu.
+`build_search_growth.py` produces these sections and `search-decisions.css`;
+the metadata finalizer links the visible dishes to their existing menu entities.
+Research, query mapping and the customer-acquisition measurement plan are in
+`seo/SEARCH-DECISIONS-2026-10-29.md`.
+
+Check the new journey with JavaScript both enabled and disabled:
+
+```sh
+PREVIEW_URL=http://127.0.0.1:8875 node scripts/test_search_decisions.cjs /tmp/pusula-search-decisions
+```

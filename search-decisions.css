@@ -1,0 +1,17 @@
+/* Menu decisions use the existing paper, burgundy and green palette. */
+.menu-visit{max-width:1000px;margin:0 auto;padding:18px 28px 24px}
+.menu-visit h1{font:700 clamp(24px,3vw,34px)/1.2 'Source Sans 3',sans-serif;color:var(--ink);margin:0 0 10px;letter-spacing:normal}
+.menu-visit p{font-size:16px;line-height:1.5;margin:0 0 12px;max-width:70ch}
+.menu-visit-actions{display:flex;align-items:center;flex-wrap:wrap;gap:4px 22px;margin-bottom:10px}
+.menu-visit-actions a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+.menu-visit-actions .menu-visit-primary{background:#193d27;color:#fff;padding:10px 18px;text-decoration:none}
+.menu-visit-actions a:hover{text-decoration:underline;text-decoration-thickness:2px}
+.menu-visit .menu-visit-note{font-size:14px;margin:0;max-width:72ch}
+.breakfast-options{width:100%;border-collapse:collapse;table-layout:fixed;margin:24px 0;font-size:17px;line-height:1.45}
+.breakfast-options caption{text-align:start;font-weight:700;margin-bottom:16px}
+.breakfast-options th,.breakfast-options td{text-align:start;padding:16px 12px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.breakfast-options thead{background:var(--sun)}
+.breakfast-options th:first-child{width:40%}.breakfast-options th:nth-child(2){width:24%}
+.breakfast-options tbody th{font-weight:600}.breakfast-options td:nth-child(2){font-variant-numeric:tabular-nums}
+.breakfast-options a{display:inline-block;min-height:44px}
+@media(max-width:700px){.menu-visit{padding:14px 20px 20px}.menu-visit h1{max-width:25ch}.breakfast-options{font-size:16px}.breakfast-options th,.breakfast-options td{padding:14px 6px}.breakfast-options th:first-child{width:39%}.breakfast-options th:nth-child(2){width:26%}}

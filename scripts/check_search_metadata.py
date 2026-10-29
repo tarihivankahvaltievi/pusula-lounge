@@ -11,6 +11,9 @@ for entry in ET.parse(root/'sitemap.xml').getroot():
     soup = BeautifulSoup((root/urlsplit(url).path.lstrip('/')/'index.html').read_text(), 'html.parser')
     graph = json.loads(soup.select_one('script[type="application/ld+json"]').string)['@graph']
     page = next(n for n in graph if n.get('@id') == url+'#webpage')
+    choices = {urljoin(url, a['href']) for a in soup.select('a[data-menu-choice]')}
+    if choices:
+        assert {n['@id'] for n in page['mentions']} == choices, (url, 'visible menu references')
     visible = [urljoin(url, i['src']).split('?')[0] for i in soup.select('main img[src][alt]')
                if i['alt'].strip() and i.get('aria-hidden') != 'true']
     listed = [i.find('i:loc', ns).text for i in entry.findall('i:image', ns)]
