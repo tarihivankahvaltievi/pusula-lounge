@@ -26,6 +26,37 @@ def patch_metadata(text, title, description):
         return str(tag)
     return re.sub(r'<meta\b[^>]*>', replace, text)
 
+def visit_answers(en):
+    """Useful late-breakfast and solo-visitor answers, with menu-derived prices."""
+    prefix = '/en/' if en else '/'
+    plate = int(re.sub(r'[^0-9]', '', menu.select_one('#kahvalti-tabagi .price').get_text()))
+    pisi = int(re.sub(r'[^0-9]', '', menu.select_one('#pisi-tabagi .price').get_text()))
+    if en:
+        heading = 'Late breakfast in Taksim: plan your visit'
+        hours = 'Looking for Turkish breakfast after noon? Pusula Lounge serves breakfast every day from 08:00 to 17:00 near İstiklal Avenue in Beyoğlu. These breakfast hours also apply on weekends; check special-day hours and availability with our team.'
+        timing = 'The venue is open 24 hours, but breakfast is served only during the breakfast hours above. If you are arriving close to 17:00, ask the team about the last breakfast order before setting off.'
+        solo_title = 'Visiting on your own?'
+        solo = f'The individual breakfast plate is {money(plate, True)} and the pişi plate is {money(pisi, True)} in our web menu. The shared Van breakfast has portions for 2, 3 or 4 people. Choose an individual plate if you are not looking for a shared spread.'
+        menu_label = 'Compare individual breakfast plates'
+        location_label = 'Find the entrance and walking directions'
+        address = 'Find us at Sinek Çıkmazı No:3, off Küçük Parmak Kapı Sokak in Katip Mustafa Çelebi, Beyoğlu. Use the location page to open a route from your starting point.'
+        location = '/en/location/'
+    else:
+        heading = 'Taksim’de geç kahvaltı: ziyaretinizi planlayın'
+        hours = 'Öğleden sonra kahvaltı yapmak istiyorsanız Pusula Lounge, Beyoğlu’nda İstiklal yakınında her gün 08:00–17:00 arasında kahvaltı servis eder. Hafta sonu kahvaltı saatleri de aynıdır; özel gün saatlerini ve uygunluğu ekibimizle teyit edin.'
+        timing = 'Mekân 24 saat açıktır; kahvaltı servisi ise yukarıdaki saatlerle sınırlıdır. Saat 17:00’ye yakın gelecekseniz yola çıkmadan önce son kahvaltı siparişi için ekibimize danışın.'
+        solo_title = 'Tek kişi için kahvaltı seçenekleri'
+        solo = f'Web menümüzde kahvaltı tabağı {money(plate, False)}, pişi tabağı {money(pisi, False)} olarak listelenir. Serpme Van kahvaltısının 2, 3 ve 4 kişilik porsiyonları vardır. Paylaşmalı bir sofra istemiyorsanız tek tabak seçeneklerini değerlendirebilirsiniz.'
+        menu_label = 'Tek tabak kahvaltı seçeneklerini karşılaştırın'
+        location_label = 'Giriş adresini ve yürüyüş tarifini görün'
+        address = 'Adresimiz Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu. Bulunduğunuz noktadan yürüyüş rotası açmak için konum sayfasını kullanın.'
+        location = '/konum/'
+    return ('<!-- VISIT-ANSWERS:START --><section class="visit-section" aria-labelledby="late-breakfast">'
+            '<h2 id="late-breakfast">'+heading+'</h2><p>'+hours+'</p><p>'+timing+'</p>'
+            '<h3>'+solo_title+'</h3><p>'+solo+'</p><p><a href="'+prefix+'menu/#kahvalti-tabagi">'+menu_label+'</a></p>'
+            '<p>'+address+' <a href="'+location+'">'+location_label+'</a></p>'
+            '</section><!-- VISIT-ANSWERS:END -->')
+
 metadata = {
  'menu/index.html': ('Taksim Kahvaltı Menüsü ve Fiyatları | Pusula Lounge', 'Pusula Lounge Taksim kahvaltı menüsü: 2, 3 ve 4 kişilik serpme Van kahvaltısı, kahvaltı tabağı, pişi, menemen ve gözleme fiyatlarını karşılaştırın.'),
  'en/menu/index.html': ('Taksim Breakfast Menu & Prices in TRY | Pusula Lounge', 'Read Pusula Lounge’s English breakfast menu in Taksim: shared Van breakfast for 2, 3 or 4, individual plates, menemen and gözleme. Prices in Turkish lira.'),
@@ -46,6 +77,8 @@ for rel, (title, description) in metadata.items():
         text = re.sub(r'<!-- SEARCH-DECISION:START -->.*?<!-- SEARCH-DECISION:END -->', '', text, flags=re.S)
         rows = ''.join('<li><strong>'+ (f'{n} people' if en else f'{n} kişilik')+'</strong>'+money(price,en)+'</li>' for n,price in portions)
         block = '<!-- SEARCH-DECISION:START --><section class="visit-section" aria-labelledby="breakfast-prices"><h2 id="breakfast-prices">'+('Shared breakfast: portion prices' if en else 'Serpme kahvaltı porsiyon fiyatları')+'</h2><p>'+('Breakfast is served daily 08:00–17:00. The shared Van breakfast lists unlimited tea, menemen and pan-fried eggs alongside cheeses and accompaniments.' if en else 'Kahvaltı her gün 08:00–17:00 arasında servis edilir. Serpme Van kahvaltısında peynir ve eşlikçilerin yanında menemen, sahanda yumurta ve sınırsız çay listelenir.')+'</p><ul class="portion-list">'+rows+'</ul><p class="note">'+('Prices shown are the total for each portion in our web menu, not per person. Extras are separate; confirm current prices and availability before ordering.' if en else 'Fiyatlar web menümüzdeki porsiyon toplamıdır; kişi başı değildir. İlave siparişler ayrıdır; güncel fiyat ve uygunluğu sipariş öncesinde teyit edin.')+'</p><div class="visit-actions"><a class="visit-button" href="'+reserve+'">'+('Request a breakfast table' if en else 'Kahvaltı için masa isteyin')+'</a><a href="'+prefix+'menu/#serpme-van-kahvaltisi">'+('See the full breakfast menu' if en else 'Kahvaltı menüsünü inceleyin')+'</a><a href="'+('/en/location/' if en else '/konum/')+'">'+('Directions from Taksim' if en else 'Taksim’den yol tarifi')+'</a></div><p>'+('Send the request in WhatsApp and wait for our team to confirm your table.' if en else 'Talebinizi WhatsApp’ta gönderin; masanız ekibimizin onayıyla kesinleşir.')+'</p></section><!-- SEARCH-DECISION:END -->'
+        text = re.sub(r'<!-- VISIT-ANSWERS:START -->.*?<!-- VISIT-ANSWERS:END -->', '', text, flags=re.S)
+        block += visit_answers(en)
         # Keep the introduction, then answer price/service/booking questions before the long content.
         text, count = re.subn(r'(<div class="visit-intro">.*?</div>)', lambda m:m.group(1)+block, text, count=1, flags=re.S)
         assert count == 1, rel

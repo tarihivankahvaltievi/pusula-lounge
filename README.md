@@ -61,3 +61,8 @@ python3 scripts/check_search_metadata.py .
 
 Research, query-to-page mapping and the measurement plan:
 `seo/SEARCH-GROWTH-2026-10-29.md`.
+
+Late-breakfast and individual-plate answers are generated in the same search-growth
+step, using the published menu for prices. Four menu pages are linked to their Menu
+entities by the metadata finalizer. Research and validation for this follow-up:
+`seo/DISCOVERY-AND-CONVERSION-2026-10-29.md`.

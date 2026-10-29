@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "final_url": "https://www.pusulalounge.com/",
+    "x_robots_tag": null,
+    "bytes": 40024
+  },
+  {
+    "path": "/kahvalti/",
+    "status": 200,
+    "final_url": "https://www.pusulalounge.com/kahvalti/",
+    "x_robots_tag": null,
+    "bytes": 16164
+  },
+  {
+    "path": "/en/breakfast/",
+    "status": 200,
+    "final_url": "https://www.pusulalounge.com/en/breakfast/",
+    "x_robots_tag": null,
+    "bytes": 15789
+  },
+  {
+    "path": "/menu/",
+    "status": 200,
+    "final_url": "https://www.pusulalounge.com/menu/",
+    "x_robots_tag": null,
+    "bytes": 30688
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "final_url": "https://www.pusulalounge.com/robots.txt",
+    "x_robots_tag": null,
+    "bytes": 181
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "final_url": "https://www.pusulalounge.com/sitemap.xml",
+    "x_robots_tag": null,
+    "bytes": 33289
+  }
+]

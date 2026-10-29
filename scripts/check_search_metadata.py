@@ -24,5 +24,8 @@ for entry in ET.parse(root/'sitemap.xml').getroot():
     for article in [n for n in graph if n.get('@type') == 'BlogPosting']:
         assert page['mainEntity']['@id'] == article['@id']
         assert article['image']['url'] == visible[0], (url, 'article image')
+    for menu in [n for n in graph if n.get('@type') == 'Menu']:
+        assert page['mainEntity']['@id'] == menu['@id']
+        assert menu['mainEntityOfPage']['@id'] == page['@id']
     count += len(listed)
 print(f'PASS: final image metadata, translations and article relationships; {count} sitemap image entries.')

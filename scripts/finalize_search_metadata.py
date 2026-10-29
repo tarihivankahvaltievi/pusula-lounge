@@ -36,6 +36,7 @@ for entry in tree.getroot():
     def update_schema(match):
         data = json.loads(match.group(2))
         graph = data.get('@graph', [])
+        menu = next((n for n in graph if n.get('@type') == 'Menu'), None)
         article = next((n for n in graph if n.get('@type') == 'BlogPosting'), None)
         for node in graph:
             if node.get('@id') == url + '#webpage':
@@ -45,6 +46,9 @@ for entry in tree.getroot():
                                 if a['hreflang'] != 'x-default' and a['href'] != url]
                 if translations:
                     node['workTranslation'] = translations
+                if menu:
+                    node['mainEntity'] = {'@id': menu['@id']}
+                    menu['mainEntityOfPage'] = {'@id': node['@id']}
                 if article:
                     node['mainEntity'] = {'@id': article['@id']}
             if node.get('@type') == 'BlogPosting' and images:
