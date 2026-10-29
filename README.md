@@ -43,3 +43,21 @@ node scripts/test_seo_events.cjs .
 Business information must match visible content and the actual business. Do not invent menu prices, ratings, certifications, service availability or travel times. Search Console and business-profile operations are separate account actions.
 
 Research and publication notes are in `seo/`; these documents are excluded from indexing through HTTP response headers.
+
+## Search growth maintenance (29 October 2026)
+
+The release pipeline also runs `build_search_growth.py` and
+`finalize_search_metadata.py`. Breakfast landing prices are derived from the
+published Turkish menu; edit that menu and rebuild rather than editing landing
+prices independently. Final image metadata is derived after the journal design.
+The release preserves sitemap dates when final page bytes have not changed.
+
+Additional verification:
+
+```sh
+python3 scripts/check_search_growth.py .
+python3 scripts/check_search_metadata.py .
+```
+
+Research, query-to-page mapping and the measurement plan:
+`seo/SEARCH-GROWTH-2026-10-29.md`.

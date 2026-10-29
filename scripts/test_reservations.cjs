@@ -14,7 +14,7 @@ function mount(lang, ios=false) {
   const document=dom.window.document, nav=[],events=[],clipboard=[];
   const navigator={userAgent:ios?'iPhone':'Android',platform:ios?'iPhone':'Linux',maxTouchPoints:ios?1:0,clipboard:{writeText:async value=>clipboard.push(value)}};
   const window={location:{assign:url=>nav.push(url)}, addEventListener:()=>{},dispatchEvent:e=>events.push(e.detail)};
-  vm.runInNewContext(code,{window,document,navigator,location:{pathname:routes[lang]},Intl,Date:FixedDate,CustomEvent:dom.window.CustomEvent});
+  vm.runInNewContext(code,{window,document,navigator,location:{pathname:routes[lang],search:""},URLSearchParams,Intl,Date:FixedDate,CustomEvent:dom.window.CustomEvent});
   return {dom,document,form:document.querySelector('form'),nav,events,clipboard,navigator,copy:JSON.parse(document.getElementById('reservation-copy').textContent)};
 }
 function submit(x) {x.form.dispatchEvent(new x.dom.window.Event('submit',{bubbles:true,cancelable:true}));}

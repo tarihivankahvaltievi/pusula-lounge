@@ -2,43 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.pusulalounge.com/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/altin-icecek-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/birlikte-mola-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/icecek-molasi-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/renkli-icecekler-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/renkli-kose-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/" />
     <image:image>
       <image:loc>https://www.pusulalounge.com/assets/hero-mekan-screen-1066.webp</image:loc>
     </image:image>
@@ -46,17 +15,21 @@
       <image:loc>https://www.pusulalounge.com/assets/hero-sofra-fast.webp</image:loc>
     </image:image>
     <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/renkli-kose-screen-400.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/icecek-molasi-screen-400.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/renkli-icecekler-screen-400.webp</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-800.webp</image:loc>
     </image:image>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/menu/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
@@ -65,7 +38,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/rezervasyon/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/rezervasyon/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/reservation/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/reservation/" />
@@ -73,20 +46,23 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/reservation/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.pusulalounge.com/zh/reservation/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/reservation/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/kahvalti/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/konum/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -95,19 +71,19 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/menu/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
@@ -116,17 +92,17 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/breakfast/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/location/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -135,55 +111,55 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/kahvalti-rehberi/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast-guide/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/breakfast-guide/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast-guide/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti-rehberi/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/sik-sorulan-sorular/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/faq/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/faq/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/faq/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/sik-sorulan-sorular/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/site-haritasi/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/site-haritasi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/site-map/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/site-haritasi/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/site-map/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/site-haritasi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/site-map/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/site-haritasi/" />
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/reservation/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/rezervasyon/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/reservation/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/reservation/" />
@@ -191,10 +167,13 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/reservation/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.pusulalounge.com/zh/reservation/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/reservation/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ru/reservation/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/rezervasyon/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/reservation/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/reservation/" />
@@ -202,10 +181,13 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/reservation/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.pusulalounge.com/zh/reservation/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/reservation/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ko/reservation/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/rezervasyon/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/reservation/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/reservation/" />
@@ -213,10 +195,13 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/reservation/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.pusulalounge.com/zh/reservation/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/reservation/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ar/reservation/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/rezervasyon/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/reservation/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/reservation/" />
@@ -224,10 +209,13 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/reservation/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.pusulalounge.com/zh/reservation/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/reservation/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/zh/reservation/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/rezervasyon/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/reservation/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/reservation/" />
@@ -235,116 +223,233 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/reservation/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.pusulalounge.com/zh/reservation/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/reservation/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/blog/taksimde-kahvalti-plani/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-kahvalti-plani/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/blog/serpme-kahvalti-porsiyon-fiyat-rehberi/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/serpme-kahvalti-porsiyon-fiyat-rehberi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/" />
-  </url>
-  <url>
-    <loc>https://www.pusulalounge.com/blog/istiklal-kahvalti-ulasim-gezi/</loc>
-    <lastmod>2026-10-28</lastmod>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
     </image:image>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/istiklal-kahvalti-ulasim-gezi/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/" />
-  </url>
-  <url>
-    <loc>https://www.pusulalounge.com/blog/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/" />
-  </url>
-  <url>
-    <loc>https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/</loc>
-    <lastmod>2026-10-28</lastmod>
     <image:image>
       <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
     </image:image>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-kahvalti-plani/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/" />
-  </url>
-  <url>
-    <loc>https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/</loc>
-    <lastmod>2026-10-28</lastmod>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
     </image:image>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/serpme-kahvalti-porsiyon-fiyat-rehberi/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/" />
-  </url>
-  <url>
-    <loc>https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/</loc>
-    <lastmod>2026-10-28</lastmod>
     <image:image>
       <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
     </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/blog/istiklal-kahvalti-ulasim-gezi/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/istiklal-kahvalti-ulasim-gezi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/blog/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/hero-mekan-screen-1066.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/birlikte-mola-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-kahvalti-plani/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/serpme-kahvalti-porsiyon-fiyat-rehberi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/shared-breakfast-portions-prices/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/</loc>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/istiklal-kahvalti-ulasim-gezi/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/istiklal-breakfast-walk-directions/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/blog/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/hero-mekan-screen-1066.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/birlikte-mola-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/blog/van-kahvaltisi-nedir-pusula-sofrasi/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/van-kahvaltisi-nedir-pusula-sofrasi/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/what-is-van-breakfast/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/what-is-van-breakfast/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/blog/what-is-van-breakfast/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/what-is-van-breakfast/" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/van-kahvaltisi-nedir-pusula-sofrasi/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/what-is-van-breakfast/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ru/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ru/location/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -353,7 +458,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ru/menu/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
@@ -362,19 +467,19 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ar/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.pusulalounge.com/ar/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-600.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ar/location/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -383,7 +488,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/ar/menu/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
@@ -392,42 +497,78 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/blog/taksimde-aksam-yemegi-waffle-kahve/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/birlikte-mola-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-aksam-yemegi-waffle-kahve/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/birlikte-mola-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/blog/kahvaltidan-sonra-beyoglu-sanat-muze/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/kahvaltidan-sonra-beyoglu-sanat-muze/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/birlikte-mola-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-aksam-yemegi-waffle-kahve/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/dinner-waffle-coffee-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/birlikte-mola-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
-    </image:image>
+    <lastmod>2026-10-29</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/kahvaltidan-sonra-beyoglu-sanat-muze/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/beyoglu-breakfast-museums/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
   </url>
 </urlset>
