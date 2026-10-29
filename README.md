@@ -91,3 +91,19 @@ Interaction events distinguish `reviews_click`, `directions_click` and
 `map_profile_click`. These anonymous browser events are not connected to a
 permanent analytics service. They contain only event name, page path and language.
 See `seo/VISIT-ACTIONS-2026-10-29.md` for the measured layout changes and limits.
+
+## Shared breakfast budget comparison
+
+Four menus now explain portion totals and calculated per-person costs in an
+accessible native disclosure. `scripts/build_menu_budget.py` derives all prices
+from the Turkish menu and runs before font and asset finalization. Calculated
+costs are not separately orderable offers. Keep the shared-breakfast tea wording
+in sync if the actual menu contents change.
+
+```sh
+python3 scripts/check_menu_budget.py .
+PREVIEW_URL=http://127.0.0.1:8875 node scripts/test_menu_budget.cjs
+```
+
+Research, external listing discrepancy, query mapping and measurement plan:
+`seo/MENU-BUDGET-AND-LOCAL-DISCOVERY-2026-10-29.md`.

@@ -1,0 +1,15 @@
+/* A quiet disclosure keeps ordering actions and category navigation prominent. */
+.menu-budget{max-width:944px;margin:0 auto 24px;border-block:1px solid #bba47e;padding:0;color:#302416;font:16px/1.5 'Source Sans 3',sans-serif}
+.menu-budget summary{padding:14px 0;min-height:48px;cursor:pointer;font-weight:600}
+.menu-budget summary:focus-visible,.menu-budget a:focus-visible{outline:3px solid #193d27;outline-offset:3px}
+.menu-budget-body{padding:0 0 16px}
+.menu-budget table{width:100%;max-width:680px;border-collapse:collapse;table-layout:fixed;margin:4px 0 20px;font-variant-numeric:tabular-nums}
+.menu-budget caption{text-align:start;font-weight:600;margin-bottom:12px}
+.menu-budget th,.menu-budget td{text-align:start;padding:12px 8px;border-bottom:1px solid #bba47e;vertical-align:top;overflow-wrap:anywhere}
+.menu-budget th:first-child{width:22%}.menu-budget thead{background:#ffcc35}
+.menu-budget p{max-width:75ch;margin:0 0 14px;font-size:16px;line-height:1.5}
+.menu-budget nav{display:flex;flex-wrap:wrap;gap:4px 24px}
+.menu-budget a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:underline;text-underline-offset:4px}
+.menu-budget a:hover{text-decoration-thickness:2px}
+body:not(.visit-page) .menu-budget{margin-inline:max(28px,calc((100% - 944px)/2))}
+@media(max-width:700px){body:not(.visit-page) .menu-budget{margin-inline:20px}.menu-budget th,.menu-budget td{padding:10px 5px}.menu-budget{font-size:16px}}

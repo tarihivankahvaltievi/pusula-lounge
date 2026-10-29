@@ -10,7 +10,7 @@ before = {p: p.read_bytes() for p in root.rglob('index.html') if '.git' not in p
 old_dates = {u.find(namespace+'loc').text: u.findtext(namespace+'lastmod')
              for u in ET.parse(root/'sitemap.xml').getroot()}
 for name in ['build_tourism_seo.py', 'build_reservations.py', 'build_international_seo.py',
-             'build_blog_design.py', 'build_search_growth.py', 'optimize_home_fonts.py', 'build_visitor_quality.py',
+             'build_blog_design.py', 'build_search_growth.py', 'build_menu_budget.py', 'optimize_home_fonts.py', 'build_visitor_quality.py',
              'finalize_search_metadata.py']:
     subprocess.run([sys.executable, str(Path(__file__).parent/name), str(root)], check=True)
 from urllib.parse import urlsplit
