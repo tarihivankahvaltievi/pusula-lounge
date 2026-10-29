@@ -2,18 +2,32 @@
   "slug": "taksimde-aksam-yemegi-waffle-kahve",
   "en": "dinner-waffle-coffee-taksim",
   "date": "2026-10-28",
+  "dateModified": "2026-10-29",
   "dateLabel": ["28 Ekim 2026", "28 October 2026"],
+  "dateModifiedLabel": ["29 Ekim 2026", "29 October 2026"],
   "title": [
     "Taksim’de Akşam Yemeği, Waffle ve Kahve Molası",
     "Dinner, Waffles and a Coffee Break in Taksim"
   ],
   "desc": [
-    "Taksim ve Beyoğlu’nda akşam yemeği, waffle, tatlı, çay ve kahve için Pusula Lounge’da menüyü inceleyin, güncel seçenekleri sorun ve masa talebi gönderin.",
-    "Planning dinner, waffles or a coffee and dessert stop in Taksim? Explore Pusula Lounge in Beyoğlu, check current menu options and request a table."
+    "Taksim’de akşam yemeği, waffle veya kahve molası. Kahvaltı menüsünü görün; güncel akşam seçeneklerini ve fiyatları WhatsApp’ta sorun.",
+    "Dinner, waffles or coffee in Taksim? Browse Pusula Lounge’s breakfast menu and ask on WhatsApp about current evening options and prices."
   ],
   "lead": [
-    "İstiklal çevresinde akşam planı yaparken önce ne yemek istediğinizi, sonra masada ne kadar kalmak istediğinizi düşünün. Pusula Lounge’da kahvaltıdan ayrı olarak yemek, kahve ve tatlı seçenekleri de bulunur. Bu kısa rehber, Taksim’de akşam yemeği ya da waffle molası için menüye nereden bakacağınızı ve gelmeden önce neyi teyit edeceğinizi anlatıyor.",
-    "Planning an evening near İstiklal? Start with the kind of meal or break you want, then decide how much time to leave at the table. Pusula Lounge serves food as well as coffee and desserts beyond breakfast. This guide helps you explore the evening options in Taksim and check the details that matter before you visit."
+    "İstiklal çevresinde pizza, hamburger, balık, waffle, tatlı, çay veya kahve için plan yaparken güncel seçimi ve fiyatı ekiple teyit edin. Pusula Lounge’un yayımlanan çevrimiçi menüsü kahvaltı ürünlerini ve fiyatlarını listeler; akşam seçeneklerini WhatsApp’ta sorup ardından masa talebi gönderebilirsiniz.",
+    "Planning dinner, waffles or a coffee break near İstiklal? Pusula Lounge’s published online menu lists breakfast dishes and prices. Ask the team on WhatsApp about current dinner, dessert and drink options and prices, then request a table."
+  ],
+  "menuInquiryLabel": [
+    "Akşam menüsü ve güncel fiyatları WhatsApp’ta sorun",
+    "Ask on WhatsApp about tonight’s menu and prices"
+  ],
+  "menuInquiryMessage": [
+    "Merhaba, Pusula Lounge’da güncel akşam yemeği, waffle ve kahve seçenekleri ile fiyatlarını öğrenebilir miyim?",
+    "Hello, could you share Pusula Lounge’s current dinner, waffle and coffee options and prices?"
+  ],
+  "menuInquiryNote": [
+    "WhatsApp’ta hazır bir soru açılır. Mesajı inceleyip Gönder’e dokunun; güncel ürün, fiyat ve masa uygunluğunu ekip teyit eder.",
+    "WhatsApp opens a drafted question. Review it and tap Send; the team confirms current items, prices and table availability."
   ],
   "image": "/assets/gallery/renkli-kose-1200.webp",
   "imageDimensions": [1066, 1600],
@@ -29,20 +43,20 @@
     [
       "Akşam menüsünde ne aradığınızı seçin",
       "Choose the kind of dinner you have in mind",
-      "Pusula Lounge’un web sitesindeki yemek bölümünde pizza, hamburger ve balık; salata bölümünde farklı seçenekler öne çıkıyor. Menüde bu başlıkları gördüğünüzde güncel ürünleri, porsiyonları ve fiyatları doğrudan ekibe sorun; ürünlerin her gün aynı şekilde bulunacağını varsaymayın. Yanınızdaki kişiler farklı şeyler istiyorsa herkesi tek bir sofrada buluşturacak seçenekleri birlikte konuşabilirsiniz.",
-      "Pusula Lounge’s website highlights pizza, burgers and fish in its food section, alongside salads. Ask the team which dishes, portions and prices are current; do not assume every item is available in the same way every day. If your group wants different things, discuss the options together before ordering."
+      "Pusula Lounge’un ana sayfasında pizza, hamburger, balık ve salata seçenekleri tanıtılıyor; çevrimiçi fiyatlı menü ise kahvaltı ürünlerini listeliyor. Akşam için güncel ürünleri, porsiyonları ve fiyatları WhatsApp’tan ekibe sorun; her ürünün her gün aynı şekilde bulunacağını varsaymayın. Yanınızdaki kişiler farklı şeyler istiyorsa herkesi aynı sofrada buluşturacak seçenekleri birlikte konuşabilirsiniz.",
+      "Pusula Lounge’s homepage highlights pizza, burgers, fish and salads; its published online menu lists breakfast dishes and prices. Ask the team on WhatsApp which evening items, portions and prices are current. Do not assume every item is available in the same way every day. If your group wants different things, discuss the options together before ordering."
     ],
     [
       "Yemekten sonra waffle ve tatlı",
       "Leave room for waffles and dessert",
-      "Akşam yemeğini uzatmadan tatlıya geçmek ya da yalnızca bir waffle molası vermek de mümkün. Pusula Lounge waffle ve tatlı seçenekleri sunuyor; çeşit, yanında gelenler ve o günkü fiyat için sipariş vermeden önce menüyü açın veya ekibe sorun. Böylece fotoğraf ya da eski bir listeye göre değil, gerçekten servis edilen seçeneğe göre karar verirsiniz.",
-      "You can finish dinner with something sweet or stop by just for a waffle. Pusula Lounge offers waffles and desserts. Check the menu or ask the team about current varieties, accompaniments and prices before ordering, so your choice reflects what is actually being served that day."
+      "Akşam yemeğini uzatmadan tatlıya geçmek ya da yalnızca bir waffle molası vermek de mümkün. Pusula Lounge waffle ve tatlı seçenekleri sunuyor; çevrimiçi menüde yayımlanmayan çeşit, eşlikçi ve güncel fiyatları siparişten önce WhatsApp’tan ekibe sorun.",
+      "You can finish dinner with something sweet or stop by just for a waffle. Pusula Lounge offers waffles and desserts; ask the team on WhatsApp about current varieties, accompaniments and prices that are not listed in the published online menu."
     ],
     [
       "Çay veya kahve için kısa bir masa",
       "Make time for tea or coffee",
-      "Beyoğlu’nda gezerken uzun bir akşam yemeği planlamıyorsanız, çay ya da kahve için de uğrayabilirsiniz. Türk kahvesi, çay ve diğer kahve seçeneklerinin güncel sunumunu ve fiyatını ekipten öğrenin. Bir tatlıyı içecekle paylaşacaksanız, sipariş öncesi porsiyon ve eşlik seçeneklerini sormak hesabı baştan netleştirir.",
-      "If you are exploring Beyoğlu without planning a full dinner, you can also stop in for tea or coffee. Ask the team about the current coffee and tea selection, serving options and prices. If you plan to share a dessert with your drinks, confirm the portion and accompaniments before ordering."
+      "Beyoğlu’nda gezerken uzun bir akşam yemeği planlamıyorsanız, çay ya da kahve için de uğrayabilirsiniz. Türk kahvesi, çay ve diğer kahve seçeneklerinin güncel sunumunu ve fiyatını WhatsApp’tan ekibe sorun. Bir tatlıyı içecekle paylaşacaksanız, sipariş öncesi porsiyon ve eşlik seçeneklerini sormak hesabı baştan netleştirir.",
+      "If you are exploring Beyoğlu without planning a full dinner, you can also stop in for tea or coffee. Ask the team on WhatsApp about the current coffee and tea selection, serving options and prices. If you plan to share a dessert with your drinks, confirm the portion and accompaniments before ordering."
     ],
     [
       "Akşam ziyaretini nasıl planlamalı?",

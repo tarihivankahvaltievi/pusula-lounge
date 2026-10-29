@@ -9,7 +9,7 @@
     const link = event.target.closest('a[href]');
     if (!link) return;
     const url = new URL(link.href, location.href);
-    if (url.hostname === 'wa.me') emit('reservation_whatsapp_open');
+    if (url.hostname === 'wa.me') emit(link.dataset.interaction === 'menu-inquiry' ? 'menu_inquiry_whatsapp_open' : 'reservation_whatsapp_open');
     else if (url.protocol === 'tel:') emit('phone_click');
     else if (url.hostname === 'share.google' || url.hostname.endsWith('google.com') && url.pathname.includes('/maps')) emit('map_profile_click');
     else if (url.origin === location.origin && /^\/(?:en\/|ru\/|ar\/)?menu\/$/.test(url.pathname)) emit('menu_click');

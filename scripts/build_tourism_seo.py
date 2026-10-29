@@ -2,6 +2,7 @@
 from pathlib import Path
 from html import escape as e
 import json,re,hashlib,base64,sys,xml.etree.ElementTree as ET
+from urllib.parse import quote
 from bs4 import BeautifulSoup
 R=Path(sys.argv[1]); O='https://www.pusulalounge.com'; DATE='2026-10-27'
 MAP='https://share.google/l1BSBLDwv6suQkW7Y'
@@ -80,6 +81,11 @@ def asset(path):
 def j(data):return json.dumps(data,ensure_ascii=False).replace('<','\\u003c')
 def route(a,en):return ('/en/blog/'+a['en'] if en else '/blog/'+a['slug'])+'/'
 def link(path,label):return '<a href="'+path+'">'+e(label)+'</a>'
+def menu_inquiry_link(article,en):
+ i=int(en)
+ message=article['menuInquiryMessage'][i]
+ href='https://wa.me/905078162994?text='+quote(message,safe='')
+ return '<a href="'+href+'" data-interaction="menu-inquiry">'+e(article['menuInquiryLabel'][i])+'</a>'
 # This researched article has its own real publication date.
 ARTICLES.append(json.loads((Path(__file__).parent/'van_breakfast_article.json').read_text()))
 ARTICLES.append(json.loads((Path(__file__).parent/'taksim-evening-article.json').read_text()))
@@ -108,7 +114,8 @@ def render(path,title,desc,en,pair,body,article=None):
   image_width,image_height=article.get('imageDimensions',[1200,800])
   image_caption=article.get('imageCaption',['Pusula Lounge’da paylaşılan kahvaltı sofrası','A shared breakfast table at Pusula Lounge'])[int(en)]
   web['primaryImageOfPage']={'@type':'ImageObject','url':O+image_path,'contentUrl':O+image_path,'width':image_width,'height':image_height,'inLanguage':lang,'caption':image_caption}
-  graph.append({'@type':'BlogPosting','@id':url+'#article','headline':title,'description':desc,'url':url,'inLanguage':lang,'datePublished':publication+'T00:00:00+03:00','dateModified':publication+'T00:00:00+03:00','author':{'@id':O+'/#restaurant'},'publisher':{'@id':O+'/#restaurant'},'mainEntityOfPage':{'@id':url+'#webpage'},'image':O+image_path,'isPartOf':{'@id':O+index+'#blog'}})
+  modified=article.get('dateModified',publication)
+  graph.append({'@type':'BlogPosting','@id':url+'#article','headline':title,'description':desc,'url':url,'inLanguage':lang,'datePublished':publication+'T00:00:00+03:00','dateModified':modified+'T00:00:00+03:00','author':{'@id':O+'/#restaurant'},'publisher':{'@id':O+'/#restaurant'},'mainEntityOfPage':{'@id':url+'#webpage'},'image':O+image_path,'isPartOf':{'@id':O+index+'#blog'}})
  else:
   graph.append({'@type':'Blog','@id':url+'#blog','name':title,'url':url,'inLanguage':lang,'publisher':{'@id':O+'/#restaurant'},'blogPost':[{'@id':O+route(a,en)+'#article'} for a in ARTICLES]})
  alt=article.get('imageAlt',['Pusula Lounge’da paylaşılan kahvaltı sofrası','A shared breakfast table at Pusula Lounge'])[int(en)] if article else ('Breakfast at Pusula Lounge in Taksim' if en else 'Taksim Pusula Lounge’da kahvaltı sofrası')
@@ -139,8 +146,14 @@ for en in [False,True]:
   intent='dinner' if a['en']=='dinner-waffle-coffee-taksim' else 'breakfast'
   intent_reservation=reservation+'?visit='+intent
   toc='<nav class="article-toc" aria-label="'+('On this page' if en else 'Bu yazıda')+'"><strong>'+('On this page' if en else 'Bu yazıda')+'</strong><ul>'+''.join('<li>'+link('#section-'+str(k+1),s[i])+'</li>' for k,s in enumerate(a['sections']))+'</ul></nav>'
-  body='<article><header class="visit-intro"><h1>'+e(a['title'][i])+'</h1><p class="lead">'+e(a['lead'][i])+'</p></header><p class="article-meta">Pusula Lounge · <time datetime="'+publication+'">'+e(date_label)+'</time></p>'
-  body+='<div class="article-actions"><a class="visit-button" href="'+intent_reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a>'+link('/en/menu/' if en else '/menu/','Menu & prices' if en else 'Menü ve fiyatlar')+'</div>'
+  body='<article><header class="visit-intro"><h1>'+e(a['title'][i])+'</h1><p class="lead">'+e(a['lead'][i])+'</p></header><p class="article-meta">Pusula Lounge · <time datetime="'+publication+'">'+e(date_label)+'</time>'
+  if a.get('dateModified') and a['dateModified']!=publication:body+=' · '+('Updated ' if en else 'Güncellendi: ')+e(a['dateModifiedLabel'][i])
+  body+='</p>'
+  evening=a['en']=='dinner-waffle-coffee-taksim'
+  menu_label='Breakfast menu & prices' if en else 'Kahvaltı menüsü ve fiyatları'
+  body+='<div class="article-actions"><a class="visit-button" href="'+intent_reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a>'
+  if evening:body+=menu_inquiry_link(a,en)
+  body+=link('/en/menu/' if en else '/menu/',menu_label)+'</div>'
   photo=a.get('image','/assets/gallery/pusula-sofrasi-1200.webp');photo_alt=a.get('imageAlt',['Pusula Lounge’da paylaşılan kahvaltı sofrası','A shared breakfast table at Pusula Lounge'])[i];photo_caption=a.get('imageCaption',['Sipariş öncesinde menüden porsiyonları ve içerikleri karşılaştırın.','Compare portions and contents in the menu before ordering.'])[i];photo_width,photo_height=a.get('imageDimensions',[1200,800])
   photo_stem=photo.rsplit('-',1)[0]
   photo_class='article-photo article-photo--portrait' if photo_height>photo_width else 'article-photo'
@@ -151,18 +164,21 @@ for en in [False,True]:
    # Fail closed if existing menu no longer contains the source figures.
    assert len(portions)==3
   for k,s in enumerate(a['sections']):body+='<section class="visit-section" id="section-'+str(k+1)+'"><h2>'+e(s[i])+'</h2><p>'+e(s[2+i])+'</p></section>'
-  evening=a['en']=='dinner-waffle-coffee-taksim'
   visit_title=('Plan your evening at Pusula' if en else 'Pusula’da akşam ziyaretinizi planlayın') if evening else ('Plan your breakfast at Pusula' if en else 'Pusula’da kahvaltınızı planlayın')
-  body+='<section class="visit-section"><h2>'+visit_title+'</h2><div class="article-actions"><a class="visit-button" href="'+intent_reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a>'+link(prefix+'menu/' if en else '/menu/','Menu & prices' if en else 'Menü ve fiyatlar')+link(MAP,'Open business map' if en else 'Haritada konumu aç')+'</div><p><a href="tel:+905078162994">+90 507 816 29 94</a></p></section>'
+  body+='<section class="visit-section"><h2>'+visit_title+'</h2><div class="article-actions"><a class="visit-button" href="'+intent_reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a>'
+  if evening:body+=menu_inquiry_link(a,en)
+  body+=link(prefix+'menu/' if en else '/menu/',menu_label)+link(MAP,'Open business map' if en else 'Haritada konumu aç')+'</div>'
+  if evening:body+='<p>'+e(a['menuInquiryNote'][i])+'</p>'
+  body+='<p><a href="tel:+905078162994">+90 507 816 29 94</a></p></section>'
   body+='<section class="visit-section"><h2>'+('Keep reading' if en else 'Diğer yazılar')+'</h2><ul>'+''.join('<li>'+link(route(other,en),other['title'][i])+'</li>' for other in ARTICLES if other!=a)+'</ul></section>'
-  body+='<section class="visit-section sources"><h2>'+('Sources and updates' if en else 'Kaynaklar ve güncellemeler')+'</h2><p>'+('This article uses Pusula Lounge’s published menu and visit information. Business hours were last checked against the business listing on 9 October 2026; reconfirm special-day hours and availability. Content was prepared with AI assistance and checked against those sources.' if en else 'Bu yazı Pusula Lounge’un yayınlanan menüsüne ve ziyaret bilgilerine dayanır. İşletme saatlerinin harita kaydındaki son kontrol tarihi 9 Ekim 2026’dır; özel gün saatlerini ve uygunluğu yeniden teyit edin. İçerik yapay zekâ desteğiyle hazırlanmış, bu kaynaklarla karşılaştırılmıştır.')+'</p><ul><li>'+link(prefix+'menu/' if en else '/menu/','Pusula Lounge menu' if en else 'Pusula Lounge menüsü')+'</li><li>'+link('/en/location/' if en else '/konum/','Business address and hours' if en else 'İşletme adresi ve saatleri')+'</li>'
+  body+='<section class="visit-section sources"><h2>'+('Sources and updates' if en else 'Kaynaklar ve güncellemeler')+'</h2><p>'+('This article uses Pusula Lounge’s published breakfast menu and visit information. Evening items, availability and prices should be confirmed with the team. Business hours were last checked against the business listing on 9 October 2026; reconfirm special-day hours and availability. Content was prepared with AI assistance and checked against those sources.' if en and evening else 'This article uses Pusula Lounge’s published menu and visit information. Business hours were last checked against the business listing on 9 October 2026; reconfirm special-day hours and availability. Content was prepared with AI assistance and checked against those sources.' if en else 'Bu yazı Pusula Lounge’un yayınlanan kahvaltı menüsüne ve ziyaret bilgilerine dayanır. Akşam ürünlerini, uygunluğu ve fiyatları ekiple teyit edin. İşletme saatlerinin harita kaydındaki son kontrol tarihi 9 Ekim 2026’dır; özel gün saatlerini ve uygunluğu yeniden teyit edin. İçerik yapay zekâ desteğiyle hazırlanmış, bu kaynaklarla karşılaştırılmıştır.' if evening else 'Bu yazı Pusula Lounge’un yayınlanan menüsüne ve ziyaret bilgilerine dayanır. İşletme saatlerinin harita kaydındaki son kontrol tarihi 9 Ekim 2026’dır; özel gün saatlerini ve uygunluğu yeniden teyit edin. İçerik yapay zekâ desteğiyle hazırlanmış, bu kaynaklarla karşılaştırılmıştır.')+'</p><ul><li>'+link(prefix+'menu/' if en else '/menu/','Pusula Lounge breakfast menu' if en else 'Pusula Lounge kahvaltı menüsü')+'</li><li>'+link('/en/location/' if en else '/konum/','Business address and hours' if en else 'İşletme adresi ve saatleri')+'</li>'
   if a['en']=='istiklal-breakfast-walk-directions':body+='<li>'+link('https://metro.istanbul/Hatlarimiz/HatDetay?hat=F1','Metro İstanbul — F1 Taksim–Kabataş')+'</li><li>'+link('https://metro.istanbul/','Metro İstanbul — '+('lines and service notices' if en else 'hatlar ve sefer duyuruları'))+'</li>'
   for source in a.get('sources',[]):body+='<li>'+link(source[0],source[2 if en else 1])+'</li>'
   body+='</ul></section></article>'
   new.append(render(route(a,en),a['title'][i],a['desc'][i],en,route(a,not en),body,a))
  title='Taksim Food & Visit Journal' if en else 'Taksim’de Sofra ve Ziyaret Rehberi'
  desc='Pusula Lounge’da kahvaltı, akşam yemeği, tatlı ve içecek seçenekleri; menü ve ziyaret planı için yerel rehber.' if not en else 'A local guide to breakfast, dinner, dessert and drinks at Pusula Lounge, with menu and visit planning.'
- body='<div class="blog-index"><header class="visit-intro"><h1>'+e(title)+'</h1><p class="lead">'+e(desc)+'</p></header><ol class="blog-entries">'+''.join('<li><h2>'+link(route(a,en),a['title'][i])+'</h2><p>'+e(a['desc'][i])+'</p>'+link(route(a,en),'Read article' if en else 'Yazıyı oku')+'</li>' for a in ARTICLES)+'</ol><section class="visit-section"><h2>'+('Ready to choose your breakfast?' if en else 'Sofranızı seçmeye hazır mısınız?')+'</h2><div class="article-actions">'+link('/en/menu/' if en else '/menu/','Menu & prices' if en else 'Menü ve fiyatlar')+'<a class="visit-button" href="'+reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a></div></section></div>'
+ body='<div class="blog-index"><header class="visit-intro"><h1>'+e(title)+'</h1><p class="lead">'+e(desc)+'</p></header><ol class="blog-entries">'+''.join('<li><h2>'+link(route(a,en),a['title'][i])+'</h2><p>'+e(a['desc'][i])+'</p>'+link(route(a,en),'Read article' if en else 'Yazıyı oku')+'</li>' for a in ARTICLES)+'</ol><section class="visit-section"><h2>'+('Ready to choose your breakfast?' if en else 'Sofranızı seçmeye hazır mısınız?')+'</h2><div class="article-actions">'+link('/en/menu/' if en else '/menu/',menu_label)+'<a class="visit-button" href="'+reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a></div></section></div>'
  new.append(render(index,title,desc,en,'/blog/' if en else '/en/blog/',body))
 # Link from existing indexable pages, preserving reservation work owned by the other task.
 changed=[]
