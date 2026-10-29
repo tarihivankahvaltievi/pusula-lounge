@@ -194,10 +194,29 @@ for p in R.rglob('*.html'):
   if rel=='index.html':t=t.replace('</footer>','<!-- JOURNAL:START --><p class="business-source">'+link(target,'Taksim kahvaltı blogu ve ziyaret planları')+'</p><!-- JOURNAL:END --></footer>')
   else:t=t.replace('</main>','<!-- JOURNAL:START -->'+section+'<!-- JOURNAL:END --></main>')
   p.write_text(t);changed.append('/'+rel.removesuffix('index.html'))
-# Clarify the primary tourist landing page and its existing schema/social metadata consistently.
-p=R/'en/index.html';t=p.read_text();old='Turkish Breakfast in Beyoğlu · Pusula Lounge';newtitle='Turkish Breakfast in Taksim, Istanbul · Pusula Lounge'
-t=t.replace(old,newtitle).replace('<h1>Turkish breakfast in Beyoğlu</h1>','<h1>Turkish breakfast in Taksim, Istanbul</h1>').replace('Welcome to Pusula Lounge, in Istanbul’s İstiklal area. Explore our breakfast options and plan a visit.','Pusula Lounge serves Van breakfast near İstiklal in Taksim, Beyoğlu. Explore shared breakfast for two, three or four guests, read the menu in Turkish lira and request a table on WhatsApp.')
-t=t.replace('Explore Van breakfast at Pusula Lounge in the İstiklal area of Beyoğlu, Istanbul. Find breakfast options, menu prices and information for your visit.','Turkish breakfast in Taksim, Istanbul: explore Pusula Lounge’s shared Van breakfast, menu prices in Turkish lira, directions and WhatsApp table requests.')
+# Match the English home page to the high-impression reviews query in Search Console.
+# Keep its visible breakfast heading and design, while making the search snippet and
+# first-screen path useful to visitors looking for guest feedback.
+p=R/'en/index.html';t=p.read_text()
+newtitle='Pusula Lounge Reviews & Turkish Breakfast in Taksim'
+newdescription='Read guest reviews on Google, explore Van breakfast and menu prices, and request a table at Pusula Lounge in Taksim, Istanbul.'
+for title in ('Turkish Breakfast in Beyoğlu · Pusula Lounge',
+              'Turkish Breakfast in Taksim, Istanbul · Pusula Lounge'):
+ t=t.replace(title,newtitle)
+for description in (
+ 'Explore Van breakfast at Pusula Lounge in the İstiklal area of Beyoğlu, Istanbul. Find breakfast options, menu prices and information for your visit.',
+ 'Turkish breakfast in Taksim, Istanbul: explore Pusula Lounge’s shared Van breakfast, menu prices in Turkish lira, directions and WhatsApp table requests.'):
+ t=t.replace(description,newdescription)
+t=t.replace('<h1>Turkish breakfast in Beyoğlu</h1>','<h1>Turkish breakfast in Taksim, Istanbul</h1>')
+t=t.replace('Welcome to Pusula Lounge, in Istanbul’s İstiklal area. Explore our breakfast options and plan a visit.',
+            'Pusula Lounge serves Van breakfast near İstiklal in Taksim, Beyoğlu. Explore shared breakfast for two, three or four guests, read the menu in Turkish lira and request a table on WhatsApp.')
+review_link=('<!-- GOOGLE-REVIEWS:START --><p><a href="https://share.google/l1BSBLDwv6suQkW7Y" '
+             'target="_blank" rel="noopener noreferrer">Read guest reviews on Google ↗</a></p>'
+             '<!-- GOOGLE-REVIEWS:END -->')
+t=re.sub(r'<!-- GOOGLE-REVIEWS:START -->.*?<!-- GOOGLE-REVIEWS:END -->','',t,flags=re.S)
+intro=re.compile(r'(<div class="visit-intro">.*?<p class="lead">.*?</p>).*?(</div>)',re.S)
+t,count=intro.subn(lambda m:m.group(1)+review_link+m.group(2),t,count=1)
+if count != 1:raise RuntimeError('Could not add the Google reviews link to the English home page intro')
 p.write_text(t)
 p=R/'index.html';t=p.read_text().replace('class="hero-title" aria-label="Pusula Lounge"','class="hero-title" aria-label="Pusula Lounge — Taksim, Beyoğlu’nda Van kahvaltısı"');p.write_text(t)
 # Only change lastmod for pages actually changed; keep pre-existing image and hreflang metadata.
