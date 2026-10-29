@@ -32,13 +32,16 @@ def ref(path,script=False):
 for lang,c in COPY.items():
     file=file_for(LOCATION[lang])
     text=re.sub(r'<!-- ARRIVAL:START -->.*?<!-- ARRIVAL:END -->','',file.read_text(),flags=re.S)
-    body=f'<!-- ARRIVAL:START --><section class="arrival-guide" id="arrival-guide" aria-labelledby="arrival-title" data-copied="{e(c["copied"])}" data-copy-fallback="{e(c["fallback"])}"><h2 id="arrival-title">{e(c["heading"])}</h2><p>{e(c["intro"])}</p>'
+    body=f'<!-- ARRIVAL:START --><section class="arrival-guide" id="arrival-guide" aria-labelledby="arrival-title" data-copied="{e(c["copied"])}" data-copy-fallback="{e(c["fallback"])}"><h2 id="arrival-title">{e(c["heading"])}</h2>'
     routes_html='<dl class="arrival-routes">'
     for title,description in c['routes']:
         routes_html+='<div><dt>'+e(title)+'</dt><dd>'+e(description)+'</dd></div>'
     routes_html+='</dl>'
-    body+='<div class="visit-card"><h3>Pusula Lounge</h3><address data-visit-address lang="tr" dir="ltr">'+e(ADDRESS)+'</address><p><bdi dir="ltr">+90 507 816 29 94</bdi></p><p>'+e(c['hours'])+'</p><div class="visit-tool-actions">'+link(directions,c['directions'],'visit-button')+link('tel:+905078162994',c['call'])+f'<button type="button" data-copy-address hidden>{e(c["copy"])}</button><button type="button" data-print-visit hidden>{e(c["print"])}</button></div><p role="status" aria-live="polite"></p></div><p>{e(c["note"])}</p>'
-    body+=routes_html
+    body+='<div class="visit-card"><h3>Pusula Lounge</h3><address data-visit-address lang="tr" dir="ltr">'+e(ADDRESS)+'</address>'
+    body+='<div class="visit-tool-actions">'+link(directions,c['directions'],'visit-button')+link('tel:+905078162994',c['call'])
+    body+=f'<button type="button" data-copy-address hidden>{e(c["copy"])}</button><button type="button" data-print-visit hidden>{e(c["print"])}</button></div><p role="status" aria-live="polite"></p>'
+    body+='<p><bdi dir="ltr">+90 507 816 29 94</bdi></p><p>'+e(c['hours'])+'</p></div><p>'+e(c['note'])+'</p>'
+    body+='<p>'+e(c['intro'])+'</p>'+routes_html
     body+='<div class="transport-sources"><h3>'+e(c['sources'])+'</h3><ul>'
     for line in ['M2','T1','F1']:
         body+='<li>'+link('https://metro.istanbul/Hatlarimiz/HatDetay?hat='+line,'Metro İstanbul · '+line)+'</li>'
@@ -48,7 +51,9 @@ for lang,c in COPY.items():
         body=body.replace('08:00–17:00','<bdi dir="ltr">08:00–17:00</bdi>')
         for sequence in ['M2 → Taksim','T1 → Kabataş → F1 → Taksim']:
             body=body.replace(sequence,'<bdi dir="ltr">'+sequence+'</bdi>')
-    text=text.replace('</main>',body+'</main>')
+    intro=re.search(r'<div class="visit-intro">.*?</div>',text,re.S)
+    assert intro, lang+' location introduction missing'
+    text=text[:intro.end()]+body+text[intro.end():]
     for path,is_script in [('/visit-tools.css',False),('/visit-tools.js',True)]:
         pattern=r'<(?:link|script)\b[^>]*(?:href|src)="'+re.escape(path)+r'(?:\?[^\"]*)?"[^>]*>(?:</script>)?'
         text=re.sub(pattern,'',text)
@@ -93,6 +98,17 @@ for file in ROOT.rglob('*.html'):
     text=file.read_text()
     soup=BeautifulSoup(text,'html.parser')
     if soup.select_one('main') is None:continue
+    def visit_link(match):
+        tag=BeautifulSoup(match.group(0),'html.parser').a
+        if 'hero-rating' in tag.get('class',[]):
+            tag['data-interaction']='reviews'
+        elif 'menu-directions' in tag.get('class',[]):
+            # A link labelled directions should open a route, not a profile.
+            tag['href']=directions
+        else:
+            return match.group(0)
+        return str(tag).removesuffix('</a>')
+    text=re.sub(r'<a\b[^>]*>',visit_link,text)
     route='/'+file.relative_to(ROOT).as_posix().removesuffix('index.html')
     def update(match):
         tag=BeautifulSoup(match.group(0),'html.parser').find()

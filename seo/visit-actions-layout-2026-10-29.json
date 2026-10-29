@@ -1,0 +1,51 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "measurement": "Link top in CSS pixels from document top, after fonts are ready. English home excludes header navigation.",
+  "before": [
+    {
+      "route": "/konum/",
+      "buttonY": 2816.625
+    },
+    {
+      "route": "/en/location/",
+      "buttonY": 2768.9375
+    },
+    {
+      "route": "/ru/location/",
+      "buttonY": 2654.875
+    },
+    {
+      "route": "/ar/location/",
+      "buttonY": 2631.9375
+    },
+    {
+      "route": "/en/",
+      "buttonY": 1782.90625
+    }
+  ],
+  "after": [
+    {
+      "route": "/konum/",
+      "buttonY": 742.875
+    },
+    {
+      "route": "/en/location/",
+      "buttonY": 742.875
+    },
+    {
+      "route": "/ru/location/",
+      "buttonY": 797.171875
+    },
+    {
+      "route": "/ar/location/",
+      "buttonY": 772.84375
+    },
+    {
+      "route": "/en/",
+      "buttonY": 637.0625
+    }
+  ]
+}

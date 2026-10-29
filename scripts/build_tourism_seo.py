@@ -210,12 +210,14 @@ for description in (
 t=t.replace('<h1>Turkish breakfast in Beyoğlu</h1>','<h1>Turkish breakfast in Taksim, Istanbul</h1>')
 t=t.replace('Welcome to Pusula Lounge, in Istanbul’s İstiklal area. Explore our breakfast options and plan a visit.',
             'Pusula Lounge serves Van breakfast near İstiklal in Taksim, Beyoğlu. Explore shared breakfast for two, three or four guests, read the menu in Turkish lira and request a table on WhatsApp.')
-review_link=('<!-- GOOGLE-REVIEWS:START --><p><a href="https://share.google/l1BSBLDwv6suQkW7Y" '
+review_link=('<!-- GOOGLE-REVIEWS:START --><p><a data-interaction="reviews" href="https://share.google/l1BSBLDwv6suQkW7Y" '
              'target="_blank" rel="noopener noreferrer">Read guest reviews on Google ↗</a></p>'
              '<!-- GOOGLE-REVIEWS:END -->')
 t=re.sub(r'<!-- GOOGLE-REVIEWS:START -->.*?<!-- GOOGLE-REVIEWS:END -->','',t,flags=re.S)
 intro=re.compile(r'(<div class="visit-intro">.*?<p class="lead">.*?</p>).*?(</div>)',re.S)
-t,count=intro.subn(lambda m:m.group(1)+review_link+m.group(2),t,count=1)
+home_actions=('<p class="visit-actions" data-home-visit><a class="visit-button" href="/en/reservation/?visit=breakfast">Request a breakfast table</a>'
+              '<a href="/en/menu/">Menu and prices</a><a href="/en/location/#arrival-guide">Walking directions</a></p>')
+t,count=intro.subn(lambda m:m.group(1)+review_link+home_actions+m.group(2),t,count=1)
 if count != 1:raise RuntimeError('Could not add the Google reviews link to the English home page intro')
 p.write_text(t)
 p=R/'index.html';t=p.read_text().replace('class="hero-title" aria-label="Pusula Lounge"','class="hero-title" aria-label="Pusula Lounge — Taksim, Beyoğlu’nda Van kahvaltısı"');p.write_text(t)

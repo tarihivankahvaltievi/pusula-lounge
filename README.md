@@ -80,3 +80,14 @@ Check the new journey with JavaScript both enabled and disabled:
 ```sh
 PREVIEW_URL=http://127.0.0.1:8875 node scripts/test_search_decisions.cjs /tmp/pusula-search-decisions
 ```
+
+The four location pages now place the arrival card immediately after their
+introduction. The English homepage has early table-request, menu and walking
+directions links. `build_visitor_quality.py` maintains the arrival order and the
+Turkish homepage's actual walking-route URL; `build_tourism_seo.py` maintains the
+English actions and reviews link.
+
+Interaction events distinguish `reviews_click`, `directions_click` and
+`map_profile_click`. These anonymous browser events are not connected to a
+permanent analytics service. They contain only event name, page path and language.
+See `seo/VISIT-ACTIONS-2026-10-29.md` for the measured layout changes and limits.

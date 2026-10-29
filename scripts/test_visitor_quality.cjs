@@ -16,6 +16,8 @@ const address='Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sin
       const route=lang==='tr'?'/konum/':`/${lang}/location/`;
       await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);
       assert.equal(await page.locator('.arrival-guide').count(),1);
+      assert.equal(await page.locator('main > section').first().getAttribute('id'),'arrival-guide');
+      assert.equal(await page.evaluate(()=>document.querySelector('.arrival-guide').previousElementSibling.classList.contains('visit-intro')),true);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' overflow '+width);
       assert.equal(await page.evaluate(()=>Boolean(document.querySelector('.visit-card').compareDocumentPosition(document.querySelector('.arrival-routes'))&Node.DOCUMENT_POSITION_FOLLOWING)),true);
       const link=new URL(await page.locator('.arrival-guide .visit-button').first().getAttribute('href'));
@@ -65,6 +67,9 @@ const address='Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sin
     assert.equal((await page.locator('[data-visit-address]').textContent()).trim(),address);
     assert.equal(await page.locator('.arrival-guide a[href^="https://www.google.com/maps/dir/"]').count(),1);
   }
+  await page.goto(base+'/en/');
+  assert.equal(await page.locator('.visit-intro a[href="/en/reservation/?visit=breakfast"]').isVisible(),true);
+  assert.equal(await page.locator('.visit-intro a[href="/en/location/#arrival-guide"]').isVisible(),true);
   await browser.close();
   console.log(`PASS ${results.length} arrival/viewport combinations: address copy/fallback, print, directions, early menu actions and privacy; four languages also work without JavaScript.`);
 })().catch(e=>{console.error(e);process.exit(1)});
