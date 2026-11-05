@@ -109,9 +109,13 @@ for rel, (title, description) in metadata.items():
         rows = ''.join('<li><strong>'+ (f'{n} people' if en else f'{n} kişilik')+'</strong>'+money(price,en)+'</li>' for n,price in portions)
         block = '<!-- SEARCH-DECISION:START --><section class="visit-section" aria-labelledby="breakfast-prices"><h2 id="breakfast-prices">'+('Shared breakfast: portion prices' if en else 'Serpme kahvaltı porsiyon fiyatları')+'</h2><p>'+('Breakfast is served daily 08:00–17:00. The shared Van breakfast lists unlimited tea, menemen and pan-fried eggs alongside cheeses and accompaniments.' if en else 'Kahvaltı her gün 08:00–17:00 arasında servis edilir. Serpme Van kahvaltısında peynir ve eşlikçilerin yanında menemen, sahanda yumurta ve sınırsız çay listelenir.')+'</p><ul class="portion-list">'+rows+'</ul><p class="note">'+('Prices shown are the total for each portion in our web menu, not per person. Extras are separate; confirm current prices and availability before ordering.' if en else 'Fiyatlar web menümüzdeki porsiyon toplamıdır; kişi başı değildir. İlave siparişler ayrıdır; güncel fiyat ve uygunluğu sipariş öncesinde teyit edin.')+'</p><div class="visit-actions"><a class="visit-button" href="'+reserve+'">'+('Request a breakfast table' if en else 'Kahvaltı için masa isteyin')+'</a><a href="'+prefix+'menu/#serpme-van-kahvaltisi">'+('See the full breakfast menu' if en else 'Kahvaltı menüsünü inceleyin')+'</a><a href="'+('/en/location/' if en else '/konum/')+'">'+('Directions from Taksim' if en else 'Taksim’den yol tarifi')+'</a></div><p>'+('Send the request in WhatsApp and wait for our team to confirm your table.' if en else 'Talebinizi WhatsApp’ta gönderin; masanız ekibimizin onayıyla kesinleşir.')+'</p></section><!-- SEARCH-DECISION:END -->'
         text = re.sub(r'<!-- VISIT-ANSWERS:START -->.*?<!-- VISIT-ANSWERS:END -->', '', text, flags=re.S)
-        block += visit_answers(en)
+        # Show the existing real breakfast photo and contents before the longer planning guide.
+        spread = re.search(r'<section class="visit-spread">.*?</section>', text, flags=re.S)
+        assert spread, rel
+        text = text[:spread.start()] + text[spread.end():]
+        block += spread.group(0) + visit_answers(en)
         # Keep the introduction, then answer price/service/booking questions before the long content.
-        text, count = re.subn(r'(<div class="visit-intro">.*?</div>)', lambda m:m.group(1)+block, text, count=1, flags=re.S)
+        text, count = re.subn(r'(<div class="visit-intro">.*?<!-- BREAKFAST-INTRO-ACTIONS:END --></div>)', lambda m:m.group(1)+block, text, count=1, flags=re.S)
         assert count == 1, rel
     def schema(match):
         data = json.loads(match.group(2))

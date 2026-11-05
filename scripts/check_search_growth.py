@@ -9,6 +9,10 @@ def check(base):
     for rel in ['kahvalti/index.html','en/breakfast/index.html']:
         s=BeautifulSoup((base/rel).read_text(),'html.parser');section=s.find(id='breakfast-prices').parent
         assert len(s.select('#breakfast-prices'))==1
+        intro = s.select_one('.visit-intro')
+        assert intro.select_one('a[href$="?visit=breakfast"]') and not intro.select_one('section')
+        assert len(s.select('.visit-spread')) == 1
+        assert 'visit-spread' in section.find_next_sibling('section').get('class', [])
         actual=[int(re.sub(r'\D','',li.get_text().removeprefix(li.strong.get_text()))) for li in section.select('li')]
         assert actual==expected,(rel,actual,expected)
         assert section.select_one('a[href$="?visit=breakfast"]')
