@@ -127,7 +127,7 @@
     if (!link) return;
     if (link.protocol === 'tel:') emit('phone_click');
     else if (link.hostname === 'share.google') emit('map_profile_click');
-    else if (link.pathname === '/menu/' || link.pathname === '/en/menu/') emit('menu_click');
+    else if (link.origin === location.origin && /^\/(?:en\/|ru\/|ar\/)?menu\/$/.test(link.pathname)) emit('menu_click');
   });
   form.querySelector('[type=submit]').disabled = false;
 })();

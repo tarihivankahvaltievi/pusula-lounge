@@ -14,7 +14,7 @@ function mount(lang, ios=false) {
   const document=dom.window.document, nav=[],events=[],clipboard=[];
   const navigator={userAgent:ios?'iPhone':'Android',platform:ios?'iPhone':'Linux',maxTouchPoints:ios?1:0,clipboard:{writeText:async value=>clipboard.push(value)}};
   const window={location:{assign:url=>nav.push(url)}, addEventListener:()=>{},dispatchEvent:e=>events.push(e.detail)};
-  vm.runInNewContext(code,{window,document,navigator,location:{pathname:routes[lang],search:""},URLSearchParams,Intl,Date:FixedDate,CustomEvent:dom.window.CustomEvent});
+  vm.runInNewContext(code,{window,document,navigator,location:{origin:'https://www.pusulalounge.com',pathname:routes[lang],search:""},URLSearchParams,Intl,Date:FixedDate,CustomEvent:dom.window.CustomEvent});
   return {dom,document,form:document.querySelector('form'),nav,events,clipboard,navigator,copy:JSON.parse(document.getElementById('reservation-copy').textContent)};
 }
 function submit(x) {x.form.dispatchEvent(new x.dom.window.Event('submit',{bubbles:true,cancelable:true}));}
@@ -45,6 +45,13 @@ function fill(x) {
   x.document.getElementById('edit-request').click();assert.equal(x.form.hidden,false);assert.equal(x.form.elements.name.value,'Deneme 李 & اختبار');
   x.form.elements.guests.value='1';x.document.getElementById('guest-minus').click();assert.equal(x.form.elements.guests.value,'1');
   x.form.elements.guests.value='999';x.document.getElementById('guest-plus').click();assert.equal(x.form.elements.guests.value,'999');
+  if (['tr','en','ru','ar'].includes(lang)) {
+    const menu=x.document.querySelector(`a[href="${lang==='tr'?'/menu/':`/${lang}/menu/`}"]`);
+    assert.ok(menu, `${lang} menu link`);
+    menu.addEventListener('click',e=>e.preventDefault());
+    menu.dispatchEvent(new x.dom.window.MouseEvent('click',{bubbles:true,cancelable:true}));
+    assert.equal(x.events.at(-1).name,'menu_click');
+  }
   fill(x);x.form.elements.phone.value='+٩٠ ٥٠٧ ٨١٦ ٢٩٩٤';submit(x);assert.ok(new URL(x.nav.at(-1)).searchParams.get('text').includes('+90 507 816 2994'));
   console.log('PASS',lang,'validation, Istanbul timezone, WhatsApp encoding, fallback/edit, clipboard, stepper, Arabic digits, private telemetry');
  }
