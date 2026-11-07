@@ -64,7 +64,7 @@ for lang,c in COPY.items():
 # tourist to read nineteen dishes before discovering how to visit.
 for lang in ['en','ru','ar']:
     file=file_for(MENU[lang]);text=re.sub(r'<!-- MENU-ACTIONS:START -->.*?<!-- MENU-ACTIONS:END -->','',file.read_text(),flags=re.S)
-    action='<!-- MENU-ACTIONS:START --><div class="menu-intro-actions">'+link(RESERVATION[lang],COPY[lang]['reservation'],'visit-button')+link(LOCATION[lang]+'#arrival-guide',COPY[lang]['directions'])+'</div><!-- MENU-ACTIONS:END -->'
+    action='<!-- MENU-ACTIONS:START --><div class="menu-intro-actions">'+link(RESERVATION[lang]+'?visit=breakfast',COPY[lang]['reservation'],'visit-button')+link(LOCATION[lang]+'#arrival-guide',COPY[lang]['directions'])+'</div><!-- MENU-ACTIONS:END -->'
     # The published menu's introduction is a header in EN and a div in RU/AR.
     match=re.search(r'<(?:header|div) class="visit-intro">.*?</(?:header|div)>',text,re.S)
     assert match,lang+' menu introduction missing'

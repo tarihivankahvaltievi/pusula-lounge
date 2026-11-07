@@ -51,8 +51,10 @@ const address='Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sin
       if(lang!=='tr'){
         await page.goto(base+`/${lang}/menu/`);
         const button=page.locator('.menu-intro-actions .visit-button');
-        assert.equal(await button.getAttribute('href'),`/${lang}/reservation/`);
+        assert.equal(await button.getAttribute('href'),`/${lang}/reservation/?visit=breakfast`);
         const box=await button.boundingBox();assert.ok(box.y<900,JSON.stringify({width,lang,box}));
+        await button.click();
+        assert.equal(await page.locator('[name="visitType"]').inputValue(),'breakfast');
       }
       results.push({width,lang,copy:true,copyFallback:true,print:true,directions:true,privateEvents:true});
     }
