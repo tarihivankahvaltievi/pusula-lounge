@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(sys.argv[1]).resolve()
 ORIGIN = 'https://www.pusulalounge.com'
+INSTAGRAM_PROFILE = 'https://www.instagram.com/pusulalounge/'
 S = 'http://www.sitemaps.org/schemas/sitemap/0.9'
 I = 'http://www.google.com/schemas/sitemap-image/1.1'
 X = 'http://www.w3.org/1999/xhtml'
@@ -39,6 +40,13 @@ for entry in tree.getroot():
         menu = next((n for n in graph if n.get('@type') == 'Menu'), None)
         article = next((n for n in graph if n.get('@type') == 'BlogPosting'), None)
         for node in graph:
+            if node.get('@type') == 'Restaurant':
+                # Connect the site’s verified social profile to its canonical
+                # business entity for search and knowledge graph consumers.
+                profiles = node.get('sameAs', [])
+                if isinstance(profiles, str):
+                    profiles = [profiles]
+                node['sameAs'] = list(dict.fromkeys([*profiles, INSTAGRAM_PROFILE]))
             if node.get('@id') == url + '#webpage':
                 # Reference the same real dishes that visitors can compare and
                 # open in the local-language menu. No separate AI-only facts.

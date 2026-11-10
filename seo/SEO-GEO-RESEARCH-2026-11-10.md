@@ -2,7 +2,7 @@
 
 **Tarih:** 10 Kasım 2026
 
-**İncelenen sürüm:** `f580b4a` (`main`)
+**İncelenen başlangıç sürümü:** `5135976` (`main`)
 
 **Hedef:** Taksim/Beyoğlu’nda kahvaltı veya ziyaret bilgisi arayan kişiyi doğru dildeki sayfaya, güncel menüye, konuma ve onaylı masa talebine ulaştırmak.
 
@@ -20,7 +20,9 @@ Yeni bulunan somut sorun, güncel menü fiyatlarını kaynaktan alan serpme kahv
 - Sitemap’teki 40 sayfanın HTML metadatası kontrol edildi: başlık, açıklama, canonical ve indexlenebilir robots kuralı.
 - Mevcut SEO doğrulayıcıları çalıştırıldı: hreflang/sitemap eşleşmeleri, yerel bağlantılar, içerik ve menü ilişkileri, 6 dilde rezervasyon sayfaları, JSON-LD görünür metin uyumu, SRI/CSP ve fiyat üretimi.
 - Canlı ana sayfa, Türkçe/İngilizce menüler, fiyat rehberi, sitemap ve `robots.txt` HTTP ile açıldı; örneklenen URL’ler `200` döndürdü.
+- Kamuya açık işletme profilleri ve `@pusulalounge` Instagram profili karşılaştırıldı. Bu örnekler alan adı dışı sıralama ölçümü sayılmadı.
 - Google Search Central ve Google Business Profile’ın resmi yönergeleri okundu. Güncel Search Console, GA4 veya işletme sahibi paneli bu incelemede bağlı değildi; bu nedenle yeni trafik, sorgu, indekslenme, yerel sıralama veya gerçek rezervasyon ölçüsü raporlanmıyor.
+- PageSpeed Insights API bu incelemede kota nedeniyle `429` döndürdü; güncel PSI/CrUX ölçümü alınamadı.
 
 ## Bulgular
 
@@ -48,6 +50,8 @@ Google’ın AI Overviews / AI Mode yönergeleri standart SEO temellerini vurgul
 
 Mevcut sayfalar menü, porsiyon, fiyat, adres, saat, yön tarifi ve masa talebini metin olarak veriyor; Restaurant, Menu, WebPage, BlogPosting ve Breadcrumb verileri sayfalarla ilişkilendirilmiş. İşletmenin kendi yorumları için `aggregateRating` eklenmemesi doğru: Google, işletmenin kontrol ettiği kendi LocalBusiness yorumları için yıldızlı review snippet göstermiyor.
 
+Bu turda kamuya açık Instagram profili `@pusulalounge` doğrulandı. Profil adı Pusula Lounge/Taksim kahvaltısı olarak geçiyor; profili aynı işletmenin web sitesi, telefonu ve No:3 adresiyle eşleştiren işletme listelemesi de bulundu. Restaurant varlığına profil için `sameAs` eklendi; bu Google’a işletme kimliği için ek bir kaynak sunar, tek başına sıralama yükseltme vaadi değildir. Kamuya açık Yandex kaydında kapı numarası `4`, sitede `3` görünüyor. Giriş numarası ve harita pini işletme sahibi tarafından doğrulanana kadar sitedeki adres değiştirilmedi.
+
 ### 5. Yerel sıralamanın önemli kısmı site dışındadır
 
 Google, yerel sonuçlarda alaka, mesafe ve bilinirliği temel faktörler olarak açıklıyor. Sitedeki açık adres, telefon, saat, menü ve konum bu bilgilerin anlaşılmasına yardım eder; arayan kişinin konumuna olan mesafeyi veya internetteki bağımsız bilinirliği değiştirmez.
@@ -62,6 +66,7 @@ Yerel bilinirlik için öncelik, gerçek müşteri geri bildirimi, tutarlı işl
 - Aynı iki yazıda 10 Kasım 2026 gerçek güncelleme tarihi görünür ve yapılandırılmış `dateModified` olarak gösteriliyor.
 - Blog üreticisi `article:modified_time` değerini artık yazının gerçek `dateModified` alanından alıyor. Akşam yazısının önceden var olan tarih farklılığı da böylece giderildi.
 - Değişen sayfaların sitemap `lastmod` değerleri içerik değişikliğiyle güncellendi. Fiyat tablosu menü kaynağından üretildiği için menü rakamları değişirse bu karşılaştırma da yeniden üretimde güncellenir.
+- Son metadata üreticisi, doğrulanan `@pusulalounge` profilini 40 sayfadaki `Restaurant.sameAs` listesine ekliyor. İşletme varlığı bütün yerel sayfalarda aynı dış profille ilişkilendiriliyor.
 
 ## Sonraki 30 gün için öncelikler
 
@@ -76,6 +81,7 @@ Yerel bilinirlik için öncelik, gerçek müşteri geri bildirimi, tutarlı işl
 
 - Üretim: `python3 scripts/build_release.py .` başarılı.
 - `check_tourism_seo.py`: 40 sayfa, 182 schema nesnesi, 14 blog rotası; hata yok.
+- 40 `Restaurant` şema varlığının tamamında Instagram `sameAs` bağlantısı bir kez bulunuyor; mevcut Google Knowledge Graph bağlantısı da korunuyor.
 - `check_international_seo.py`: 6 dilin tamamında canonical, hreflang, metadata, görünür SSS, menü ve varlık kontrolleri geçti.
 - `check_reservations.py`, `check_search_growth.py`, `check_search_metadata.py`, `check_menu_budget.py`: tamamı geçti.
 - Sitemap URL’lerinin tümünde title, description, canonical ve indexlenebilir robots metadatası doğrulandı.
@@ -90,6 +96,10 @@ Yerel bilinirlik için öncelik, gerçek müşteri geri bildirimi, tutarlı işl
 - [Google: Helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
 - [Google: Local ranking faktörleri](https://support.google.com/business/answer/7091?hl=en)
 - [Google: LocalBusiness yapılandırılmış veri](https://developers.google.com/search/docs/appearance/structured-data/local-business)
+- [Google: Organization yapılandırılmış verisi ve `sameAs`](https://developers.google.com/search/docs/appearance/structured-data/organization)
+- [Pusula Lounge Instagram profili](https://www.instagram.com/pusulalounge/)
+- [Restaurant Guru’daki Pusula Lounge kaydı](https://de.restaurantguru.com/pusula-lounge-Istanbul)
+- [Yandex’teki Pusula Lounge kaydı](https://yandex.com.tr/maps/org/pusula_lounge/172805673915/reviews/)
 - [Google: İşletmenin kendi yorumları ve review snippet politikası](https://developers.google.com/search/docs/appearance/structured-data/review-snippet)
 - [Google: Güncel title link oluşturma ilkeleri](https://developers.google.com/search/docs/appearance/title-link)
 - [Google: Çok dilli sayfalar ve hreflang](https://developers.google.com/search/docs/specialty/international/localized-versions)
