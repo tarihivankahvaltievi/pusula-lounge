@@ -107,3 +107,10 @@ PREVIEW_URL=http://127.0.0.1:8875 node scripts/test_menu_budget.cjs
 
 Research, external listing discrepancy, query mapping and measurement plan:
 `seo/MENU-BUDGET-AND-LOCAL-DISCOVERY-2026-10-29.md`.
+
+## Live indexability check
+
+After deployment, run `python3 scripts/check_live_indexability.py` to check every
+URL in the live sitemap for successful HTML responses, redirects, canonical URLs,
+and restrictive robots directives. This tests public responses, not whether Google
+has actually indexed a page; use Search Console for that distinction.
