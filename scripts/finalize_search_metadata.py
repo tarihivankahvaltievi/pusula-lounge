@@ -4,13 +4,16 @@ from urllib.parse import urljoin, urlsplit, unquote
 import json, re, sys
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
+from business_entity import MAPS_PROFILE
 
 ROOT = Path(sys.argv[1]).resolve()
 ORIGIN = 'https://www.pusulalounge.com'
+GOOGLE_SEARCH_SHARE = 'https://share.google/l1BSBLDwv6suQkW7Y'
 INSTAGRAM_PROFILE = 'https://www.instagram.com/pusulalounge/'
 S = 'http://www.sitemaps.org/schemas/sitemap/0.9'
 I = 'http://www.google.com/schemas/sitemap-image/1.1'
 X = 'http://www.w3.org/1999/xhtml'
+LOCATION_PATHS = {'/konum/', '/en/location/', '/ru/location/', '/ar/location/'}
 for prefix, uri in [('', S), ('image', I), ('xhtml', X)]:
     ET.register_namespace(prefix, uri)
 tree = ET.parse(ROOT / 'sitemap.xml')
@@ -18,6 +21,15 @@ for entry in tree.getroot():
     url = entry.find(f'{{{S}}}loc').text
     file = ROOT / urlsplit(url).path.lstrip('/') / 'index.html'
     text = file.read_text()
+    # The old share link opens Google Search. Map links should open the
+    # verified place in Maps, while links labelled reviews keep their purpose.
+    def map_link(match):
+        tag = BeautifulSoup(match.group(0), 'html.parser').a
+        if tag.get('href') != GOOGLE_SEARCH_SHARE or tag.get('data-interaction') == 'reviews':
+            return match.group(0)
+        tag['href'] = MAPS_PROFILE
+        return str(tag).removesuffix('</a>')
+    text = re.sub(r'<a\b[^>]*>', map_link, text)
     soup = BeautifulSoup(text, 'html.parser')
     images = []
     for img in soup.select('main img[src][alt]'):
@@ -37,10 +49,12 @@ for entry in tree.getroot():
     def update_schema(match):
         data = json.loads(match.group(2))
         graph = data.get('@graph', [])
+        restaurant = next((n for n in graph if n.get('@type') == 'Restaurant'), None)
         menu = next((n for n in graph if n.get('@type') == 'Menu'), None)
         article = next((n for n in graph if n.get('@type') == 'BlogPosting'), None)
         for node in graph:
             if node.get('@type') == 'Restaurant':
+                node['hasMap'] = MAPS_PROFILE
                 # Connect the site’s verified social profile to its canonical
                 # business entity for search and knowledge graph consumers.
                 profiles = node.get('sameAs', [])
@@ -59,6 +73,8 @@ for entry in tree.getroot():
                                 if a['hreflang'] != 'x-default' and a['href'] != url]
                 if translations:
                     node['workTranslation'] = translations
+                if restaurant and urlsplit(url).path in LOCATION_PATHS:
+                    node['mainEntity'] = {'@id': restaurant['@id']}
                 if menu:
                     node['mainEntity'] = {'@id': menu['@id']}
                     menu['mainEntityOfPage'] = {'@id': node['@id']}

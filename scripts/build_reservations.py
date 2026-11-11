@@ -2,11 +2,9 @@
 """Build the six static reservation pages. Usage: python3 scripts/build_reservations.py OUTPUT_ROOT."""
 from pathlib import Path
 import json, html, hashlib, base64, re, sys
-from business_entity import apply_restaurant_location
+from business_entity import ADDRESS, MAPS_PROFILE, WALKING_DIRECTIONS, apply_restaurant_location
 ROOT = Path(sys.argv[1])
 BASE = 'https://www.pusulalounge.com'
-ADDRESS = 'Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu / İstanbul'
-MAP = 'https://share.google/l1BSBLDwv6suQkW7Y'
 LANGS = {'tr':('Türkçe','/rezervasyon/','tr_TR'), 'en':('English','/en/reservation/','en_GB'), 'ru':('Русский','/ru/reservation/','ru_RU'), 'ko':('한국어','/ko/reservation/','ko_KR'), 'ar':('العربية','/ar/reservation/','ar_AR'), 'zh':('中文','/zh/reservation/','zh_CN')}
 # Copy is rendered into HTML; no client-side translation or language redirects are required.
 COPY = {
@@ -69,7 +67,7 @@ for lang,(language,path,locale) in LANGS.items():
     guide='/kahvalti-rehberi/' if lang=='tr' else '/en/breakfast-guide/'
     alternates='\n'.join(f'<link rel="alternate" hreflang="{l}" href="{BASE+p}">' for l,(_,p,_) in LANGS.items())+f'\n<link rel="alternate" hreflang="x-default" href="{BASE}/en/reservation/">'
     switch=''.join(f'<a href="{p}" lang="{l}" hreflang="{l}" dir="auto"'+(' aria-current="page"' if l==lang else '')+f'>{label}</a>' for l,(label,p,_) in LANGS.items())
-    restaurant=apply_restaurant_location({'@type':'Restaurant','@id':BASE+'/#restaurant','name':'Pusula Lounge','url':BASE+'/','telephone':'+905078162994','address':{'@type':'PostalAddress','streetAddress':ADDRESS.split(', Beyoğlu')[0],'addressLocality':'Beyoğlu','addressRegion':'İstanbul','addressCountry':'TR'},'hasMap':MAP,'hasMenu':BASE+menu,'servesCuisine':['Turkish','Van breakfast'],'image':[BASE+'/assets/gallery/pusula-sofrasi-share.jpg'],'logo':BASE+'/assets/pusula-amblem.png','acceptsReservations':url,'contactPoint':{'@type':'ContactPoint','contactType':'reservations','telephone':'+905078162994','url':url},'sameAs':['https://www.google.com/search?kgmid=/g/11m7457wsw']})
+    restaurant=apply_restaurant_location({'@type':'Restaurant','@id':BASE+'/#restaurant','name':'Pusula Lounge','url':BASE+'/','telephone':'+905078162994','address':{'@type':'PostalAddress','streetAddress':ADDRESS.split(', Beyoğlu')[0],'addressLocality':'Beyoğlu','addressRegion':'İstanbul','addressCountry':'TR'},'hasMap':MAPS_PROFILE,'hasMenu':BASE+menu,'servesCuisine':['Turkish','Van breakfast'],'image':[BASE+'/assets/gallery/pusula-sofrasi-share.jpg'],'logo':BASE+'/assets/pusula-amblem.png','acceptsReservations':url,'contactPoint':{'@type':'ContactPoint','contactType':'reservations','telephone':'+905078162994','url':url},'sameAs':['https://www.google.com/search?kgmid=/g/11m7457wsw']})
     graph=[restaurant, {'@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':'Pusula Lounge','inLanguage':list(LANGS),'publisher':{'@id':BASE+'/#restaurant'}}, {'@type':'WebPage','@id':url+'#webpage','url':url,'name':c['title'],'description':c['description'],'inLanguage':lang,'about':{'@id':BASE+'/#restaurant'},'isPartOf':{'@id':BASE+'/#website'},'breadcrumb':{'@id':url+'#breadcrumb'},'hasPart':{'@id':url+'#faq'}}, {'@type':'BreadcrumbList','@id':url+'#breadcrumb','itemListElement':[{'@type':'ListItem','position':1,'name':c['home'],'item':BASE+home},{'@type':'ListItem','position':2,'name':c['reservation'],'item':url}]}, {'@type':'FAQPage','@id':url+'#faq','inLanguage':lang,'mainEntity':[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in c['questions']]}]
     webpage=next(node for node in graph if node['@type']=='WebPage')
     webpage.update({'mainEntity':{'@id':BASE+'/#restaurant'},'primaryImageOfPage':{'@type':'ImageObject','url':BASE+'/assets/gallery/pusula-sofrasi-1200.webp','width':1200,'height':800,'caption':c['alt']},'relatedLink':[BASE+menu,BASE+location,BASE+guide]})
@@ -102,7 +100,7 @@ for lang,(language,path,locale) in LANGS.items():
 </head>
 <body>
 <a class="skip-link" href="#reservation-form">{e(c['skip'])}</a>
-<header class="reservation-header"><div class="header-inner"><a class="brand" href="{home}" aria-label="Pusula Lounge — {e(c['home'])}"><img src="/assets/pusula-lounges-logo-fast-320.webp" alt="Pusula Lounge" width="80" height="75"></a><nav class="site-nav" aria-label="{e(c['home'])}"><a href="{menu}">{e(c['menu'])}</a><a href="{MAP}" rel="noreferrer">{e(c['location'])}</a></nav><a class="header-phone" href="tel:+905078162994" dir="ltr">+90 507 816 29 94</a></div></header>
+<header class="reservation-header"><div class="header-inner"><a class="brand" href="{home}" aria-label="Pusula Lounge — {e(c['home'])}"><img src="/assets/pusula-lounges-logo-fast-320.webp" alt="Pusula Lounge" width="80" height="75"></a><nav class="site-nav" aria-label="{e(c['home'])}"><a href="{menu}">{e(c['menu'])}</a><a href="{e(WALKING_DIRECTIONS)}" rel="noreferrer">{e(c['location'])}</a></nav><a class="header-phone" href="tel:+905078162994" dir="ltr">+90 507 816 29 94</a></div></header>
 <main class="reservation-layout">
 <nav class="language-switch" aria-label="{e(c['languages'])}">{switch}</nav>
 <div class="reservation-spread">
@@ -121,7 +119,7 @@ for lang,(language,path,locale) in LANGS.items():
 <section id="request-summary" class="request-summary" hidden aria-labelledby="summary-title"><h2 id="summary-title" tabindex="-1">{e(c['ready'])}</h2><p>{e(c['readyText'])}</p><a class="submit-button" id="whatsapp-request" href="https://wa.me/905078162994" rel="noreferrer"><span>{e(c['open'])}</span>{ARROW}</a><label for="request-text">{e(c['message'])}</label><textarea id="request-text" readonly rows="8" dir="auto"></textarea><div class="secondary-actions"><button type="button" id="copy-request">{e(c['copy'])}</button><button type="button" id="edit-request">{e(c['edit'])}</button><a id="sms-request" href="sms:+905078162994">{e(c['sms'])}</a></div><p id="copy-status" role="status" aria-live="polite"></p></section>
 <p class="direct-contact"><a href="tel:+905078162994">{e(c['call'])} <bdi>+90 507 816 29 94</bdi></a></p>
 </section>
-<aside class="place-aside" aria-label="Pusula Lounge"><figure><img src="/assets/gallery/pusula-sofrasi-600.webp" srcset="/assets/gallery/pusula-sofrasi-600.webp 600w, /assets/gallery/pusula-sofrasi-1200.webp 1200w" sizes="(max-width: 800px) calc(100vw - 40px), 400px" width="1200" height="800" alt="{e(c['alt'])}" loading="lazy" decoding="async"><figcaption>{e(c['photo'])}</figcaption></figure><div class="visit-info"><h2>{e(c['visitTitle'])}</h2><p>{e(c['visitText'])}</p><p class="breakfast-hours">{breakfast_hours}</p><address dir="auto">{e(ADDRESS)}</address><div class="visit-links"><a href="{menu}">{e(c['menu'])}</a><a href="{MAP}" rel="noreferrer">{e(c['location'])}</a><a href="{location}">{e(c['visitDetails'])}</a><a href="{guide}">{e(c['guide'])}</a></div></div></aside>
+<aside class="place-aside" aria-label="Pusula Lounge"><figure><img src="/assets/gallery/pusula-sofrasi-600.webp" srcset="/assets/gallery/pusula-sofrasi-600.webp 600w, /assets/gallery/pusula-sofrasi-1200.webp 1200w" sizes="(max-width: 800px) calc(100vw - 40px), 400px" width="1200" height="800" alt="{e(c['alt'])}" loading="lazy" decoding="async"><figcaption>{e(c['photo'])}</figcaption></figure><div class="visit-info"><h2>{e(c['visitTitle'])}</h2><p>{e(c['visitText'])}</p><p class="breakfast-hours">{breakfast_hours}</p><address dir="auto">{e(ADDRESS)}</address><div class="visit-links"><a href="{menu}">{e(c['menu'])}</a><a href="{e(WALKING_DIRECTIONS)}" rel="noreferrer">{e(c['location'])}</a><a href="{location}">{e(c['visitDetails'])}</a><a href="{guide}">{e(c['guide'])}</a></div></div></aside>
 </div>
 <section class="reservation-faq" id="faq" aria-labelledby="faq-title"><h2 id="faq-title">{e(c['faqTitle'])}</h2><div>{faq}</div></section>
 </main>

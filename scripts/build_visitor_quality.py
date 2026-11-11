@@ -4,21 +4,20 @@ Run after build_international_seo.py. Asset refs and CSP are refreshed atomicall
 """
 from pathlib import Path
 from html import escape
-from urllib.parse import urlencode,urlsplit,urljoin
+from urllib.parse import urlsplit,urljoin
+from business_entity import ADDRESS, WALKING_DIRECTIONS
 from bs4 import BeautifulSoup
 import base64,hashlib,json,re,sys,xml.etree.ElementTree as ET
 
 ROOT=Path(sys.argv[1]).resolve()
 ORIGIN='https://www.pusulalounge.com'
 DATE='2026-10-28'
-ADDRESS='Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu / İstanbul'
 COPY=json.loads((Path(__file__).parent/'arrival_copy.json').read_text())
 LOCATION={'tr':'/konum/','en':'/en/location/','ru':'/ru/location/','ar':'/ar/location/'}
 MENU={'tr':'/menu/','en':'/en/menu/','ru':'/ru/menu/','ar':'/ar/menu/'}
 RESERVATION={'tr':'/rezervasyon/',**{lang:f'/{lang}/reservation/' for lang in ['en','ru','ar']}}
 S='http://www.sitemaps.org/schemas/sitemap/0.9'
 before={p:p.read_bytes() for p in ROOT.rglob('index.html') if '.git' not in p.parts}
-directions='https://www.google.com/maps/dir/?'+urlencode({'api':1,'destination':'Pusula Lounge, '+ADDRESS,'travelmode':'walking'})
 
 def e(value):return escape(str(value),quote=True)
 def file_for(route):return ROOT/route.lstrip('/')/'index.html'
@@ -38,7 +37,7 @@ for lang,c in COPY.items():
         routes_html+='<div><dt>'+e(title)+'</dt><dd>'+e(description)+'</dd></div>'
     routes_html+='</dl>'
     body+='<div class="visit-card"><h3>Pusula Lounge</h3><address data-visit-address lang="tr" dir="ltr">'+e(ADDRESS)+'</address>'
-    body+='<div class="visit-tool-actions">'+link(directions,c['directions'],'visit-button')+link('tel:+905078162994',c['call'])
+    body+='<div class="visit-tool-actions">'+link(WALKING_DIRECTIONS,c['directions'],'visit-button')+link('tel:+905078162994',c['call'])
     body+=f'<button type="button" data-copy-address hidden>{e(c["copy"])}</button><button type="button" data-print-visit hidden>{e(c["print"])}</button></div><p role="status" aria-live="polite"></p>'
     body+='<p><bdi dir="ltr">+90 507 816 29 94</bdi></p><p>'+e(c['hours'])+'</p></div><p>'+e(c['note'])+'</p>'
     body+='<p>'+e(c['intro'])+'</p>'+routes_html
@@ -104,7 +103,7 @@ for file in ROOT.rglob('*.html'):
             tag['data-interaction']='reviews'
         elif 'menu-directions' in tag.get('class',[]):
             # A link labelled directions should open a route, not a profile.
-            tag['href']=directions
+            tag['href']=WALKING_DIRECTIONS
         else:
             return match.group(0)
         return str(tag).removesuffix('</a>')
