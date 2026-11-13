@@ -98,6 +98,8 @@
     summary.hidden = false;
     document.getElementById('summary-title').focus();
     status.textContent = '';
+    // The site can verify preparation, not delivery or confirmation in WhatsApp.
+    emit('reservation_form_prepared');
     emit('reservation_whatsapp_open');
     // Same-tab navigation works without pop-up permission on mobile and desktop.
     // The prepared message and edit/copy/call options remain available on Back.
