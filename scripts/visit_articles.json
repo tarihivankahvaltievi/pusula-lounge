@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "taksimde-kalabalik-grup-kahvaltisi",
+    "en": "group-breakfast-taksim",
+    "date": "2026-11-16",
+    "dateLabel": ["16 Kasım 2026", "16 November 2026"],
+    "title": ["Taksim’de Kalabalık Grup Kahvaltısı Nasıl Planlanır?", "Planning a Group Breakfast in Taksim"],
+    "desc": ["Beş kişi veya daha kalabalık bir grupla Taksim’de kahvaltı planlayın. Pusula Lounge’da porsiyonları karşılaştırın ve WhatsApp’tan masa isteyin.", "Planning breakfast for five or more in Taksim? Compare Pusula Lounge’s shared portions and send a WhatsApp table request for your group."],
+    "lead": ["Taksim’de beş kişi veya daha kalabalık bir grupla kahvaltı için Pusula Lounge’a tarih, saat ve kişi sayısıyla masa talebi gönderebilirsiniz. Serpme Van kahvaltısı menüde 2, 3 ve 4 kişilik porsiyonlarla listeleniyor. Grubunuz için porsiyonları ve masa düzenini talebinizde ekiple görüşün.", "For breakfast with five or more in Taksim, send Pusula Lounge a table request with your date, time and guest count. The menu lists shared Van breakfasts for two, three or four. Ask the team which portions and seating arrangements can work for your group."],
+    "cover": {
+      "category": "breakfast",
+      "photo": "sofrada-sohbet",
+      "teaser": ["Arkadaşlarla aynı sofrada.", "Breakfast around one table."],
+      "alt": ["Pusula Lounge’da bir sofra etrafında sohbet eden misafirler", "Guests chatting around a table at Pusula Lounge"]
+    },
+    "discoveryPage": "breakfast",
+    "sections": [
+      ["Beş kişi için siparişi nasıl düşünmeli?", "How could five guests order?", "Menüdeki iki ve üç kişilik serpme porsiyonları, beş kişi için karşılaştırabileceğiniz bir kombinasyon. Birkaç kişi serpme paylaşmak, diğerleri tek tabak seçmek isterse kahvaltı tabağı, menemen veya gözleme seçeneklerine de bakın. Serpme porsiyonlarında sınırsız çay listelenir. Tek tabakların yanında çay olup olmadığını ürün açıklamasından kontrol edin. Sipariş düzenini ve toplam tutarı önceden ekiple netleştirin.", "A two-person and a three-person spread are one combination to compare for five guests. If some guests want to share and others would like their own dish, look at the breakfast plate, menemen or gözleme. The shared spreads list unlimited tea. Check the individual dish descriptions for tea and confirm the order and total cost with the team."],
+      ["Masa talebine hangi bilgileri eklemeli?", "What should go in the table request?", "Formda tarihi, İstanbul saatine göre geliş saatinizi ve toplam kişi sayısını seçin. Herkesin aynı masada oturması önemliyse bunu not alanına yazın. Çocuk sandalyesi, bebek arabasıyla giriş veya özel beslenme ihtiyacı varsa belirtip ekibin yanıtında teyit alın. Grubun bir bölümü daha geç gelecekse yaklaşık geliş saatlerini de paylaşın.", "Enter the date, arrival time in Istanbul local time and total guest count. If everyone needs to sit together, mention it in the notes. Include any high-chair, stroller access or dietary requests and ask the team to confirm what they can accommodate. If part of the group will arrive later, share their approximate arrival time."],
+      ["Yanıtı ve buluşma adresini gruba iletin", "Share the confirmation and meeting address", "Form, WhatsApp’ta göndereceğiniz mesajı hazırlar. Masa, ekip uygunluğu teyit ettiğinde ayrılır. Yanıt geldikten sonra gruba hem buluşma saatini hem kapı adresini iletin: Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu. Pusula Lounge’un kahvaltı servisi her gün 08:00–17:00 arasındadır.", "The form drafts your message for WhatsApp. The team sets a table aside after confirming availability. Once you have a reply, share the meeting time and street address with the group: Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu. Pusula Lounge lists breakfast service daily from 08:00 to 17:00."]
+    ]
+  },
+  {
+    "slug": "taksimde-menemen-gozleme",
+    "en": "menemen-and-gozleme-taksim",
+    "date": "2026-11-16",
+    "dateLabel": ["16 Kasım 2026", "16 November 2026"],
+    "title": ["Taksim’de Menemen mi, Gözleme mi?", "Menemen or Gözleme in Taksim?"],
+    "desc": ["Pusula Lounge’da sade menemen, peynirli ve patatesli gözleme gibi sıcak kahvaltılıkları içeriklerine göre karşılaştırın.", "Compare plain menemen, cheese and potato gözleme, and other hot breakfast dishes on the Pusula Lounge menu in Taksim."],
+    "lead": ["Pusula Lounge’da sıcak bir kahvaltılık seçecekseniz sade menemen domates, biber ve yumurtayla hazırlanır. Gözleme ise sacda pişirilen ince hamurun içine peynir, ıspanak veya patates gibi bir harç konularak yapılır. İki ürün de İstiklal yakınındaki kahvaltı menüsünde ayrı sipariş edilebilir.", "At Pusula Lounge, plain menemen is a hot pan dish of tomatoes, peppers and eggs. Gözleme is a thin flatbread cooked on a griddle with a filling such as cheese, spinach or potato. Both are available as individual orders on the breakfast menu near İstiklal."],
+    "cover": {
+      "category": "breakfast",
+      "photo": "pusula-sofrasi",
+      "teaser": ["Tavadan ve sacdan.", "From the pan and the griddle."],
+      "alt": ["Pusula Lounge’un kahvaltı sofrası", "A breakfast table at Pusula Lounge"]
+    },
+    "discoveryPage": "menu",
+    "sections": [
+      ["Menemenin hangi çeşidini seçmeli?", "Which menemen should you order?", "Domates, yeşil biber ve yumurta tadı öne çıksın istiyorsanız menüde sade menemen var. Beyaz peynirli veya mantar ve kaşarlı seçenekler de listeleniyor. Daha yoğun bir tat için sucuklu, pastırmalı ya da kavurmalı menemenlere bakabilirsiniz. Restoranın menemen kategorisinde tereyağı belirtiliyor.", "Choose plain menemen if you want tomatoes, green peppers and eggs to be the main flavours. The menu also lists white cheese menemen and a mushroom version with kaşar cheese. For a richer flavour, look for sucuk sausage, pastırma or kavurma. The menu describes menemen as cooked with butter."],
+      ["Gözleme harcında hangi seçenekler var?", "What can you get inside a gözleme?", "Beyaz peynir ve maydanoz için peynirli gözlemeye, ıspanak ve peyniri bir arada istiyorsanız ıspanaklı gözlemeye bakın. Patatesli gözlemenin açıklamasında baharatlı patates dolgusu öne çıkıyor. Mantarlı gözlemede sote mantar ve kaşar, sucuklu gözlemede sucuk ve kaşar listeleniyor. Güncel fiyatları ve diğer harçları menüden karşılaştırın.", "Order the cheese gözleme for white cheese and parsley, or the spinach version for spinach with cheese. The menu describes the potato version as having a spiced potato filling. The mushroom gözleme contains sautéed mushrooms and kaşar, while the sucuk version pairs sausage with kaşar. Check the menu for current prices and the other fillings."],
+      ["İkisini de denemek isterseniz", "If you want to try both", "İki kişi sıcak kahvaltılık istiyorsa bir menemen ve bir gözleme söyleyip farklı iki hazırlama biçimini tadabilir. Serpme kahvaltıyı da düşünüyorsanız içeriğinde zaten menemen ve sahanda yumurta listelendiğini kontrol edin. İçeceği ve varsa ilave siparişi hesaba katın. Özel beslenme ihtiyacınız varsa hamur, harç ve pişirme koşullarını sipariş öncesinde ekibe sorun.", "If two of you want hot breakfast dishes, order one menemen and one gözleme to try both preparations. If you are also considering the shared spread, it already lists menemen and fried eggs. Check drinks and any extras when working out the total. If you have a dietary requirement, ask the team about the dough, filling and preparation before ordering."]
+    ]
+  },
+  {
+    "slug": "taksimde-erken-kahvalti-otel-cikisi",
+    "en": "early-breakfast-before-checkout-taksim",
+    "date": "2026-11-16",
+    "dateLabel": ["16 Kasım 2026", "16 November 2026"],
+    "title": ["Otel Çıkışından Önce Taksim’de Erken Kahvaltı", "Early Breakfast Before Hotel Checkout in Taksim"],
+    "desc": ["Taksim’de otel çıkışı öncesi kahvaltı planlayın. Pusula Lounge’un 08:00’de başlayan kahvaltı servisini, menüyü ve yürüyüş rotasını görün.", "Plan breakfast before hotel checkout in Taksim. See Pusula Lounge’s breakfast hours from 08:00, menu options and walking directions."],
+    "lead": ["Taksim’de otelden çıkmadan önce kahvaltı etmek istiyorsanız Pusula Lounge’un kahvaltı servisi her gün 08:00’de başlıyor ve 17:00’ye kadar sürüyor. İstiklal’e yakın mekâna otelinizden yürüyüş rotasını açın, dönüş süresini hesaba katın ve çıkış saatinize uygun bir masa talep edin.", "If you want breakfast before checking out of your hotel in Taksim, Pusula Lounge lists breakfast service daily from 08:00 to 17:00. Open walking directions from your hotel to the restaurant near İstiklal, allow time to get back and request a table that fits your checkout time."],
+    "cover": {
+      "category": "city",
+      "photo": "cicekli-mekan",
+      "teaser": ["Beyoğlu’nda erken bir sofra.", "An early breakfast in Beyoğlu."],
+      "alt": ["Pusula Lounge’un çiçeklerle süslenmiş oturma alanı", "The flower-decorated seating area at Pusula Lounge"]
+    },
+    "discoveryPage": "location",
+    "sections": [
+      ["Önce otel çıkış saatinden geriye planlayın", "Work back from your checkout time", "Otelinizin çıkış saatini öğrenin. Odadan eşyalarınızı almak, resepsiyona uğramak ve mekândan otele dönmek için zaman ayırın. Kahvaltıya ayırabildiğiniz süre kısıtlıysa WhatsApp mesajına ne zaman kalkmanız gerektiğini yazıp servis süresini ekibe sorun. Özel günlerde kahvaltı saatini de teyit edin.", "Check your hotel’s checkout time. Allow time to walk back, collect your belongings and stop at reception. If breakfast has to fit into a tight window, tell the restaurant when you need to leave in your WhatsApp message and ask about service timing. Confirm breakfast hours for holidays or special dates."],
+      ["Masaya oturmadan menüye bakın", "Look at the menu before you arrive", "Tek başınıza kahvaltı edecekseniz peynir, haşlanmış yumurta ve çay listelenen kahvaltı tabağına veya bir sıcak tabağa bakın. Birlikte yiyecekseniz serpme Van kahvaltısı 2, 3 ve 4 kişilik porsiyonlarla listeleniyor. Masada karar vermek için ayıracağınız süreyi azaltmak isterseniz ürünleri ve fiyatları önceden menüden karşılaştırın.", "If you are eating alone, consider the breakfast plate with cheese, a boiled egg and tea, or an individual hot dish. If you are sharing, the Van breakfast comes in portions for two, three or four. Compare dishes and prices on the menu before you arrive to spend less of your morning deciding at the table."],
+      ["Haritada kapı numarasını hedefleyin", "Set the door number as your map destination", "Pusula Lounge, Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu adresinde. Konum sayfasından yürüyüş yol tarifini açıp başlangıç noktasına otelinizi yazın. Otelden önce çıkış yapıp valizle gelecekseniz giriş ve eşya konusunda ihtiyaçlarınızı önceden ekiple konuşun.", "Pusula Lounge is at Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu. Open the walking route on the location page and set your hotel as the starting point. If you plan to check out first and arrive with luggage, contact the team ahead of time about access and your bags."]
+    ]
+  }
+]

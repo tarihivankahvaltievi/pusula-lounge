@@ -3,6 +3,36 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/en/blog/early-breakfast-before-checkout-taksim/index.html",
+      "destination": "/en/blog/early-breakfast-before-checkout-taksim/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/menemen-and-gozleme-taksim/index.html",
+      "destination": "/en/blog/menemen-and-gozleme-taksim/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/group-breakfast-taksim/index.html",
+      "destination": "/en/blog/group-breakfast-taksim/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/taksimde-erken-kahvalti-otel-cikisi/index.html",
+      "destination": "/blog/taksimde-erken-kahvalti-otel-cikisi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/taksimde-menemen-gozleme/index.html",
+      "destination": "/blog/taksimde-menemen-gozleme/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/taksimde-kalabalik-grup-kahvaltisi/index.html",
+      "destination": "/blog/taksimde-kalabalik-grup-kahvaltisi/",
+      "permanent": true
+    },
+    {
       "source": "/en/blog/beyoglu-breakfast-museums/index.html",
       "destination": "/en/blog/beyoglu-breakfast-museums/",
       "permanent": true
@@ -228,7 +258,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'sha256-3gRldr92AJrqS9NErmCUeXK2Awuy0SNbCnpgwmbofXQ=' 'sha256-4v7+5HGWoQjiyJFynyw2lKZsdxwTA0ieHPu9YH5BthI=' 'sha256-6D4qebjxoY6NMU/dTKOX3r6YcddEIY+1LDkLRNv7AvM=' 'sha256-G2ZuzuwV/Xs0XRZ71nvOaTjnW/StXNGne7nl7ZlYSr0=' 'sha256-Nn6EIpURJf+PMW90NV/dUWZIpmMRjCmELEn+i8wtyws=' 'sha256-j5OAN0Nv6SUpKsnKgIIdhFwvkrgTxde43YcOdC7KGOo=' 'sha256-onED4PNcyyCgSKEGgazssG4ubxOXeWRas7u/uW0IFro=' 'sha256-r9mSU3dR7Lo2yDyYLz1fMnerNSoqeUQoSLNeT+zoYmg=' 'sha256-CombMb9NSNgwHwgGN84MAAlLjhCLT6Y9OGSrii+fupU=' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; img-src 'self' data: https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.tr; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.tr https://ad.doubleclick.net; frame-src https://www.googletagmanager.com; worker-src 'none'; manifest-src 'none'; form-action 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'sha256-3gRldr92AJrqS9NErmCUeXK2Awuy0SNbCnpgwmbofXQ=' 'sha256-4v7+5HGWoQjiyJFynyw2lKZsdxwTA0ieHPu9YH5BthI=' 'sha256-6D4qebjxoY6NMU/dTKOX3r6YcddEIY+1LDkLRNv7AvM=' 'sha256-CombMb9NSNgwHwgGN84MAAlLjhCLT6Y9OGSrii+fupU=' 'sha256-G2ZuzuwV/Xs0XRZ71nvOaTjnW/StXNGne7nl7ZlYSr0=' 'sha256-Nn6EIpURJf+PMW90NV/dUWZIpmMRjCmELEn+i8wtyws=' 'sha256-j5OAN0Nv6SUpKsnKgIIdhFwvkrgTxde43YcOdC7KGOo=' 'sha256-onED4PNcyyCgSKEGgazssG4ubxOXeWRas7u/uW0IFro=' 'sha256-r9mSU3dR7Lo2yDyYLz1fMnerNSoqeUQoSLNeT+zoYmg=' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; img-src 'self' data: https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.tr; font-src 'self'; connect-src 'self' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.tr https://ad.doubleclick.net; frame-src https://www.googletagmanager.com; worker-src 'none'; manifest-src 'none'; form-action 'none'; upgrade-insecure-requests"
         },
         {
           "key": "X-Frame-Options",

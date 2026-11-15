@@ -91,6 +91,13 @@ def menu_inquiry_link(article,en):
 ARTICLES.append(json.loads((Path(__file__).parent/'van_breakfast_article.json').read_text()))
 ARTICLES.append(json.loads((Path(__file__).parent/'taksim-evening-article.json').read_text()))
 ARTICLES.append(json.loads((Path(__file__).parent/'culture_article.json').read_text()))
+VISIT_ARTICLES=json.loads(Path(__file__).with_name('visit_articles.json').read_text())
+ARTICLES.extend(VISIT_ARTICLES)
+DISCOVERY_PAGES={
+ 'breakfast': ('kahvalti/index.html', 'en/breakfast/index.html'),
+ 'menu': ('menu/index.html', 'en/menu/index.html'),
+ 'location': ('konum/index.html', 'en/location/index.html'),
+}
 # Inherit existing fonts, colors, header/footer and identity graph.
 base={}
 for en in [False,True]:
@@ -116,6 +123,7 @@ def render(path,title,desc,en,pair,body,article=None):
   image_caption=article.get('imageCaption',['Pusula Lounge’da paylaşılan kahvaltı sofrası','A shared breakfast table at Pusula Lounge'])[int(en)]
   web['primaryImageOfPage']={'@type':'ImageObject','url':O+image_path,'contentUrl':O+image_path,'width':image_width,'height':image_height,'inLanguage':lang,'caption':image_caption}
   modified=article.get('dateModified',publication)
+  web['mainEntity']={'@id':url+'#article'}
   graph.append({'@type':'BlogPosting','@id':url+'#article','headline':title,'description':desc,'url':url,'inLanguage':lang,'datePublished':publication+'T00:00:00+03:00','dateModified':modified+'T00:00:00+03:00','author':{'@id':O+'/#restaurant'},'publisher':{'@id':O+'/#restaurant'},'mainEntityOfPage':{'@id':url+'#webpage'},'image':O+image_path,'isPartOf':{'@id':O+index+'#blog'}})
  else:
   graph.append({'@type':'Blog','@id':url+'#blog','name':title,'url':url,'inLanguage':lang,'publisher':{'@id':O+'/#restaurant'},'blogPost':[{'@id':O+route(a,en)+'#article'} for a in ARTICLES]})
@@ -191,6 +199,10 @@ for p in R.rglob('*.html'):
  en=BeautifulSoup(t,'html.parser').html.get('lang')=='en';target='/en/blog/' if en else '/blog/'
  if '<!-- JOURNAL:START -->' not in t:
   section='<section class="visit-section"><h2>'+('Plan food and a visit in Taksim' if en else 'Taksim’de sofra ve ziyaret planı')+'</h2><p>'+link(target,'Breakfast, dinner, dessert, drinks and an İstiklal visit guide.' if en else 'Kahvaltı, akşam yemeği, tatlı, içecek ve İstiklal ziyareti için rehberimizi okuyun.')+'</p></section>'
+  contextual=[link(route(a,en),a['title'][int(en)]) for a in VISIT_ARTICLES
+              if rel == DISCOVERY_PAGES[a['discoveryPage']][int(en)]]
+  if contextual:
+   section=section.replace('</section>','<ul>'+''.join('<li>'+item+'</li>' for item in contextual)+'</ul></section>')
   # Home uses a different visual system: add a compact footer link there.
   if rel=='index.html':t=t.replace('</footer>','<!-- JOURNAL:START --><p class="business-source">'+link(target,'Taksim kahvaltı blogu ve ziyaret planları')+'</p><!-- JOURNAL:END --></footer>')
   else:t=t.replace('</main>','<!-- JOURNAL:START -->'+section+'<!-- JOURNAL:END --></main>')

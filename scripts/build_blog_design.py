@@ -19,6 +19,9 @@ SUBJECTS=[
  ('taksimde-aksam-yemegi-waffle-kahve','dinner-waffle-coffee-taksim','evening','birlikte-mola',('Akşama da yer var.','Stay a little longer.'),('Pusula’da masada paylaşılan bir içecek molası.','Sharing a drink around a table at Pusula.')),
  ('kahvaltidan-sonra-beyoglu-sanat-muze','beyoglu-breakfast-museums','city','yesil-kose',('Sofradan sonra, Beyoğlu.','After breakfast, Beyoğlu awaits.'),('Beyoğlu gezisine başlamadan önce Pusula’nın yeşil köşesi.','Pusula’s green corner before exploring Beyoğlu.')),
 ]
+for article in json.loads((HERE/'visit_articles.json').read_text()):
+ cover=article['cover']
+ SUBJECTS.append((article['slug'],article['en'],cover['category'],cover['photo'],cover['teaser'],cover['alt']))
 CATEGORIES={'breakfast':('Sofra & kahvaltı','Breakfast & the table'),'city':('Beyoğlu & şehir','Beyoğlu & the city'),'evening':('Akşam & mola','Evenings & coffee')}
 def fragment(text):return BeautifulSoup(text,'html.parser')
 def asset(path,script=False):
@@ -128,7 +131,7 @@ for url in tree.getroot():
      caption=im.find('{'+I+'}caption')
      if caption is not None:caption.text=s[5][int(en)]
 tree.write(R/'sitemap.xml',encoding='unicode',xml_declaration=True)
-print('Designed 14 journal pages with six distinct subject covers.')
+print(f'Designed {2 * (len(SUBJECTS) + 1)} journal pages.')
 
 # Seal this new script into the existing hash-only policy without widening sources.
 config=json.loads((R/'vercel.json').read_text())

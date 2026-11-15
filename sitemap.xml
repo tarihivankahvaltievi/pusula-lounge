@@ -29,7 +29,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/menu/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
@@ -52,7 +52,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/kahvalti/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti/" />
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/konum/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -83,7 +83,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/menu/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/menu/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/menu/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/menu/" />
@@ -92,7 +92,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/breakfast/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/kahvalti/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/breakfast/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/kahvalti/" />
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/location/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/konum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/location/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.pusulalounge.com/ru/location/" />
@@ -243,7 +243,7 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -262,7 +262,7 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -278,10 +278,10 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -311,6 +311,15 @@
     <image:image>
       <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/en/blog/turkish-breakfast-taksim/</loc>
@@ -328,7 +337,7 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -347,7 +356,7 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -363,10 +372,10 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -396,6 +405,15 @@
     <image:image>
       <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.pusulalounge.com/blog/van-kahvaltisi-nedir-pusula-sofrasi/</loc>
@@ -413,7 +431,7 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -432,7 +450,7 @@
       <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -527,10 +545,10 @@
       <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -565,10 +583,124 @@
       <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
     </image:image>
     <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/blog/taksimde-kalabalik-grup-kahvaltisi/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-kalabalik-grup-kahvaltisi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/group-breakfast-taksim/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/group-breakfast-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/blog/taksimde-menemen-gozleme/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-menemen-gozleme/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/menemen-and-gozleme-taksim/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/menemen-and-gozleme-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/blog/taksimde-erken-kahvalti-otel-cikisi/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-erken-kahvalti-otel-cikisi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/early-breakfast-before-checkout-taksim/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/early-breakfast-before-checkout-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/group-breakfast-taksim/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/group-breakfast-taksim/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-kalabalik-grup-kahvaltisi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/group-breakfast-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/sofrada-sohbet-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/menemen-and-gozleme-taksim/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/menemen-and-gozleme-taksim/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-menemen-gozleme/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/menemen-and-gozleme-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/pusula-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-sofrasi-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/kahvalti-detay-1200.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.pusulalounge.com/en/blog/early-breakfast-before-checkout-taksim/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.pusulalounge.com/en/blog/early-breakfast-before-checkout-taksim/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.pusulalounge.com/blog/taksimde-erken-kahvalti-otel-cikisi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.pusulalounge.com/en/blog/early-breakfast-before-checkout-taksim/" />
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/cicekli-mekan-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/istiklal-tram-calm-screen-1280.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/yesil-kose-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pusulalounge.com/assets/gallery/paylasilan-kahvalti-1200.webp</image:loc>
     </image:image>
   </url>
 </urlset>
