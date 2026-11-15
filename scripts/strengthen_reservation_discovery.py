@@ -15,7 +15,7 @@ for rel in ['menu/index.html','en/menu/index.html','kahvalti-rehberi/index.html'
  route=languages['en' if en else 'tr'][1]
  # Reuse each page's established layout and type styles.
  klass='visit-section' if en or 'rehberi' in rel else 'menu-reading-guide'
- block=f'<!-- RESERVATION-DISCOVERY:START --><section class="{klass}" aria-labelledby="reserve-visit-title"><h2 id="reserve-visit-title">{title}</h2><p>{lead}</p><p><a href="{route}">{label}</a></p></section><!-- RESERVATION-DISCOVERY:END -->'
+ block=f'<!-- RESERVATION-DISCOVERY:START --><section class="{klass}" aria-labelledby="reserve-visit-title"><h2 id="reserve-visit-title">{title}</h2><p>{lead}</p><p><a href="{route}?visit=breakfast">{label}</a></p></section><!-- RESERVATION-DISCOVERY:END -->'
  text=re.sub(r'<!-- RESERVATION-DISCOVERY:START -->.*?<!-- RESERVATION-DISCOVERY:END -->','',text,flags=re.S)
  marker='<!-- GEO:START -->' if rel=='menu/index.html' else '<!-- GUIDE:START -->' if rel=='en/menu/index.html' else '</main>'
  assert marker in text,rel

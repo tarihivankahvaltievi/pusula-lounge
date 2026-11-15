@@ -6,7 +6,14 @@
   const fields = ['date', 'time', 'guests', 'name', 'phone'].map(id => form.elements[id]);
   const visitType = form.elements.visitType;
   const requestedVisit = new URLSearchParams(location.search).get('visit');
-  if (['breakfast', 'dinner', 'waffle', 'coffee', 'other'].includes(requestedVisit)) visitType.value = requestedVisit;
+  if (Array.from(visitType.options).some(option => option.value === requestedVisit && option.value)) {
+    visitType.value = requestedVisit;
+    for (const link of document.querySelectorAll('.language-switch a')) {
+      const destination = new URL(link.href);
+      destination.searchParams.set('visit', requestedVisit);
+      link.href = destination.pathname + destination.search;
+    }
+  }
   const [date, time, guests] = fields;
   const summary = document.getElementById('request-summary');
   const requestText = document.getElementById('request-text');
@@ -31,7 +38,7 @@
   window.addEventListener('pageshow', refreshDate);
   function errorFor(field) {
     const value = field.value.trim();
-    if (!value) return text.required;
+    if (!value) return field.required ? text.required : '';
     const now = venueNow();
     if (field === date && (!field.validity.valid || value < now.date)) return text.dateError;
     if (field === time && (!field.validity.valid || (date.value === now.date && value <= now.time))) return text.timeError;
@@ -82,8 +89,9 @@
     }
     // ISO date and explicit timezone stay unambiguous for the restaurant team.
     const pairs = [[text.date, date.value], [text.time, `${time.value} (Europe/Istanbul)`],
-      [text.guests, guests.value], [text.name, form.elements.name.value.trim()],
-      [text.phone, digits(form.elements.phone.value.trim())]];
+      [text.guests, guests.value], [text.name, form.elements.name.value.trim()]];
+    const phone = form.elements.phone.value.trim();
+    if (phone) pairs.push([text.phone, digits(phone)]);
     if (visitType.value) pairs.splice(2, 0, [text.visitTypeMessage, visitType.options[visitType.selectedIndex].text]);
     const note = form.elements.note.value.trim();
     if (note) pairs.push([text.note, note]);
@@ -128,6 +136,7 @@
     const link = event.target.closest('a[href]');
     if (!link) return;
     if (link.protocol === 'tel:') emit('phone_click');
+    else if (link.id === 'direct-whatsapp') emit('reservation_whatsapp_open');
     else if (link.hostname === 'share.google') emit('map_profile_click');
     else if (link.origin === location.origin && /^\/(?:en\/|ru\/|ar\/)?menu\/$/.test(link.pathname)) emit('menu_click');
   });

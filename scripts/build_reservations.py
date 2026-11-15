@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Build the six static reservation pages. Usage: python3 scripts/build_reservations.py OUTPUT_ROOT."""
 from pathlib import Path
+from urllib.parse import quote
 import json, html, hashlib, base64, re, sys
 from business_entity import ADDRESS, MAPS_PROFILE, WALKING_DIRECTIONS, apply_restaurant_location
 ROOT = Path(sys.argv[1])
@@ -51,6 +52,22 @@ for language, additions in SEO_COPY.items():
     COPY[language]['questions'].extend(additions['questions'])
     COPY[language].update({k:v for k,v in additions.items() if k != 'questions'})
 
+BOOKING_COPY = {
+    'tr': ('Telefon (isteğe bağlı)', 'Doğrudan WhatsApp’tan yazın',
+           'Taksim, Beyoğlu’ndaki Pusula Lounge’a Van kahvaltısı veya akşam yemeği için WhatsApp’tan masa talebi gönderin. Ekibimiz masa uygunluğunu teyit eder.'),
+    'en': ('Phone (optional)', 'Message us directly on WhatsApp',
+           'Request a table on WhatsApp for Van breakfast or dinner at Pusula Lounge in Taksim, Istanbul. Our team confirms table availability.'),
+    'ru': ('Телефон (необязательно)', 'Написать напрямую в WhatsApp',
+           'Запросите столик в WhatsApp на ванский завтрак или ужин в Pusula Lounge в Таксиме, Стамбул. Наша команда подтвердит наличие мест.'),
+    'ko': ('전화번호 (선택)', 'WhatsApp으로 바로 문의',
+           '이스탄불 탁심의 Pusula Lounge에서 반 지역식 아침 식사나 저녁 식사를 즐겨 보세요. WhatsApp으로 문의하면 직원이 좌석 가능 여부를 확인해 드립니다.'),
+    'ar': ('رقم الهاتف (اختياري)', 'راسلنا مباشرةً عبر واتساب',
+           'اطلب طاولة عبر واتساب لفطور فان أو العشاء في Pusula Lounge في تقسيم، إسطنبول. يؤكد فريقنا توفر الطاولة.'),
+    'zh': ('电话号码（选填）', '直接通过 WhatsApp 联系',
+           '想在伊斯坦布尔塔克西姆的 Pusula Lounge 享用凡城早餐或晚餐？通过 WhatsApp 发送订位请求，工作人员会确认是否有空位。'),
+}
+
+
 def e(s): return html.escape(str(s), quote=True)
 def json_text(v): return json.dumps(v,ensure_ascii=False).replace('<','\\u003c')
 def asset(path):
@@ -61,7 +78,10 @@ def ref(path,kind):
     return f'<link rel="stylesheet" href="{url}" integrity="{sri}" crossorigin="anonymous">' if kind=='css' else f'<script src="{url}" defer integrity="{sri}" crossorigin="anonymous"></script>'
 ARROW='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>'
 for lang,(language,path,locale) in LANGS.items():
-    c=COPY[lang]; url=BASE+path; home='/' if lang=='tr' else f'/{lang}/' if lang in ('ru','ar') else '/en/'; menu='/menu/' if lang=='tr' else f'/{lang}/menu/' if lang in ('ru','ar') else '/en/menu/'
+    c=COPY[lang]
+    optional_phone_label, direct_label, c['description'] = BOOKING_COPY[lang]
+    direct_url = 'https://wa.me/905078162994?text=' + quote(c['intro'])
+    url=BASE+path; home='/' if lang=='tr' else f'/{lang}/' if lang in ('ru','ar') else '/en/'; menu='/menu/' if lang=='tr' else f'/{lang}/menu/' if lang in ('ru','ar') else '/en/menu/'
     breakfast_hours=e(c['breakfast']).replace('08:00–17:00','<bdi dir="ltr">08:00–17:00</bdi>') if lang=='ar' else e(c['breakfast'])
     location='/konum/' if lang=='tr' else f'/{lang}/location/' if lang in ('ru','ar') else '/en/location/'
     guide='/kahvalti-rehberi/' if lang=='tr' else '/en/breakfast-guide/'
@@ -73,8 +93,9 @@ for lang,(language,path,locale) in LANGS.items():
     webpage.update({'mainEntity':{'@id':BASE+'/#restaurant'},'primaryImageOfPage':{'@type':'ImageObject','url':BASE+'/assets/gallery/pusula-sofrasi-1200.webp','width':1200,'height':800,'caption':c['alt']},'relatedLink':[BASE+menu,BASE+location,BASE+guide]})
     if lang=='tr': webpage['workTranslation']=[{'@id':BASE+p+'#webpage'} for l,(_,p,_) in LANGS.items() if l!='tr']
     else: webpage['translationOfWork']={'@id':BASE+'/rezervasyon/#webpage'}
-    def field(id,label,type='text',extra=''):
-        return f'<div class="field"><label for="{id}">{e(label)}</label><input id="{id}" name="{id}" type="{type}" required aria-describedby="{id}-error" {extra}><span class="field-error" id="{id}-error"></span></div>'
+    def field(id,label,type='text',extra='',required=True):
+        requirement = ' required' if required else ''
+        return f'<div class="field"><label for="{id}">{e(label)}</label><input id="{id}" name="{id}" type="{type}"{requirement} aria-describedby="{id}-error" {extra}><span class="field-error" id="{id}-error"></span></div>'
     faq=''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p>'+ (f'<p><a href="{menu}#kahvalti">{e(c["menu"])}</a></p>' if i==3 else f'<p><a href="{location}">{e(c["visitDetails"])}</a></p>' if i==4 else '')+'</details>' for i,(q,a) in enumerate(c['questions']))
     metadata=''.join(f'<meta property="og:{key}" content="{e(value)}">' for key,value in {'type':'website','site_name':'Pusula Lounge','title':c['title'],'description':c['description'],'url':url,'locale':locale,'image':BASE+'/assets/gallery/pusula-sofrasi-share.jpg','image:width':1200,'image:height':800,'image:alt':c['alt']}.items())
     metadata+=''.join(f'<meta property="og:locale:alternate" content="{loc}">' for l,(_,_,loc) in LANGS.items() if l!=lang)
@@ -105,17 +126,18 @@ for lang,(language,path,locale) in LANGS.items():
 <nav class="language-switch" aria-label="{e(c['languages'])}">{switch}</nav>
 <div class="reservation-spread">
 <section class="reservation-sheet" aria-labelledby="form-title">
-<div class="sheet-heading"><h1 id="form-title">{e(c['heading'])}</h1><p>{e(c['lead'])}</p></div>
+<div class="sheet-heading"><h1 id="form-title">{e(c['heading'])}</h1><p>{e(c['lead'])}</p>
+<a class="direct-whatsapp" id="direct-whatsapp" href="{e(direct_url)}" rel="noreferrer">{e(direct_label)}</a></div>
 <form id="reservation-form" novalidate aria-describedby="request-note">
 <fieldset><legend>{e(c['visit'])}</legend><div class="visit-fields">{field('date',c['date'],'date')}{field('time',c['time'],'time')}
-<div class="field guest-field"><label for="guests">{e(c['guests'])}</label><div class="guest-stepper"><button type="button" id="guest-minus" aria-label="{e(c['less'])}">−</button><input id="guests" name="guests" type="number" value="2" min="1" max="999" step="1" inputmode="numeric" required aria-describedby="guests-error"><button type="button" id="guest-plus" aria-label="{e(c['more'])}">+</button></div><span class="field-error" id="guests-error"></span></div></div><p class="field-hint">{e(c['zone'])}</p></fieldset>
+<div class="field guest-field"><label for="guests">{e(c['guests'])}</label><div class="guest-stepper"><button type="button" id="guest-minus" aria-label="{e(c['less'])}">−</button><input id="guests" name="guests" type="number" value="2" min="1" max="999" step="1" inputmode="numeric" required aria-describedby="guests-error"><button type="button" id="guest-plus" aria-label="{e(c['more'])}">+</button></div><span class="field-error" id="guests-error"></span></div></div><p class="field-hint">{e(c['zone'])} <span class="booking-hours">{breakfast_hours}</span></p></fieldset>
 <div class="field visit-type-field"><label for="visit-type">{e(c['visitTypeLabel'])}</label><select id="visit-type" name="visitType"><option value="">{e(c['visitTypePrompt'])}</option>{''.join(f'<option value="{e(value)}">{e(label)}</option>' for value,label in c['visitTypes'].items())}</select></div>
-<fieldset><legend>{e(c['contact'])}</legend><div class="contact-fields">{field('name',c['name'],extra='autocomplete="name" maxlength="100"')}{field('phone',c['phone'],'tel','autocomplete="tel" maxlength="25" placeholder="+90 …" dir="ltr"')}</div></fieldset>
+<fieldset><legend>{e(c['contact'])}</legend><div class="contact-fields">{field('name',c['name'],extra='autocomplete="name" maxlength="100"')}{field('phone',optional_phone_label,'tel','autocomplete="tel" maxlength="25" placeholder="+90 …" dir="ltr"',required=False)}</div></fieldset>
 <div class="field note-field"><label for="note">{e(c['note'])}</label><textarea id="note" name="note" rows="2" maxlength="500" placeholder="{e(c['placeholder'])}"></textarea></div>
 <button class="submit-button" type="submit" disabled><span>{e(c['submit'])}</span>{ARROW}</button>
 <p class="privacy-note" id="request-note">{e(c['confirm'])}</p>
 </form>
-<noscript><p><a href="https://wa.me/905078162994">WhatsApp <bdi>+90 507 816 29 94</bdi></a> · <a href="tel:+905078162994">{e(c['call'])}</a></p></noscript>
+
 <section id="request-summary" class="request-summary" hidden aria-labelledby="summary-title"><h2 id="summary-title" tabindex="-1">{e(c['ready'])}</h2><p>{e(c['readyText'])}</p><a class="submit-button" id="whatsapp-request" href="https://wa.me/905078162994" rel="noreferrer"><span>{e(c['open'])}</span>{ARROW}</a><label for="request-text">{e(c['message'])}</label><textarea id="request-text" readonly rows="8" dir="auto"></textarea><div class="secondary-actions"><button type="button" id="copy-request">{e(c['copy'])}</button><button type="button" id="edit-request">{e(c['edit'])}</button><a id="sms-request" href="sms:+905078162994">{e(c['sms'])}</a></div><p id="copy-status" role="status" aria-live="polite"></p></section>
 <p class="direct-contact"><a href="tel:+905078162994">{e(c['call'])} <bdi>+90 507 816 29 94</bdi></a></p>
 </section>

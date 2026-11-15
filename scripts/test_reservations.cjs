@@ -8,13 +8,13 @@ const root = process.argv[2];
 const routes = {tr:'/rezervasyon/', en:'/en/reservation/', ru:'/ru/reservation/',ko:'/ko/reservation/',ar:'/ar/reservation/',zh:'/zh/reservation/'};
 const code = fs.readFileSync(path.join(root,'rezervasyon/reservation.js'),'utf8');
 class FixedDate extends Date { constructor(...args) { super(...(args.length ? args : ['2026-10-27T08:00:00Z'])); } }
-function mount(lang, ios=false) {
+function mount(lang, ios=false, search='') {
   const html=fs.readFileSync(path.join(root,routes[lang],'index.html'),'utf8');
-  const dom=new JSDOM(html,{url:'https://www.pusulalounge.com'+routes[lang]});
+  const dom=new JSDOM(html,{url:'https://www.pusulalounge.com'+routes[lang]+search});
   const document=dom.window.document, nav=[],events=[],clipboard=[];
   const navigator={userAgent:ios?'iPhone':'Android',platform:ios?'iPhone':'Linux',maxTouchPoints:ios?1:0,clipboard:{writeText:async value=>clipboard.push(value)}};
   const window={location:{assign:url=>nav.push(url)}, addEventListener:()=>{},dispatchEvent:e=>events.push(e.detail)};
-  vm.runInNewContext(code,{window,document,navigator,location:{origin:'https://www.pusulalounge.com',pathname:routes[lang],search:""},URLSearchParams,Intl,Date:FixedDate,CustomEvent:dom.window.CustomEvent});
+  vm.runInNewContext(code,{window,document,navigator,location:{origin:'https://www.pusulalounge.com',pathname:routes[lang],search,href:'https://www.pusulalounge.com'+routes[lang]+search},URLSearchParams,URL,Intl,Date:FixedDate,CustomEvent:dom.window.CustomEvent});
   return {dom,document,form:document.querySelector('form'),nav,events,clipboard,navigator,copy:JSON.parse(document.getElementById('reservation-copy').textContent)};
 }
 function submit(x) {x.form.dispatchEvent(new x.dom.window.Event('submit',{bubbles:true,cancelable:true}));}
@@ -58,6 +58,26 @@ function fill(x) {
     assert.equal(x.events.at(-1).name,'menu_click');
   }
   fill(x);x.form.elements.phone.value='+٩٠ ٥٠٧ ٨١٦ ٢٩٩٤';submit(x);assert.ok(new URL(x.nav.at(-1)).searchParams.get('text').includes('+90 507 816 2994'));
+  const direct = x.document.getElementById('direct-whatsapp');
+  assert.equal(new URL(direct.href).searchParams.get('text'), x.copy.intro);
+  direct.addEventListener('click', event => event.preventDefault());
+  direct.click();
+  assert.equal(x.events.at(-1).name, 'reservation_whatsapp_open');
+
+  const breakfast = mount(lang, false, '?visit=breakfast&unused=discarded');
+  assert.equal(breakfast.form.elements.visitType.value, 'breakfast');
+  for (const link of breakfast.document.querySelectorAll('.language-switch a')) {
+    assert.equal(new URL(link.href).search, '?visit=breakfast');
+  }
+  assert.equal(mount(lang, false, '?visit=invalid').form.elements.visitType.value, '');
+  fill(breakfast);
+  breakfast.form.elements.phone.value = '';
+  assert.equal(breakfast.form.elements.phone.required, false);
+  submit(breakfast);
+  assert.equal(breakfast.nav.length, 1);
+  const breakfastMessage = new URL(breakfast.nav[0]).searchParams.get('text');
+  assert.ok(!breakfastMessage.includes(breakfast.copy.phone + ':'));
+  assert.ok(breakfastMessage.includes(breakfast.copy.visitTypeMessage + ':'));
   console.log('PASS',lang,'validation, Istanbul timezone, WhatsApp encoding, fallback/edit, clipboard, stepper, Arabic digits, private telemetry');
  }
 })().catch(e=>{console.error(e);process.exitCode=1});

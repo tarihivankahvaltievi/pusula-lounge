@@ -189,3 +189,21 @@ for rel in ['menu/index.html', 'kahvalti/index.html', 'en/breakfast/index.html']
     text = re.sub(r'<link\b[^>]*href="/search-decisions.css(?:\?[^\"]*)?"[^>]*>', '', file.read_text())
     file.write_text(text.replace('</head>', ref+'</head>'))
 print('Added early Turkish menu actions and source-derived bilingual dish comparisons.')
+
+# The published breakfast guides and menu discovery sections all lead to a
+# breakfast request. Keep the clean reservation URL in canonical metadata.
+for relative, route in (
+    ('menu/index.html', '/rezervasyon/'),
+    ('kahvalti-rehberi/index.html', '/rezervasyon/'),
+    ('en/menu/index.html', '/en/reservation/'),
+    ('en/breakfast-guide/index.html', '/en/reservation/'),
+):
+    page = ROOT / relative
+    original = page.read_text()
+    start = '<!-- RESERVATION-DISCOVERY:START -->'
+    end = '<!-- RESERVATION-DISCOVERY:END -->'
+    before, marker, remainder = original.partition(start)
+    section, close, after = remainder.partition(end)
+    assert marker and close, f'Missing breakfast reservation section in {relative}'
+    section = section.replace(f'href="{route}"', f'href="{route}?visit=breakfast"')
+    page.write_text(before + marker + section + close + after)
