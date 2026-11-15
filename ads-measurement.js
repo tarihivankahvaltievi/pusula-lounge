@@ -77,8 +77,20 @@
   if (choice === 'allow') startTag();
 
   window.addEventListener('pusula:interaction', event => {
-    if (choice === 'allow' && event.detail?.name === 'reservation_whatsapp_open') {
-      gtag('event', 'conversion', { send_to: conversion });
+    if (choice !== 'allow' || event.detail?.name !== 'reservation_whatsapp_open') return;
+    const parameters = { send_to: conversion };
+    if (event.cancelable) {
+      event.preventDefault();
+      let pending = true;
+      const continueNavigation = () => {
+        if (!pending) return;
+        pending = false;
+        clearTimeout(fallback);
+        event.continueNavigation();
+      };
+      const fallback = setTimeout(continueNavigation, 1000);
+      parameters.event_callback = continueNavigation;
     }
+    gtag('event', 'conversion', parameters);
   });
 })();

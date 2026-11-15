@@ -23,6 +23,15 @@
   const emit = name => window.dispatchEvent(new CustomEvent('pusula:interaction', {
     detail: { name, path: location.pathname, language }
   }));
+  function trackWhatsApp(continueNavigation) {
+    const event = new CustomEvent('pusula:interaction', {
+      cancelable: Boolean(continueNavigation),
+      detail: { name: 'reservation_whatsapp_open', path: location.pathname, language }
+    });
+    event.continueNavigation = continueNavigation;
+    window.dispatchEvent(event);
+    return event.defaultPrevented;
+  }
   // Input and message text never enter telemetry or browser storage.
   const digits = value => value.replace(/[٠-٩۰-۹]/g, c => String(c.charCodeAt(0) - (c <= '٩' ? 0x660 : 0x6f0)));
   function venueNow() {
@@ -108,12 +117,27 @@
     status.textContent = '';
     // The site can verify preparation, not delivery or confirmation in WhatsApp.
     emit('reservation_form_prepared');
-    emit('reservation_whatsapp_open');
     // Same-tab navigation works without pop-up permission on mobile and desktop.
     // The prepared message and edit/copy/call options remain available on Back.
-    window.location.assign(url);
+    const openWhatsApp = () => window.location.assign(url);
+    if (!trackWhatsApp(openWhatsApp)) openWhatsApp();
   });
-  document.getElementById('whatsapp-request').addEventListener('click', () => emit('reservation_whatsapp_open'));
+  for (const id of ['whatsapp-request', 'direct-whatsapp']) {
+    const link = document.getElementById(id);
+    let resuming = false;
+    link.addEventListener('click', event => {
+      if (resuming || event.defaultPrevented) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        trackWhatsApp();
+        return;
+      }
+      if (trackWhatsApp(() => {
+        resuming = true;
+        link.click();
+        resuming = false;
+      })) event.preventDefault();
+    });
+  }
   document.getElementById('edit-request').addEventListener('click', () => {
     summary.hidden = true;
     form.hidden = false;
@@ -136,7 +160,6 @@
     const link = event.target.closest('a[href]');
     if (!link) return;
     if (link.protocol === 'tel:') emit('phone_click');
-    else if (link.id === 'direct-whatsapp') emit('reservation_whatsapp_open');
     else if (link.hostname === 'share.google') emit('map_profile_click');
     else if (link.origin === location.origin && /^\/(?:en\/|ru\/|ar\/)?menu\/$/.test(link.pathname)) emit('menu_click');
   });
