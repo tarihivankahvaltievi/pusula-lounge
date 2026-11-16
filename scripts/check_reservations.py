@@ -56,9 +56,9 @@ for lang,route in routes.items():
  assert len(webpage['relatedLink'])==3
  assert len(webpage.get('workTranslation',[]))==5 if lang=='tr' else webpage['translationOfWork']['@id']==base+'/rezervasyon/#webpage'
  heading=''.join(page.h1)
- assert {'ru':'Таксиме','ar':'تقسيم','ko':'탁심','zh':'塔克西姆'}.get(lang,'Taksim') in heading
- assert {'tr':'rezervasyon','en':'table','ru':'столик','ko':'예약','ar':'طاولة','zh':'预约'}[lang] in heading
- faq=next(x for x in graph if x['@type']=='FAQPage');assert len(faq['mainEntity'])==len([a for a in page.all('details') if a.get('id') != 'booking-options'])==(5 if lang in ['tr','en'] else 6)
+ assert {'tr':'Rezervasyon Formu','en':'Reservation Form','ru':'Форма бронирования',
+         'ko':'예약 양식','ar':'نموذج الحجز','zh':'订位表单'}[lang] == heading
+ faq=next(x for x in graph if x['@type']=='FAQPage');assert len(faq['mainEntity'])==len([a for a in page.all('details') if a.get('class') != 'venue-details'])==(5 if lang in ['tr','en'] else 6)
  for question in faq['mainEntity']:
   from html import escape
   assert escape(question['name'],quote=True) in text and escape(question['acceptedAnswer']['text'],quote=True) in text

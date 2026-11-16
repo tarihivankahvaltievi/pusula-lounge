@@ -7,7 +7,7 @@ const assert = require('node:assert/strict');
 const root = process.argv[2];
 const routes = {tr:'/rezervasyon/', en:'/en/reservation/', ru:'/ru/reservation/',ko:'/ko/reservation/',ar:'/ar/reservation/',zh:'/zh/reservation/'};
 const code = fs.readFileSync(path.join(root,'rezervasyon/reservation.js'),'utf8');
-class FixedDate extends Date { constructor(...args) { super(...(args.length ? args : ['2026-10-27T08:00:00Z'])); } }
+class FixedDate extends Date { static now() { return Date.parse('2026-10-27T08:00:00Z'); } constructor(...args) { super(...(args.length ? args : ['2026-10-27T08:00:00Z'])); } }
 function mount(lang, ios=false, search='') {
   const html=fs.readFileSync(path.join(root,routes[lang],'index.html'),'utf8');
   const dom=new JSDOM(html,{url:'https://www.pusulalounge.com'+routes[lang]+search});
@@ -26,13 +26,12 @@ function fill(x) {
   const x=mount(lang,lang==='ar');
   assert.equal(x.form.elements.date.min,'2026-10-27');
   assert.equal(x.document.querySelector('[type=submit]').disabled,false);
-  submit(x);assert.equal(x.nav.length,0);assert.equal(x.document.activeElement.id,'date');
+  assert.equal(x.form.elements.date.value,'2026-10-27');
+  assert.equal(x.form.elements.time.value,'11:30');
+  submit(x);assert.equal(x.nav.length,0);assert.equal(x.document.activeElement.id,'name');
   fill(x);x.form.elements.date.value='2026-10-26';submit(x);assert.equal(x.document.getElementById('date-error').textContent,x.copy.dateError);
-  fill(x);x.form.elements.date.value='2026-10-27';x.form.elements.time.value='10:59';submit(x);assert.equal(x.document.getElementById('time-error').textContent,x.copy.timeError);
-  const options = x.document.getElementById('booking-options');
-  assert.equal(options.open, false);
+  fill(x);x.form.elements.date.value='2026-10-27';x.form.elements.time.value='10:30';submit(x);assert.equal(x.document.getElementById('time-error').textContent,x.copy.timeError);
   fill(x);x.form.elements.phone.value='abcdefghijk';submit(x);assert.equal(x.nav.length,0);assert.equal(x.document.activeElement.id,'phone');
-  assert.equal(options.open, true);
   fill(x);x.form.elements.name.value='   ';submit(x);assert.equal(x.nav.length,0);
   fill(x);x.form.elements.guests.value='1.5';submit(x);assert.equal(x.nav.length,0);
   fill(x);x.form.elements.guests.value='1000';submit(x);assert.equal(x.nav.length,0);
@@ -74,12 +73,17 @@ function fill(x) {
   }
   assert.equal(mount(lang, false, '?visit=invalid').form.elements.visitType.value, '');
   fill(breakfast);
+  breakfast.form.elements.table.value = 'any';
   breakfast.form.elements.phone.value = '';
-  assert.equal(breakfast.form.elements.phone.required, false);
+  submit(breakfast);
+  assert.equal(breakfast.nav.length, 0);
+  assert.equal(breakfast.document.activeElement.id, 'phone');
+  breakfast.form.elements.phone.value = '0507 816 29 94';
   submit(breakfast);
   assert.equal(breakfast.nav.length, 1);
   const breakfastMessage = new URL(breakfast.nav[0]).searchParams.get('text');
-  assert.ok(!breakfastMessage.includes(breakfast.copy.phone + ':'));
+  assert.ok(breakfastMessage.includes(breakfast.copy.phone + ': 0507 816 29 94'));
+  assert.ok(breakfastMessage.includes(breakfast.copy.table + ': ' + breakfast.form.elements.table.selectedOptions[0].text));
   assert.ok(breakfastMessage.includes(breakfast.copy.visitTypeMessage + ':'));
   console.log('PASS',lang,'validation, Istanbul timezone, WhatsApp encoding, fallback/edit, clipboard, stepper, Arabic digits, private telemetry');
  }

@@ -3,7 +3,7 @@
   const form = document.getElementById('reservation-form');
   if (!form) return;
   const text = JSON.parse(document.getElementById('reservation-copy').textContent);
-  const fields = ['date', 'time', 'guests', 'name', 'phone'].map(id => form.elements[id]);
+  const fields = ['name', 'phone', 'date', 'time', 'guests'].map(id => form.elements[id]);
   const visitType = form.elements.visitType;
   const requestedVisit = new URLSearchParams(location.search).get('visit');
   if (Array.from(visitType.options).some(option => option.value === requestedVisit && option.value)) {
@@ -14,7 +14,7 @@
       link.href = destination.pathname + destination.search;
     }
   }
-  const [date, time, guests] = fields;
+  const {date, time, guests, table} = form.elements;
   const summary = document.getElementById('request-summary');
   const requestText = document.getElementById('request-text');
   const status = document.getElementById('copy-status');
@@ -34,21 +34,27 @@
   }
   // Input and message text never enter telemetry or browser storage.
   const digits = value => value.replace(/[٠-٩۰-۹]/g, c => String(c.charCodeAt(0) - (c <= '٩' ? 0x660 : 0x6f0)));
-  function venueNow() {
+  function venueDateTime(instant = new Date()) {
     const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Istanbul',
       year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
-    }).formatToParts(new Date());
+    }).formatToParts(instant);
     const value = key => parts.find(part => part.type === key).value;
     return { date: `${value('year')}-${value('month')}-${value('day')}`, time: `${value('hour')}:${value('minute')}` };
   }
-  function refreshDate() { date.min = venueNow().date; }
+  function refreshDate() { date.min = venueDateTime().date; }
   refreshDate();
+  const halfHour = 30 * 60 * 1000;
+  const nextSlot = venueDateTime(new Date((Math.floor(Date.now() / halfHour) + 1) * halfHour));
+  if (!date.value) {
+    date.value = nextSlot.date;
+    time.value = nextSlot.time;
+  }
   date.addEventListener('focus', refreshDate);
   window.addEventListener('pageshow', refreshDate);
   function errorFor(field) {
     const value = field.value.trim();
     if (!value) return field.required ? text.required : '';
-    const now = venueNow();
+    const now = venueDateTime();
     if (field === date && (!field.validity.valid || value < now.date)) return text.dateError;
     if (field === time && (!field.validity.valid || (date.value === now.date && value <= now.time))) return text.timeError;
     if (field === guests && (!Number.isSafeInteger(Number(value)) || Number(value) < 1 || Number(value) > 999)) return text.guestsError;
@@ -93,15 +99,13 @@
     event.preventDefault();
     refreshDate();
     if (!fields.map(validate).every(Boolean)) {
-      const firstInvalid = fields.find(field => field.hasAttribute('aria-invalid'));
-      const options = firstInvalid.closest('details');
-      if (options) options.open = true;
-      firstInvalid.focus();
+      fields.find(field => field.hasAttribute('aria-invalid')).focus();
       return;
     }
     // ISO date and explicit timezone stay unambiguous for the restaurant team.
     const pairs = [[text.date, date.value], [text.time, `${time.value} (Europe/Istanbul)`],
-      [text.guests, guests.value], [text.name, form.elements.name.value.trim()]];
+      [text.guests, guests.value], [text.table, table.options[table.selectedIndex].text],
+      [text.name, form.elements.name.value.trim()]];
     const phone = form.elements.phone.value.trim();
     if (phone) pairs.push([text.phone, digits(phone)]);
     if (visitType.value) pairs.splice(2, 0, [text.visitTypeMessage, visitType.options[visitType.selectedIndex].text]);
