@@ -68,6 +68,16 @@ BOOKING_COPY = {
 }
 
 
+FORM_COPY = {
+    'tr': ('Tarih, saat ve kişi sayısını seçin.', 'Ek bilgi ekle', 'WhatsApp’ta devam et', 'Mesajı WhatsApp’ta gönderin. Ekibimiz onayladığında rezervasyonunuz kesinleşir.'),
+    'en': ('Choose a date, time and party size.', 'Add details', 'Continue to WhatsApp', 'Send the message in WhatsApp. Your table is booked once we confirm.'),
+    'ru': ('Выберите дату, время и число гостей.', 'Добавить детали', 'Перейти в WhatsApp', 'Отправьте сообщение в WhatsApp. Бронь действует после нашего подтверждения.'),
+    'ko': ('날짜, 시간, 인원을 선택해 주세요.', '추가 정보 입력', 'WhatsApp에서 계속', 'WhatsApp에서 메시지를 보내세요. 매장에서 확인하면 예약이 확정됩니다.'),
+    'ar': ('اختر التاريخ والوقت وعدد الضيوف.', 'أضف تفاصيل', 'تابع عبر واتساب', 'أرسل الرسالة عبر واتساب. يتأكد الحجز عندما يؤكده فريقنا.'),
+    'zh': ('请选择日期、时间和人数。', '添加补充信息', '前往 WhatsApp', '请在 WhatsApp 中发送消息。店方确认后，订位才算完成。'),
+}
+
+
 def e(s): return html.escape(str(s), quote=True)
 def json_text(v): return json.dumps(v,ensure_ascii=False).replace('<','\\u003c')
 def asset(path):
@@ -80,6 +90,7 @@ ARROW='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="curre
 for lang,(language,path,locale) in LANGS.items():
     c=COPY[lang]
     optional_phone_label, direct_label, c['description'] = BOOKING_COPY[lang]
+    lead, extra_label, submit_label, confirmation = FORM_COPY[lang]
     direct_url = 'https://wa.me/905078162994?text=' + quote(c['intro'])
     url=BASE+path; home='/' if lang=='tr' else f'/{lang}/' if lang in ('ru','ar') else '/en/'; menu='/menu/' if lang=='tr' else f'/{lang}/menu/' if lang in ('ru','ar') else '/en/menu/'
     breakfast_hours=e(c['breakfast']).replace('08:00–17:00','<bdi dir="ltr">08:00–17:00</bdi>') if lang=='ar' else e(c['breakfast'])
@@ -88,11 +99,16 @@ for lang,(language,path,locale) in LANGS.items():
     alternates='\n'.join(f'<link rel="alternate" hreflang="{l}" href="{BASE+p}">' for l,(_,p,_) in LANGS.items())+f'\n<link rel="alternate" hreflang="x-default" href="{BASE}/en/reservation/">'
     switch=''.join(f'<a href="{p}" lang="{l}" hreflang="{l}" dir="auto"'+(' aria-current="page"' if l==lang else '')+f'>{label}</a>' for l,(label,p,_) in LANGS.items())
     restaurant=apply_restaurant_location({'@type':'Restaurant','@id':BASE+'/#restaurant','name':'Pusula Lounge','url':BASE+'/','telephone':'+905078162994','address':{'@type':'PostalAddress','streetAddress':ADDRESS.split(', Beyoğlu')[0],'addressLocality':'Beyoğlu','addressRegion':'İstanbul','addressCountry':'TR'},'hasMap':MAPS_PROFILE,'hasMenu':BASE+menu,'servesCuisine':['Turkish','Van breakfast'],'image':[BASE+'/assets/gallery/pusula-sofrasi-share.jpg'],'logo':BASE+'/assets/pusula-amblem.png','acceptsReservations':url,'contactPoint':{'@type':'ContactPoint','contactType':'reservations','telephone':'+905078162994','url':url},'sameAs':['https://www.google.com/search?kgmid=/g/11m7457wsw']})
+    restaurant['hasMenu'] = [
+        {'@type':'Menu','@id':BASE+p+'#menu','url':BASE+p,'inLanguage':language}
+        for language,p in [('tr','/menu/'),('en','/en/menu/'),('ru','/ru/menu/'),('ar','/ar/menu/')]
+    ]
+    restaurant['sameAs'].append('https://www.instagram.com/pusulalounge/')
     graph=[restaurant, {'@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':'Pusula Lounge','inLanguage':list(LANGS),'publisher':{'@id':BASE+'/#restaurant'}}, {'@type':'WebPage','@id':url+'#webpage','url':url,'name':c['title'],'description':c['description'],'inLanguage':lang,'about':{'@id':BASE+'/#restaurant'},'isPartOf':{'@id':BASE+'/#website'},'breadcrumb':{'@id':url+'#breadcrumb'},'hasPart':{'@id':url+'#faq'}}, {'@type':'BreadcrumbList','@id':url+'#breadcrumb','itemListElement':[{'@type':'ListItem','position':1,'name':c['home'],'item':BASE+home},{'@type':'ListItem','position':2,'name':c['reservation'],'item':url}]}, {'@type':'FAQPage','@id':url+'#faq','inLanguage':lang,'mainEntity':[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in c['questions']]}]
     webpage=next(node for node in graph if node['@type']=='WebPage')
-    webpage.update({'mainEntity':{'@id':BASE+'/#restaurant'},'primaryImageOfPage':{'@type':'ImageObject','url':BASE+'/assets/gallery/pusula-sofrasi-1200.webp','width':1200,'height':800,'caption':c['alt']},'relatedLink':[BASE+menu,BASE+location,BASE+guide]})
-    if lang=='tr': webpage['workTranslation']=[{'@id':BASE+p+'#webpage'} for l,(_,p,_) in LANGS.items() if l!='tr']
-    else: webpage['translationOfWork']={'@id':BASE+'/rezervasyon/#webpage'}
+    webpage.update({'mainEntity':{'@id':BASE+'/#restaurant'},'primaryImageOfPage':{'@type':'ImageObject','url':BASE+'/assets/gallery/pusula-sofrasi-600.webp','contentUrl':BASE+'/assets/gallery/pusula-sofrasi-600.webp','caption':c['alt'],'inLanguage':lang,'width':1200,'height':800},'relatedLink':[BASE+menu,BASE+location,BASE+guide]})
+    webpage['workTranslation']=[{'@id':BASE+p+'#webpage'} for l,(_,p,_) in LANGS.items() if l!=lang]
+    if lang!='tr': webpage['translationOfWork']={'@id':BASE+'/rezervasyon/#webpage'}
     def field(id,label,type='text',extra='',required=True):
         requirement = ' required' if required else ''
         return f'<div class="field"><label for="{id}">{e(label)}</label><input id="{id}" name="{id}" type="{type}"{requirement} aria-describedby="{id}-error" {extra}><span class="field-error" id="{id}-error"></span></div>'
@@ -118,7 +134,7 @@ for lang,(language,path,locale) in LANGS.items():
 <script type="application/ld+json">{json_text({'@context':'https://schema.org','@graph':graph})}</script>
 <script id="reservation-copy" type="application/json">{json_text({key:c[key] for key in ['date','time','guests','name','phone','note','visitTypeMessage','copied','copyFallback','required','dateError','timeError','guestsError','nameError','phoneError','intro','outro']})}</script>
 {ref('/rezervasyon/reservation.js','js')}
-</head>
+{ref('/ads-measurement.js','js') + chr(10) if lang in ('tr','en','ru','ar') else ''}</head>
 <body>
 <a class="skip-link" href="#reservation-form">{e(c['skip'])}</a>
 <header class="reservation-header"><div class="header-inner"><a class="brand" href="{home}" aria-label="Pusula Lounge — {e(c['home'])}"><img src="/assets/pusula-lounges-logo-fast-320.webp" alt="Pusula Lounge" width="80" height="75"></a><nav class="site-nav" aria-label="{e(c['home'])}"><a href="{menu}">{e(c['menu'])}</a><a href="{e(WALKING_DIRECTIONS)}" rel="noreferrer">{e(c['location'])}</a></nav><a class="header-phone" href="tel:+905078162994" dir="ltr">+90 507 816 29 94</a></div></header>
@@ -126,20 +142,23 @@ for lang,(language,path,locale) in LANGS.items():
 <nav class="language-switch" aria-label="{e(c['languages'])}">{switch}</nav>
 <div class="reservation-spread">
 <section class="reservation-sheet" aria-labelledby="form-title">
-<div class="sheet-heading"><h1 id="form-title">{e(c['heading'])}</h1><p>{e(c['lead'])}</p>
-<a class="direct-whatsapp" id="direct-whatsapp" href="{e(direct_url)}" rel="noreferrer">{e(direct_label)}</a></div>
-<form id="reservation-form" novalidate aria-describedby="request-note">
-<fieldset><legend>{e(c['visit'])}</legend><div class="visit-fields">{field('date',c['date'],'date')}{field('time',c['time'],'time')}
-<div class="field guest-field"><label for="guests">{e(c['guests'])}</label><div class="guest-stepper"><button type="button" id="guest-minus" aria-label="{e(c['less'])}">−</button><input id="guests" name="guests" type="number" value="2" min="1" max="999" step="1" inputmode="numeric" required aria-describedby="guests-error"><button type="button" id="guest-plus" aria-label="{e(c['more'])}">+</button></div><span class="field-error" id="guests-error"></span></div></div><p class="field-hint">{e(c['zone'])} <span class="booking-hours">{breakfast_hours}</span></p></fieldset>
+<div class="sheet-heading"><h1 id="form-title">{e(c['heading'])}</h1><p>{e(lead)}</p></div>
+<div id="reservation-ad-preferences"></div>
+<form id="reservation-form" novalidate aria-labelledby="form-title" aria-describedby="request-note">
+<div class="booking-fields">{field('date',c['date'],'date')}{field('time',c['time'],'time')}
+<div class="field guest-field"><label for="guests">{e(c['guests'])}</label><div class="guest-stepper"><button type="button" id="guest-minus" aria-label="{e(c['less'])}">−</button><input id="guests" name="guests" type="number" value="2" min="1" max="999" step="1" inputmode="numeric" required aria-describedby="guests-error"><button type="button" id="guest-plus" aria-label="{e(c['more'])}">+</button></div><span class="field-error" id="guests-error"></span></div>{field('name',c['name'],extra='autocomplete="name" maxlength="100"')}</div>
+<p class="field-hint">{e(c['zone'])}</p>
+<details class="booking-options" id="booking-options"><summary>{e(extra_label)}</summary><div class="booking-options-fields">
 <div class="field visit-type-field"><label for="visit-type">{e(c['visitTypeLabel'])}</label><select id="visit-type" name="visitType"><option value="">{e(c['visitTypePrompt'])}</option>{''.join(f'<option value="{e(value)}">{e(label)}</option>' for value,label in c['visitTypes'].items())}</select></div>
-<fieldset><legend>{e(c['contact'])}</legend><div class="contact-fields">{field('name',c['name'],extra='autocomplete="name" maxlength="100"')}{field('phone',optional_phone_label,'tel','autocomplete="tel" maxlength="25" placeholder="+90 …" dir="ltr"',required=False)}</div></fieldset>
+{field('phone',optional_phone_label,'tel','autocomplete="tel" maxlength="25" placeholder="+90 …" dir="ltr"',required=False)}
 <div class="field note-field"><label for="note">{e(c['note'])}</label><textarea id="note" name="note" rows="2" maxlength="500" placeholder="{e(c['placeholder'])}"></textarea></div>
-<button class="submit-button" type="submit" disabled><span>{e(c['submit'])}</span>{ARROW}</button>
-<p class="privacy-note" id="request-note">{e(c['confirm'])}</p>
+</div></details>
+<button class="submit-button" type="submit" disabled><span>{e(submit_label)}</span>{ARROW}</button>
+<p class="privacy-note" id="request-note">{e(confirmation)}</p>
 </form>
 
 <section id="request-summary" class="request-summary" hidden aria-labelledby="summary-title"><h2 id="summary-title" tabindex="-1">{e(c['ready'])}</h2><p>{e(c['readyText'])}</p><a class="submit-button" id="whatsapp-request" href="https://wa.me/905078162994" rel="noreferrer"><span>{e(c['open'])}</span>{ARROW}</a><label for="request-text">{e(c['message'])}</label><textarea id="request-text" readonly rows="8" dir="auto"></textarea><div class="secondary-actions"><button type="button" id="copy-request">{e(c['copy'])}</button><button type="button" id="edit-request">{e(c['edit'])}</button><a id="sms-request" href="sms:+905078162994">{e(c['sms'])}</a></div><p id="copy-status" role="status" aria-live="polite"></p></section>
-<p class="direct-contact"><a href="tel:+905078162994">{e(c['call'])} <bdi>+90 507 816 29 94</bdi></a></p>
+<div class="direct-contact"><a class="direct-whatsapp" id="direct-whatsapp" href="{e(direct_url)}" rel="noreferrer">{e(direct_label)}</a><a href="tel:+905078162994">{e(c['call'])} <bdi>+90 507 816 29 94</bdi></a></div>
 </section>
 <aside class="place-aside" aria-label="Pusula Lounge"><figure><img src="/assets/gallery/pusula-sofrasi-600.webp" srcset="/assets/gallery/pusula-sofrasi-600.webp 600w, /assets/gallery/pusula-sofrasi-1200.webp 1200w" sizes="(max-width: 800px) calc(100vw - 40px), 400px" width="1200" height="800" alt="{e(c['alt'])}" loading="lazy" decoding="async"><figcaption>{e(c['photo'])}</figcaption></figure><div class="visit-info"><h2>{e(c['visitTitle'])}</h2><p>{e(c['visitText'])}</p><p class="breakfast-hours">{breakfast_hours}</p><address dir="auto">{e(ADDRESS)}</address><div class="visit-links"><a href="{menu}">{e(c['menu'])}</a><a href="{e(WALKING_DIRECTIONS)}" rel="noreferrer">{e(c['location'])}</a><a href="{location}">{e(c['visitDetails'])}</a><a href="{guide}">{e(c['guide'])}</a></div></div></aside>
 </div>

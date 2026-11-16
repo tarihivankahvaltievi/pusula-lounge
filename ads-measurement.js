@@ -56,16 +56,22 @@
   const adClick = ['gclid', 'gbraid', 'wbraid'].some(
     parameter => new URLSearchParams(location.search).has(parameter)
   );
-  const reservationLink = document.getElementById('direct-whatsapp');
+  const reservationPreferences = document.getElementById('reservation-ad-preferences');
+  const footer = document.querySelector('footer') || document.body;
   const landingContent = document.querySelector('main');
 
-  if (reservationLink) {
-    reservationLink.before(controls);
+  if (reservationPreferences) {
+    controls.className = 'reservation-ad-controls';
+    if (adClick && controls.open) reservationPreferences.append(controls);
+    else {
+      controls.open = false;
+      footer.append(controls);
+    }
   } else if (adClick && controls.open && landingContent) {
     // Ask on the original landing page while the click ID is still in the URL.
     landingContent.prepend(controls);
   } else {
-    (document.querySelector('footer') || document.body).append(controls);
+    footer.append(controls);
   }
 
   function choose(value) {

@@ -58,7 +58,7 @@ for lang,route in routes.items():
  heading=''.join(page.h1)
  assert {'ru':'Таксиме','ar':'تقسيم','ko':'탁심','zh':'塔克西姆'}.get(lang,'Taksim') in heading
  assert {'tr':'rezervasyon','en':'table','ru':'столик','ko':'예약','ar':'طاولة','zh':'预约'}[lang] in heading
- faq=next(x for x in graph if x['@type']=='FAQPage');assert len(faq['mainEntity'])==len(page.all('details'))==(5 if lang in ['tr','en'] else 6)
+ faq=next(x for x in graph if x['@type']=='FAQPage');assert len(faq['mainEntity'])==len([a for a in page.all('details') if a.get('id') != 'booking-options'])==(5 if lang in ['tr','en'] else 6)
  for question in faq['mainEntity']:
   from html import escape
   assert escape(question['name'],quote=True) in text and escape(question['acceptedAnswer']['text'],quote=True) in text

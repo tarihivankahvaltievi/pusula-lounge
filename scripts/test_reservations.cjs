@@ -29,7 +29,10 @@ function fill(x) {
   submit(x);assert.equal(x.nav.length,0);assert.equal(x.document.activeElement.id,'date');
   fill(x);x.form.elements.date.value='2026-10-26';submit(x);assert.equal(x.document.getElementById('date-error').textContent,x.copy.dateError);
   fill(x);x.form.elements.date.value='2026-10-27';x.form.elements.time.value='10:59';submit(x);assert.equal(x.document.getElementById('time-error').textContent,x.copy.timeError);
+  const options = x.document.getElementById('booking-options');
+  assert.equal(options.open, false);
   fill(x);x.form.elements.phone.value='abcdefghijk';submit(x);assert.equal(x.nav.length,0);assert.equal(x.document.activeElement.id,'phone');
+  assert.equal(options.open, true);
   fill(x);x.form.elements.name.value='   ';submit(x);assert.equal(x.nav.length,0);
   fill(x);x.form.elements.guests.value='1.5';submit(x);assert.equal(x.nav.length,0);
   fill(x);x.form.elements.guests.value='1000';submit(x);assert.equal(x.nav.length,0);

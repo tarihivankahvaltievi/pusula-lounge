@@ -93,7 +93,10 @@
     event.preventDefault();
     refreshDate();
     if (!fields.map(validate).every(Boolean)) {
-      fields.find(field => field.hasAttribute('aria-invalid')).focus();
+      const firstInvalid = fields.find(field => field.hasAttribute('aria-invalid'));
+      const options = firstInvalid.closest('details');
+      if (options) options.open = true;
+      firstInvalid.focus();
       return;
     }
     // ISO date and explicit timezone stay unambiguous for the restaurant team.
