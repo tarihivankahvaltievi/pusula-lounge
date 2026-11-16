@@ -53,7 +53,20 @@
   reject.textContent = decline;
   controls.append(summary, explanation, accept, ' ', reject);
   controls.open = choice !== 'allow' && choice !== 'decline';
-  (document.querySelector('footer') || document.body).append(controls);
+  const adClick = ['gclid', 'gbraid', 'wbraid'].some(
+    parameter => new URLSearchParams(location.search).has(parameter)
+  );
+  const reservationLink = document.getElementById('direct-whatsapp');
+  const landingContent = document.querySelector('main');
+
+  if (reservationLink) {
+    reservationLink.before(controls);
+  } else if (adClick && controls.open && landingContent) {
+    // Ask on the original landing page while the click ID is still in the URL.
+    landingContent.prepend(controls);
+  } else {
+    (document.querySelector('footer') || document.body).append(controls);
+  }
 
   function choose(value) {
     choice = value;
