@@ -2,9 +2,9 @@
 
 from urllib.parse import urlencode
 
-# Matches the linked Google Maps business entity for Pusula Lounge, checked
-# against its No:3 address on 2026-10-28.
-POSTAL_CODE = '34221'
+# Katip Mustafa Çelebi Mahallesi postcode: 34433 (PTT). The linked Google Maps
+# place ID and its No:3 address were checked on 2026-10-28.
+POSTAL_CODE = '34433'
 LATITUDE = 41.0352493
 LONGITUDE = 28.9825902
 ADDRESS = 'Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sinek Çıkmazı No:3, Beyoğlu / İstanbul'

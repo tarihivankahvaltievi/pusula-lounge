@@ -7,8 +7,8 @@
       "output": "assets/fonts/optimized/0451ffb02b41e4a9.woff2",
       "originalFamily": "Pinyon Script",
       "originalBytes": 39044,
-      "optimizedBytes": 27400,
-      "supportedCharacters": 120,
+      "optimizedBytes": 27188,
+      "supportedCharacters": 118,
       "metricsPreserved": true
     },
     {
@@ -43,8 +43,8 @@
       "output": "assets/fonts/optimized/291655adcb38b6b4.woff2",
       "originalFamily": "Cormorant Garamond Light",
       "originalBytes": 39260,
-      "optimizedBytes": 22928,
-      "supportedCharacters": 122,
+      "optimizedBytes": 22832,
+      "supportedCharacters": 120,
       "metricsPreserved": true
     },
     {
@@ -52,8 +52,8 @@
       "output": "assets/fonts/optimized/3f5fbefcaebcac71.woff2",
       "originalFamily": "DM Serif Display",
       "originalBytes": 24744,
-      "optimizedBytes": 17516,
-      "supportedCharacters": 120,
+      "optimizedBytes": 17488,
+      "supportedCharacters": 118,
       "metricsPreserved": true
     },
     {
@@ -70,8 +70,8 @@
       "output": "assets/fonts/optimized/6dbfee7fe8ef9452.woff2",
       "originalFamily": "Noto Sans",
       "originalBytes": 59928,
-      "optimizedBytes": 37044,
-      "supportedCharacters": 120,
+      "optimizedBytes": 36816,
+      "supportedCharacters": 118,
       "metricsPreserved": true
     },
     {
@@ -97,8 +97,8 @@
       "output": "assets/fonts/optimized/c5312061f40add04.woff2",
       "originalFamily": "Bodoni Moda SC",
       "originalBytes": 34676,
-      "optimizedBytes": 25428,
-      "supportedCharacters": 120,
+      "optimizedBytes": 25340,
+      "supportedCharacters": 118,
       "metricsPreserved": true
     },
     {
@@ -106,8 +106,8 @@
       "output": "assets/fonts/optimized/d11185ec68e6d41b.woff2",
       "originalFamily": "Bodoni Moda SC",
       "originalBytes": 30956,
-      "optimizedBytes": 22016,
-      "supportedCharacters": 120,
+      "optimizedBytes": 21920,
+      "supportedCharacters": 118,
       "metricsPreserved": true
     },
     {
