@@ -112,5 +112,13 @@ Research, external listing discrepancy, query mapping and measurement plan:
 
 After deployment, run `python3 scripts/check_live_indexability.py` to check every
 URL in the live sitemap for successful HTML responses, redirects, canonical URLs,
-and restrictive robots directives. This tests public responses, not whether Google
-has actually indexed a page; use Search Console for that distinction.
+and restrictive robots directives. The check also verifies the live robots.txt and
+sitemap responses, plus same-origin page assets and sitemap images. This tests public
+responses, not whether Google has actually indexed a page; use Search Console for
+that distinction.
+
+## Comprehensive SEO/GEO audit (17 November 2026)
+
+The current technical findings, current Google Search generative AI control guidance,
+community research, live crawl results and account-side follow-up are documented in
+[`seo/SEO-GEO-COMPREHENSIVE-AUDIT-2026-11-17.md`](seo/SEO-GEO-COMPREHENSIVE-AUDIT-2026-11-17.md).
