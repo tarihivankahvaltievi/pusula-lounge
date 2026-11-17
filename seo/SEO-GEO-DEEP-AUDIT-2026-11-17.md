@@ -107,6 +107,20 @@ Yeni ilçe sayfaları, birbirine benzeyen ürün-şehir sayfaları, yapay anahta
 - Canlı 46 URL denetimi yerel düzeltmeden önce yapıldı: `Checked 46 live sitemap URLs; 0 failed.` Kod değişikliği henüz canlıya yayımlanmadı; canlı site kontrol sonucu yeni postal code değerinin canlıda bulunduğu anlamına gelmez.
 - Bu turda browser, Lighthouse/PSI, Search Console, gerçek kullanıcı CrUX veya Google İşletme Profili sahibi paneli denetimi yapılmadı. Trafik ve dönüşüm artışı ölçülmedi.
 
+## Yayın sonrası canlı doğrulama — 17 Kasım 2026
+
+Yukarıdaki canlı URL kontrolü adres düzeltmesi yayımlanmadan önce alınmıştı. Yayın sonrasında aynı alan adı ve GitHub `main` tekrar denetlendi:
+
+- `python3 scripts/check_live_indexability.py`: **46 sitemap URL kontrol edildi, 0 hata**. Her URL kendi canonical adresinde HTML yanıtı veriyor; kısıtlayıcı robots yönergesi saptanmadı.
+- Canlı ana sayfa Googlebot User-Agent ile istendi: **HTTP 200, 40.199 bayt HTML**. İlk HTML yanıtında sayfa başlığı, ana içerik, JSON-LD ve `index, follow` yönergesi mevcut; ana içerik istemci JavaScript'inin sonradan oluşturulmasını beklemiyor.
+- Canlı ana sayfanın Restaurant JSON-LD adresinde `postalCode: 34433` görüldü. `robots.txt` genel botlara `Allow: /` veriyor ve sitemap'i bildiriyor; `OAI-SearchBot` için de açık izin var. Örnek bulunmayan URL `404` verdi. Kanonik www alan adı kullanılıyor.
+- Yerel yayın kontrolleri temiz: 46 sayfalık SEO taraması ve site grafiğinde hata yok; 3 dört dilli içerik grubu, 76 menü öğesi/84 fiyat teklifi, altı dilli rezervasyon bağlantıları, 111 sitemap görseli, yönlendirme hedefleri, hreflang ve şema ilişkileri doğrulandı.
+- Güncel arama sonuçlarında bazı üçüncü taraf kayıtlar hâlâ `34221` posta kodunu gösteriyor. Site `34433` kullanıyor. Bu dizinler resmi adres kaynağı değildir; profil ve dizin düzeltmeleri işletme sahibinin gerçek adres belgesi, fiziksel giriş ve pin teyidinden sonra yapılmalı.
+
+Bu HTTP ve kaynak kontrolleri Google'ın URL'leri gerçekten dizine aldığını veya sıraladığını kanıtlamaz. Sitemap, Google için keşif/kanonik tercih sinyalidir; dizine eklenme garantisi değildir. İndeks ve Google'ın seçtiği canonical için Search Console URL Denetimi gerekir. Bu doğrulama sırasında Search Console ve Google İşletme Profili sahip panellerine erişim kullanılmadı.
+
+Google'ın güncel [AI özellikleri ve web siteleri rehberi](https://developers.google.com/search/docs/appearance/ai-features) de AI Overviews/AI Mode için özel bir GEO işaretlemesi istemiyor; temel SEO ve görünür, faydalı sayfa içeriğini esas alıyor. Güncel topluluk tartışmalarında da yerel sorgu niyeti ve iç bağlantı düzeni öne çıkıyor; örnekler anekdot niteliğinde ve kontrollü sıralama kanıtı değil: [r/localseo — yerel SEO 2026'da neden daha değişken görünüyor?](https://www.reddit.com/r/localseo/comments/1sb5fso/is_local_seo_feeling_more_inconsistent_to_anyone/), [r/localseo — NAP tutarlılığı tartışması](https://www.reddit.com/r/localseo/comments/1t56ytw/does_nap_consistency_still_matter_as_much_as_it/).
+
 ## Kaynaklar
 
 - [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
@@ -115,6 +129,7 @@ Yeni ilçe sayfaları, birbirine benzeyen ürün-şehir sayfaları, yapay anahta
 - [Google canonical yönergeleri](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
 - [Google çok dilli sayfalar / hreflang](https://developers.google.com/search/docs/specialty/international/localized-versions)
 - [Google LocalBusiness yapılandırılmış verisi](https://developers.google.com/search/docs/appearance/structured-data/local-business)
+- [Google AI özellikleri ve web siteleri](https://developers.google.com/search/docs/appearance/ai-features)
 - [Google FAQ rich result değişikliği](https://developers.google.com/search/blog/2023/08/howto-faq-changes)
 - [Google review snippet kuralları](https://developers.google.com/search/docs/appearance/structured-data/review-snippet)
 - [Google spam politikaları](https://developers.google.com/search/docs/essentials/spam-policies)
