@@ -27,13 +27,18 @@ def fragment(text):return BeautifulSoup(text,'html.parser')
 def asset(path,script=False):
  digest=hashlib.sha256((R/path.lstrip('/')).read_bytes()).digest();version=digest.hex()[:12];sri='sha256-'+base64.b64encode(digest).decode()
  return f'<script src="{path}?v={version}" integrity="{sri}" crossorigin="anonymous" defer></script>' if script else f'<link rel="stylesheet" href="{path}?v={version}" integrity="{sri}" crossorigin="anonymous">'
+def asset_url(path):
+ return path+'?v='+hashlib.sha256((R/path.lstrip('/')).read_bytes()).hexdigest()[:12]
 def route(s,en):return ('/en/blog/'+s[1] if en else '/blog/'+s[0])+'/'
 def photo(s):return '/assets/istiklal-tram-calm-screen-1280.webp' if s[3]=='tram' else '/assets/gallery/'+s[3]+'-1200.webp'
 def image(s,i,lazy=True):
  path=photo(s);w,h=Image.open(R/path.lstrip('/')).size
  smaller='/assets/istiklal-tram-calm-screen-480.webp' if s[3]=='tram' else '/assets/gallery/'+s[3]+'-600.webp'
- sw=Image.open(R/smaller.lstrip('/')).width
- return f'<img src="{path}" srcset="{smaller} {sw}w, {path} {w}w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:1320px) 48vw, 600px" width="{w}" height="{h}" alt="{e(s[5][i])}" decoding="async" '+('loading="lazy"' if lazy else 'fetchpriority="high"')+'>'
+ variants=[smaller,path]
+ if s[3]!='tram':
+  variants.insert(0,'/assets/gallery/'+s[3]+'-screen-400.webp')
+ srcset=', '.join(f'{asset_url(candidate)} {Image.open(R/candidate.lstrip("/")).width}w' for candidate in variants)
+ return f'<img src="{path}" srcset="{srcset}" sizes="(max-width:700px) calc(100vw - 40px), (max-width:1320px) 48vw, 600px" width="{w}" height="{h}" alt="{e(s[5][i])}" decoding="async" '+('loading="lazy"' if lazy else 'fetchpriority="high"')+'>'
 def nav(en):
  prefix='/en/' if en else '/';r='/en/reservation/' if en else '/rezervasyon/';loc='/en/location/' if en else '/konum/'
  return f'<a href="{prefix}">'+('Home' if en else 'Ana sayfa')+f'</a><a href="{prefix}menu/">'+('Breakfast menu' if en else 'Kahvaltı menüsü')+f'</a><a href="{loc}">'+('Find us' if en else 'Konum')+f'</a><a href="{prefix}blog/" aria-current="page">'+('Journal' if en else 'Günlük')+f'</a><a class="journal-book" href="{r}">'+('Request a table' if en else 'Rezervasyon')+'</a>'
@@ -48,7 +53,7 @@ for en in [False,True]:
  docs={s[0]:BeautifulSoup((R/route(s,en).lstrip('/')/'index.html').read_text(),'html.parser') for s in SUBJECTS}
  def entry(s,lead=False,related=False):
   doc=docs[s[0]];title=doc.h1.get_text();desc=doc.find('meta',attrs={'name':'description'})['content'];href=route(s,en)
-  return '<'+('div' if related else 'li')+' class="journal-entry'+(' journal-entry--lead' if lead else '')+'" data-category="'+s[2]+'"><a class="entry-image" tabindex="-1" aria-hidden="true" href="'+href+'">'+image(s,i,not lead)+'</a><div class="entry-copy"><p class="entry-category">'+CATEGORIES[s[2]][i]+'</p><'+('h3' if related else 'h2')+'><a href="'+href+'">'+e(title)+'</a></'+('h3' if related else 'h2')+'>'+('' if related else '<p class="entry-description">'+e(desc)+'</p><a class="entry-read" href="'+href+'">'+('Read the story' if en else 'Yazıyı okuyun')+'</a>')+'</div></'+('div' if related else 'li')+'>'
+  return '<'+('div' if related else 'li')+' class="journal-entry'+(' journal-entry--lead' if lead else '')+'" data-category="'+s[2]+'"><a class="entry-image" tabindex="-1" aria-hidden="true" href="'+href+'">'+image(s,i)+'</a><div class="entry-copy"><p class="entry-category">'+CATEGORIES[s[2]][i]+'</p><'+('h3' if related else 'h2')+'><a href="'+href+'">'+e(title)+'</a></'+('h3' if related else 'h2')+'>'+('' if related else '<p class="entry-description">'+e(desc)+'</p><a class="entry-read" href="'+href+'">'+('Read the story' if en else 'Yazıyı okuyun')+'</a>')+'</div></'+('div' if related else 'li')+'>'
  for s in SUBJECTS:
   doc=docs[s[0]];a=doc.article
   old_header=a.select_one('.visit-intro');old_header['class']=['article-heading']
@@ -92,7 +97,10 @@ for en in [False,True]:
   docs[s[0]]=doc
  # Index uses the same source titles, summaries and routes.
  indexfile=R/index.lstrip('/')/'index.html';doc=BeautifulSoup(indexfile.read_text(),'html.parser')
- masthead='<header class="journal-masthead"><div class="masthead-copy"><p class="journal-kicker">'+('Food, people & Beyoğlu' if en else 'Sofra, sohbet, Beyoğlu')+'</p><h1>'+('Stories from<br><span>Pusula.</span>' if en else 'Pusula’dan<br><span>hikâyeler.</span>')+'</h1><p class="journal-description">'+('A table to share. A coffee that turns into a conversation. A few notes from our colourful corner of Beyoğlu.' if en else 'Birlikte kurulan sofralar, kahveyle uzayan sohbetler. Beyoğlu’ndaki rengârenk köşemizden notlar.')+'</p><a class="masthead-link" href="#stories">'+('Pull up a chair. Explore the stories.' if en else 'Bir sandalye çekin. Hikâyelere göz atın.')+'</a></div><figure class="masthead-photo"><img src="/assets/hero-mekan-screen-1066.webp" srcset="/assets/hero-mekan-screen-480.webp 480w, /assets/hero-mekan-screen-1066.webp 1066w" sizes="(max-width:700px) 100vw, 60vw" width="1066" height="1600" alt="'+('Yellow chairs and a flower-filled ceiling at Pusula Lounge' if en else 'Pusula Lounge’un çiçekli tavanı, yeşil duvarları ve sarı sandalyeleri')+'" fetchpriority="high"></figure></header><div class="journal-floral" aria-hidden="true"></div>'
+ masthead_sizes='(max-width: 700px) 100vw, min(57vw, 823px)'
+ def venue_srcset(extension):
+  return ', '.join(f'{asset_url(f"/assets/hero-mekan-screen-{width}.{extension}")} {width}w' for width in (480,800,1066))
+ masthead='<header class="journal-masthead"><div class="masthead-copy"><p class="journal-kicker">'+('Food, people & Beyoğlu' if en else 'Sofra, sohbet, Beyoğlu')+'</p><h1>'+('Stories from<br><span>Pusula.</span>' if en else 'Pusula’dan<br><span>hikâyeler.</span>')+'</h1><p class="journal-description">'+('A table to share. A coffee that turns into a conversation. A few notes from our colourful corner of Beyoğlu.' if en else 'Birlikte kurulan sofralar, kahveyle uzayan sohbetler. Beyoğlu’ndaki rengârenk köşemizden notlar.')+'</p><a class="masthead-link" href="#stories">'+('Pull up a chair. Explore the stories.' if en else 'Bir sandalye çekin. Hikâyelere göz atın.')+'</a></div><figure class="masthead-photo"><picture><source type="image/avif" srcset="'+venue_srcset('avif')+'" sizes="'+masthead_sizes+'"><img src="/assets/hero-mekan-screen-1066.webp" srcset="'+venue_srcset('webp')+'" sizes="'+masthead_sizes+'" width="1066" height="1600" alt="'+('Yellow chairs and a flower-filled ceiling at Pusula Lounge' if en else 'Pusula Lounge’un çiçekli tavanı, yeşil duvarları ve sarı sandalyeleri')+'" fetchpriority="high"></picture></figure></header><div class="journal-floral" aria-hidden="true"></div>'
 
  filters='<div class="journal-filters" role="group" aria-label="'+('Filter stories' if en else 'Yazıları konuya göre süz')+'" hidden>'+''.join('<button type="button" data-journal-filter="'+key+'" aria-pressed="'+str(key=='all').lower()+'">'+label+'</button>' for key,label in [('all','All stories' if en else 'Tüm yazılar'),('breakfast','Breakfast' if en else 'Sofra'),('city','Beyoğlu'),('evening','Evenings' if en else 'Akşam & mola')])+'<span class="filter-caption" data-filter-count role="status" aria-live="polite">6 '+('stories' if en else 'yazı')+'</span></div>'
  endnote='<section class="journal-endnote"><h2>'+('Let’s meet around a table.' if en else 'Bir sonraki hikâye, sizin sofranızda.')+'</h2><div class="article-actions"><a href="'+prefix+'menu/">'+('Explore breakfast menu & prices' if en else 'Kahvaltı menüsü ve fiyatları')+'</a><a class="visit-button" href="'+reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a></div></section>'

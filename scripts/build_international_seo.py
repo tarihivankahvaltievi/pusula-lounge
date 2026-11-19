@@ -45,6 +45,11 @@ def file_for(route):
     return ROOT / route.lstrip('/') / 'index.html'
 
 
+def asset_url(path):
+    version = hashlib.sha256((ROOT / path.lstrip('/')).read_bytes()).hexdigest()[:12]
+    return f'{path}?v={version}'
+
+
 def ref(path, script=False):
     data = (ROOT / path.lstrip('/')).read_bytes()
     digest = hashlib.sha256(data)
@@ -110,7 +115,15 @@ for lang, c in COPY.items():
     header = f'<header class="visit-header">{a(home, "Pusula Lounge", "visit-brand")}<nav aria-label="{e(c["navigation"])}">' + ''.join(a(p, c[k]) for p, k in [(home, 'home'), (menu, 'menu'), (location, 'location'), (reservation, 'reservation')]) + '</nav></header>'
     footer = f'<footer class="visit-footer"><p><strong>Pusula Lounge</strong><br>Beyoğlu · İstanbul</p><address class="address-latin" lang="tr">{e(ADDRESS)}</address><p>{a("tel:+905078162994", c["call"])} <bdi dir="ltr">+90 507 816 29 94</bdi></p><p>{e(c["hours"])}</p><p>{a(MAP, c["map"])}</p><p class="business-source">{e(c["sourceNote"])}</p></footer>'
     actions = '<div class="visit-actions">' + a(reservation, c['reservation'], 'visit-button') + a(menu, c['menu']) + a(location, c['location']) + '</div>'
-    photo = f'<figure><img src="/assets/gallery/pusula-sofrasi-600.webp" srcset="/assets/gallery/pusula-sofrasi-600.webp 600w, /assets/gallery/pusula-sofrasi-1200.webp 1200w" sizes="(max-width:700px) calc(100vw - 40px), 500px" alt="{e(c["photoAlt"])}" width="1200" height="800" decoding="async" fetchpriority="high"><figcaption>{e(c["photoCaption"])}</figcaption></figure>'
+    sizes = '(max-width: 700px) calc(100vw - 40px), (max-width: 1140px) calc((100vw - 104px) / 2.1), 494px'
+    variants = {ext: ', '.join(
+        f'{asset_url("/assets/gallery/pusula-sofrasi" + suffix + "." + ext)} {width}w'
+        for suffix, width in [('-screen-400', 400), ('-screen-600', 600), ('-screen-800', 800), ('-1200', 1200)]
+    ) for ext in ['avif', 'webp']}
+    photo = (f'<figure><picture><source type="image/avif" srcset="{variants["avif"]}" sizes="{sizes}">'
+             f'<img src="/assets/gallery/pusula-sofrasi-1200.webp" srcset="{variants["webp"]}" sizes="{sizes}" '
+             f'alt="{e(c["photoAlt"])}" width="1200" height="800" decoding="async"></picture>'
+             f'<figcaption>{e(c["photoCaption"])}</figcaption></figure>')
 
     for kind in ['home', 'menu', 'location']:
         route = {'home': home, 'menu': menu, 'location': location}[kind]
@@ -183,6 +196,9 @@ for lang, c in COPY.items():
         else:
             page_footer = footer
         css = ''.join(ref(p) for p in ['/assets/menu/fonts.css','/visit.css','/seo-common.css','/international.css'])
+        if lang == 'ar':
+            font = asset_url('/assets/international/ar-text.woff2')
+            css = f'<link rel="preload" href="{font}" as="font" type="font/woff2" crossorigin>' + css
         page = f'<!doctype html><html lang="{lang}"' + (' dir="rtl"' if lang == 'ar' else '') + f'><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">{meta}<link rel="icon" href="/assets/pusula-amblem.png">{css}<script type="application/ld+json">{dump({"@context":"https://schema.org","@graph":graph})}</script>{ref("/seo-events.js",True)}</head><body class="visit-page localized-page"><a class="skip" href="#content">{e(c["skip"])}</a>{header}<main id="content">{body}</main>{page_footer}</body></html>'
         file = file_for(route)
         file.parent.mkdir(parents=True,exist_ok=True)

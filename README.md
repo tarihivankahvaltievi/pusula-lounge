@@ -50,7 +50,7 @@ The release pipeline also runs `build_search_growth.py` and
 `finalize_search_metadata.py`. Breakfast landing prices are derived from the
 published Turkish menu; edit that menu and rebuild rather than editing landing
 prices independently. Final image metadata is derived after the journal design.
-The release preserves sitemap dates when final page bytes have not changed.
+The release preserves sitemap dates for asset-only rebuilds. When editing a published HTML file directly, update its sitemap date if the edit changes search-visible content.
 
 Additional verification:
 

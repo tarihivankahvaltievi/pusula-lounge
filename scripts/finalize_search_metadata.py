@@ -4,6 +4,7 @@ from urllib.parse import urljoin, urlsplit, unquote
 import hashlib, json, mimetypes, re, sys
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
+from PIL import Image
 from business_entity import MAPS_PROFILE
 
 ROOT = Path(sys.argv[1]).resolve()
@@ -13,6 +14,7 @@ INSTAGRAM_PROFILE = 'https://www.instagram.com/pusulalounge/'
 S = 'http://www.sitemaps.org/schemas/sitemap/0.9'
 I = 'http://www.google.com/schemas/sitemap-image/1.1'
 X = 'http://www.w3.org/1999/xhtml'
+HOME_PATHS = {'/', '/en/', '/ru/', '/ar/'}
 LOCATION_PATHS = {'/konum/', '/en/location/', '/ru/location/', '/ar/location/'}
 for prefix, uri in [('', S), ('image', I), ('xhtml', X)]:
     ET.register_namespace(prefix, uri)
@@ -59,7 +61,8 @@ for entry in tree.getroot():
         tag['href'] = MAPS_PROFILE
         return str(tag).removesuffix('</a>')
     text = re.sub(r'<a\b[^>]*>', map_link, text)
-    if urlsplit(url).path in BREAKFAST_PATHS:
+    route = urlsplit(url).path
+    if route in BREAKFAST_PATHS or route == '/en/':
         text = improve_breakfast_image(text)
     soup = BeautifulSoup(text, 'html.parser')
     social = soup.select_one('meta[property="og:image"]')
@@ -76,14 +79,14 @@ for entry in tree.getroot():
             continue
         src = urljoin(url, img['src']).split('?')[0]
         parts = urlsplit(src)
-        if parts.netloc != urlsplit(ORIGIN).netloc or not (ROOT / unquote(parts.path).lstrip('/')).is_file():
+        asset = ROOT / unquote(parts.path).lstrip('/')
+        if parts.netloc != urlsplit(ORIGIN).netloc or not asset.is_file():
             continue
         if src not in [i['url'] for i in images]:
             image = {'@type': 'ImageObject', 'url': src, 'contentUrl': src,
                      'caption': img['alt'], 'inLanguage': soup.html['lang']}
-            for key in ['width', 'height']:
-                if str(img.get(key, '')).isdigit():
-                    image[key] = int(img[key])
+            with Image.open(asset) as photo:
+                image['width'], image['height'] = photo.size
             images.append(image)
     def update_schema(match):
         data = json.loads(match.group(2))
@@ -112,7 +115,7 @@ for entry in tree.getroot():
                                 if a['hreflang'] != 'x-default' and a['href'] != url]
                 if translations:
                     node['workTranslation'] = translations
-                if restaurant and urlsplit(url).path in LOCATION_PATHS:
+                if restaurant and (route in HOME_PATHS or route in LOCATION_PATHS):
                     node['mainEntity'] = {'@id': restaurant['@id']}
                 if menu:
                     node['mainEntity'] = {'@id': menu['@id']}

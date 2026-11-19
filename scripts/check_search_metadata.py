@@ -2,6 +2,7 @@
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit, urljoin
 from bs4 import BeautifulSoup
+from PIL import Image
 import json, sys, xml.etree.ElementTree as ET
 root = Path(sys.argv[1])
 ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9', 'i': 'http://www.google.com/schemas/sitemap-image/1.1'}
@@ -17,7 +18,7 @@ for entry in ET.parse(root/'sitemap.xml').getroot():
     assert (map_profile.hostname, map_profile.path) == ('www.google.com', '/maps/search/'), url
     assert parse_qs(map_profile.query)['query_place_id'] == [place_id], url
     route = urlsplit(url).path
-    if route in {'/konum/', '/en/location/', '/ru/location/', '/ar/location/'}:
+    if route in {'/', '/en/', '/ru/', '/ar/', '/konum/', '/en/location/', '/ru/location/', '/ar/location/'}:
         assert page['mainEntity']['@id'] == restaurant['@id'], url
     if route in {'/kahvalti/', '/en/breakfast/'}:
         assert soup.select_one('.visit-section a[href*="destination_place_id="]'), url
@@ -35,7 +36,10 @@ for entry in ET.parse(root/'sitemap.xml').getroot():
     listed = [i.find('i:loc', ns).text for i in entry.findall('i:image', ns)]
     assert listed == list(dict.fromkeys(visible)), (url, 'image discovery')
     if visible:
-        assert page['primaryImageOfPage']['url'] == visible[0], (url, 'stale primary image')
+        image = page['primaryImageOfPage']
+        assert image['url'] == visible[0], (url, 'stale primary image')
+        with Image.open(root / urlsplit(image['url']).path.lstrip('/')) as asset:
+            assert (image['width'], image['height']) == asset.size, (url, 'primary image dimensions')
     expected = {a['href']+'#webpage' for a in soup.select('link[hreflang]') if a['hreflang'] != 'x-default' and a['href'] != url}
     actual = page.get('workTranslation', [])
     if isinstance(actual, dict): actual = [actual]

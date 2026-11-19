@@ -1,7 +1,7 @@
 /* A language extension of the existing yellow, paper and green visitor pages. */
-@font-face{font-family:'Pusula Cyrillic';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/international/ru-display.ttf') format('truetype')}
-@font-face{font-family:'Pusula Arabic';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/international/ar-text.ttf') format('truetype')}
-@font-face{font-family:'Pusula Cyrillic Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/international/ru-body.ttf') format('truetype')}
+@font-face{font-family:'Pusula Cyrillic';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/international/ru-display.woff2?v=ddf6d2627a1f') format('woff2')}
+@font-face{font-family:'Pusula Arabic';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/international/ar-text.woff2?v=0de0dfdb3898') format('woff2')}
+@font-face{font-family:'Pusula Cyrillic Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/international/ru-body.woff2?v=7ae250d22e3d') format('woff2')}
 .localized-page:lang(ru){font-family:'Pusula Cyrillic Sans',sans-serif}
 .localized-page:lang(ru) h1,.localized-page:lang(ru) h2{font-family:'Pusula Cyrillic',Georgia,serif;font-weight:400}
 .localized-page:lang(ar){font-family:'Pusula Arabic',Tahoma,serif;font-size:21px;line-height:1.8}
