@@ -29,8 +29,25 @@ const out = process.argv[2] || '/tmp/pusula-menu-budget';
           await page.keyboard.press('Enter');
           assert.equal(await details.locator('table').isVisible(),true);
           assert.equal(await details.locator('tbody tr').count(),3);
-          const actual=await details.locator('tbody tr').evaluateAll(rows=>rows.map(r=>[...r.cells].map(c=>Number(c.textContent.replace(/[^0-9]/g,'')))));
-          assert.deepEqual(actual,[[2,1200,600],[3,1800,600],[4,2500,625]]);
+          const currency = (text) => Number(text.replace(/[^0-9.,]/g, '')
+            .replace(lang === 'tr' ? /\./g : /,/g, '').replace(',', '.'));
+          const totals = await page.locator('#serpme-van-kahvaltisi .portion-prices b, #serpme-van-kahvaltisi .portion-list strong').allTextContents();
+          const rows = await details.locator('tbody tr').evaluateAll(items => items.map(row =>
+            [...row.cells].map(cell => cell.textContent)));
+          assert.equal(totals.length, 3);
+          for (const [index, [guests, total, perPerson]] of rows.entries()) {
+            const people = index + 2;
+            const published = Number(totals[index].replace(/[^0-9]/g, ''));
+            assert.equal(Number(guests), people);
+            assert.equal(currency(total), published);
+            assert.equal(currency(perPerson), Math.round(100 * published / people) / 100);
+          }
+          const intro = page.locator(lang === 'tr' ? '.menu-visit p' : '.visit-intro .lead').first();
+          const shared = intro.locator('a[href="#serpme-van-kahvaltisi"]');
+          assert.equal(currency(await shared.textContent()), currency(rows[0][1]));
+          await shared.click();
+          await page.waitForURL('**/#serpme-van-kahvaltisi');
+          assert.equal(await page.locator('#serpme-van-kahvaltisi').isVisible(), true);
           assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' horizontal overflow');
           if(lang==='ar') assert.equal(await page.locator('html').getAttribute('dir'),'rtl');
           if(javaScriptEnabled&&width===390){await details.scrollIntoViewIfNeeded();await page.screenshot({path:`${out}/${lang}-mobile.png`});}

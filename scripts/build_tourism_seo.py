@@ -162,7 +162,12 @@ for en in [False,True]:
   menu_label='Breakfast menu & prices' if en else 'Kahvaltı menüsü ve fiyatları'
   body+='<div class="article-actions"><a class="visit-button" href="'+intent_reservation+'">'+('Request a table' if en else 'Masa talebi gönder')+'</a>'
   if evening:body+=menu_inquiry_link(a,en)
-  body+=link('/en/menu/' if en else '/menu/',menu_label)+'</div>'
+  if evening:
+   body+=link('/en/location/#arrival-guide' if en else '/konum/#arrival-guide',
+              'Directions from Taksim Square' if en else 'Taksim Meydanı’ndan yol tarifi')
+  else:
+   body+=link('/en/menu/' if en else '/menu/',menu_label)
+  body+='</div>'
   photo=a.get('image','/assets/gallery/pusula-sofrasi-1200.webp');photo_alt=a.get('imageAlt',['Pusula Lounge’da paylaşılan kahvaltı sofrası','A shared breakfast table at Pusula Lounge'])[i];photo_caption=a.get('imageCaption',['Sipariş öncesinde menüden porsiyonları ve içerikleri karşılaştırın.','Compare portions and contents in the menu before ordering.'])[i];photo_width,photo_height=a.get('imageDimensions',[1200,800])
   photo_stem=photo.rsplit('-',1)[0]
   photo_class='article-photo article-photo--portrait' if photo_height>photo_width else 'article-photo'

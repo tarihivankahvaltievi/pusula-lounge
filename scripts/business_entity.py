@@ -13,10 +13,15 @@ MAPS_DESTINATION = f'Pusula Lounge, {ADDRESS}'
 MAPS_PROFILE = 'https://www.google.com/maps/search/?' + urlencode({
     'api': 1, 'query': MAPS_DESTINATION, 'query_place_id': MAPS_PLACE_ID,
 })
-WALKING_DIRECTIONS = 'https://www.google.com/maps/dir/?' + urlencode({
-    'api': 1, 'destination': MAPS_DESTINATION, 'destination_place_id': MAPS_PLACE_ID,
-    'travelmode': 'walking',
-})
+def walking_directions(**origin):
+    return 'https://www.google.com/maps/dir/?' + urlencode({
+        'api': 1, **origin, 'destination': MAPS_DESTINATION,
+        'destination_place_id': MAPS_PLACE_ID, 'travelmode': 'walking',
+    })
+
+
+WALKING_DIRECTIONS = walking_directions()
+TAKSIM_SQUARE_DIRECTIONS = walking_directions(origin='Taksim Meydanı, Beyoğlu, İstanbul')
 
 
 def apply_restaurant_location(restaurant):

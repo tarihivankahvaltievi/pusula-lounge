@@ -20,6 +20,13 @@ for entry in ET.parse(root/'sitemap.xml').getroot():
     route = urlsplit(url).path
     if route in {'/', '/en/', '/ru/', '/ar/', '/konum/', '/en/location/', '/ru/location/', '/ar/location/'}:
         assert page['mainEntity']['@id'] == restaurant['@id'], url
+    if route in {'/', '/en/', '/ru/', '/ar/'}:
+        menu_url = next(item['url'] for item in restaurant['hasMenu'] if item['inLanguage'] == soup.html['lang'])
+        assert restaurant['menu'] == menu_url, url
+    if route in {'/konum/', '/en/location/', '/ru/location/', '/ar/location/'}:
+        starts = [parse_qs(urlsplit(link['href']).query).get('origin')
+                  for link in soup.select('#arrival-guide a[href*="destination_place_id="]')]
+        assert starts == [None, ['Taksim Meydanı, Beyoğlu, İstanbul']], url
     if route in {'/kahvalti/', '/en/breakfast/'}:
         assert soup.select_one('.visit-section a[href*="destination_place_id="]'), url
     if route == '/rezervasyon/' or route.endswith('/reservation/'):

@@ -8,9 +8,11 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
+from urllib.robotparser import RobotFileParser
 
 ORIGIN = 'https://www.pusulalounge.com'
-NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9',
+      'x': 'http://www.w3.org/1999/xhtml'}
 IMAGE_NS = {'i': 'http://www.google.com/schemas/sitemap-image/1.1'}
 
 
@@ -19,11 +21,16 @@ class Metadata(HTMLParser):
         super().__init__()
         self.canonicals = []
         self.robots = []
+        self.alternates = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag == 'link' and 'canonical' in attrs.get('rel', '').lower().split():
-            self.canonicals.append(attrs.get('href', ''))
+        if tag == 'link':
+            rel = attrs.get('rel', '').lower().split()
+            if 'canonical' in rel:
+                self.canonicals.append(attrs.get('href', ''))
+            if 'alternate' in rel and 'hreflang' in attrs:
+                self.alternates.append((attrs['hreflang'], attrs.get('href', '')))
         if tag == 'meta' and attrs.get('name', '').lower() in ('robots', 'googlebot'):
             self.robots.append(attrs.get('content', ''))
 
@@ -62,7 +69,7 @@ def fetch(url):
         return response.geturl(), response.headers, response.read()
 
 
-def check(url):
+def check(url, alternates):
     try:
         final, headers, body = fetch(url)
         issues = []
@@ -71,14 +78,17 @@ def check(url):
         if 'text/html' not in headers.get('Content-Type', '').lower():
             issues.append('response is not HTML')
         meta = Metadata()
-        meta.feed(body.decode(headers.get_content_charset() or 'utf-8', errors='replace'))
+        html = body.decode(headers.get_content_charset() or 'utf-8', errors='replace')
+        meta.feed(html)
         if meta.canonicals != [url]:
             issues.append('canonical: ' + repr(meta.canonicals))
+        if sorted(meta.alternates) != sorted(alternates):
+            issues.append('HTML hreflang does not match the sitemap')
         directives = ','.join(meta.robots + headers.get_all('X-Robots-Tag', [] )).lower()
         if any(word in directives for word in ('noindex', 'none', 'nosnippet')):
             issues.append('restrictive robots directive: ' + directives)
         assets = Assets(url)
-        assets.feed(body.decode(headers.get_content_charset() or 'utf-8', errors='replace'))
+        assets.feed(html)
         return url, issues, assets.urls
     except (OSError, ValueError, urllib.error.URLError) as exc:
         return url, [str(exc)], set()
@@ -105,7 +115,9 @@ def main():
         raise ValueError('robots.txt redirected to ' + robots_final)
     if 'text/plain' not in robots_headers.get('Content-Type', '').lower():
         raise ValueError('robots.txt is not served as plain text')
-    if 'Sitemap: ' + sitemap not in robots_body.decode('utf-8', errors='replace').splitlines():
+    robots = RobotFileParser()
+    robots.parse(robots_body.decode('utf-8', errors='replace').splitlines())
+    if sitemap not in (robots.site_maps() or []):
         raise ValueError('robots.txt does not declare the canonical sitemap')
 
     final, sitemap_headers, body = fetch(sitemap)
@@ -124,10 +136,26 @@ def main():
     if any(not url or urllib.parse.urlsplit(url).scheme != 'https' or
            urllib.parse.urlsplit(url).netloc != urllib.parse.urlsplit(ORIGIN).netloc for url in image_urls):
         raise ValueError('Sitemap contains an image outside the canonical HTTPS origin')
+    alternates = {
+        entry.findtext('s:loc', namespaces=NS): [
+            (link.attrib['hreflang'], link.attrib['href'])
+            for link in entry.findall('x:link[@rel="alternate"]', NS)
+        ]
+        for entry in root.findall('s:url', NS)
+    }
     errors = []
+    for url, links in alternates.items():
+        languages = dict(links)
+        if links and (len(languages) != len(links) or url not in languages.values()
+                      or any(dict(alternates.get(target, [])) != languages for target in languages.values())):
+            errors.append((url, ['sitemap hreflang group is incomplete or non-reciprocal']))
+        blocked = [bot for bot in ('Googlebot', 'Bingbot', 'OAI-SearchBot')
+                   if not robots.can_fetch(bot, url)]
+        if blocked:
+            errors.append((url, ['robots.txt blocks ' + ', '.join(blocked)]))
     assets = set(image_urls)
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
-        for url, issues, found_assets in pool.map(check, urls):
+        for url, issues, found_assets in pool.map(lambda url: check(url, alternates[url]), urls):
             assets.update(found_assets)
             if issues:
                 errors.append((url, issues))

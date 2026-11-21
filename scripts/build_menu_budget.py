@@ -22,6 +22,15 @@ copy = {
  'ru': ['Цена завтрака указана за всех или за человека?', 'Ванский завтрак: сравните стоимость', ['Гостей', 'За всю порцию', 'На человека'], 'В меню указана цена за всю порцию. Сумма на человека рассчитана делением общей цены на число гостей; это не отдельный набор для заказа. Дополнительные блюда не включены.', 'В состав общего завтрака входит чай без ограничений. Перед заказом уточните у команды актуальные цены, дополнения и наличие блюд.', 'Полный состав общего завтрака', 'Завтрак на одного'],
  'ar': ['هل سعر الفطور المشترك إجمالي أم للفرد؟', 'فطور فان المشترك: قارن التكلفة', ['الأشخاص', 'إجمالي الوجبة', 'لكل شخص'], 'السعر في القائمة هو إجمالي الوجبة المشتركة. تُحسب تكلفة الفرد بقسمة الإجمالي على عدد الأشخاص، وليست وجبة مستقلة يمكن طلبها. الطلبات الإضافية غير مشمولة.', 'يشمل الفطور المشترك الشاي بلا حدود حسب القائمة. يرجى تأكيد الأسعار الحالية والإضافات وتوفر الأطباق مع فريقنا قبل الطلب.', 'مكونات الفطور المشترك كاملة', 'طبق فطور لشخص واحد'],
 }
+menu_intros = {
+    'tr': 'Sınırsız çay dahil iki kişilik serpme Van kahvaltısı {shared}, tek kişilik kahvaltı tabağı {solo}. Her gün 08:00–17:00.',
+    'en': 'A shared Van breakfast for two with unlimited tea costs {shared} in total. A breakfast plate for one is {solo}. Served daily 08:00–17:00.',
+    'ru': 'Ванский завтрак на двоих с чаем без ограничений стоит {shared} за всю порцию. Тарелка завтрака на одного стоит {solo}. Завтраки ежедневно с 08:00 до 17:00.',
+    'ar': 'فطور فان لشخصين مع شاي بلا حدود بسعر إجمالي {shared}، وطبق الفطور لشخص واحد بسعر {solo}. يُقدّم الفطور يومياً من <bdi dir="ltr">08:00</bdi> حتى <bdi dir="ltr">17:00</bdi>.',
+}
+solo_price = int(re.sub(r'\D', '', source.select_one('#kahvalti-tabagi .price').get_text()))
+
+
 def money(value, lang):
     value = Decimal(value).quantize(Decimal('.01'), rounding=ROUND_HALF_UP)
     formatted = f'{value:,.2f}'.rstrip('0').rstrip('.')
@@ -40,17 +49,23 @@ for lang, (summary, caption, columns, note, tea, shared, solo) in copy.items():
              '<p>'+escape(note)+'</p><p>'+escape(tea)+'</p><nav aria-label="'+escape(caption)+'">'
              '<a href="#serpme-van-kahvaltisi">'+escape(shared)+'</a><a href="#kahvalti-tabagi">'+escape(solo)+'</a>'
              '</nav></div></details><!-- MENU-BUDGET:END -->')
-    # Keep the primary request/directions actions before this optional comparison.
-    marker = '<!-- MENU-VISIT:END -->' if lang == 'tr' else '<!-- MENU-ACTIONS:END -->'
-    # International actions are produced later in the existing pipeline. Anchor
-    # directly after the intro instead; visitor-quality inserts actions before us.
+    intro = menu_intros[lang].format(
+        shared='<a href="#serpme-van-kahvaltisi">'+money(portions[0][1], lang)+'</a>',
+        solo='<a href="#kahvalti-tabagi">'+money(solo_price, lang)+'</a>',
+    )
+    lead_pattern = (r'(<h1 id="menu-visit-title">[^<]*</h1><p>).*?(</p>)'
+                    if lang == 'tr' else r'(<h1>[^<]*</h1><p class="lead">).*?(</p>)')
+    text, count = re.subn(lead_pattern, lambda m: m[1]+intro+m[2], text, count=1, flags=re.S)
+    assert count == 1, route
+    # Visitor quality subsequently inserts the localized actions right after the intro.
     if lang == 'tr':
+        marker = '<!-- MENU-VISIT:END -->'
         assert marker in text
         text = text.replace(marker, marker+block, 1)
     else:
-        intro = re.search(r'<(?:header|div) class="visit-intro">.*?</(?:header|div)>', text, re.S)
-        assert intro, route
-        text = text[:intro.end()]+block+text[intro.end():]
+        match = re.search(r'<(?:header|div) class="visit-intro">.*?</(?:header|div)>', text, re.S)
+        assert match, route
+        text = text[:match.end()]+block+text[match.end():]
     text = re.sub(r'<link\b[^>]*href="/menu-budget.css(?:\?[^\"]*)?"[^>]*>', '', text)
     file.write_text(text.replace('</head>', '<link rel="stylesheet" href="/menu-budget.css"></head>'))
 print('Four menu budget comparisons derived from published portion totals.')

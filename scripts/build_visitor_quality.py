@@ -5,7 +5,7 @@ Run after build_international_seo.py. Asset refs and CSP are refreshed atomicall
 from pathlib import Path
 from html import escape
 from urllib.parse import urlsplit,urljoin
-from business_entity import ADDRESS, WALKING_DIRECTIONS
+from business_entity import ADDRESS, TAKSIM_SQUARE_DIRECTIONS, WALKING_DIRECTIONS
 from bs4 import BeautifulSoup
 import base64,hashlib,json,re,sys,xml.etree.ElementTree as ET
 
@@ -40,6 +40,7 @@ for lang,c in COPY.items():
     body+='<div class="visit-tool-actions">'+link(WALKING_DIRECTIONS,c['directions'],'visit-button')+link('tel:+905078162994',c['call'])
     body+=f'<button type="button" data-copy-address hidden>{e(c["copy"])}</button><button type="button" data-print-visit hidden>{e(c["print"])}</button></div><p role="status" aria-live="polite"></p>'
     body+='<p><bdi dir="ltr">+90 507 816 29 94</bdi></p><p>'+e(c['hours'])+'</p></div><p>'+e(c['note'])+'</p>'
+    body+='<p>'+e(c['squareIntro'])+' '+link(TAKSIM_SQUARE_DIRECTIONS,c['squareDirections'])+'</p>'
     body+='<p>'+e(c['intro'])+'</p>'+routes_html
     body+='<div class="transport-sources"><h3>'+e(c['sources'])+'</h3><ul>'
     for line in ['M2','T1','F1']:

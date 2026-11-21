@@ -154,7 +154,7 @@ for lang, c in COPY.items():
             body += actions + f'<div class="visit-spread"><div><h2>{e(c["spreadTitle"])}</h2><p>{e(c["spreadText"])}</p>{a(menu,c["menu"])}</div>{photo}</div>'
             body += section(c['hotTitle'], c['hotText']) + section(c['hoursTitle'], c['hoursText']) + section(c['bookingTitle'], c['bookingText']) + actions
         elif kind == 'menu':
-            body += f'<p>{e(c["hours"])}</p><nav class="menu-jump" aria-label="{e(c["menu"])}">' + ''.join(a('#' + s['id'], label) for s, label in zip(source_sections, c['categories'])) + '</nav>'
+            body += f'<nav class="menu-jump" aria-label="{e(c["menu"])}">' + ''.join(a('#' + s['id'], label) for s, label in zip(source_sections, c['categories'])) + '</nav>'
             menu_node = {'@type': 'Menu', '@id': url + '#menu', 'url': url, 'name': heading, 'inLanguage': lang, 'hasMenuSection': []}
             for s, label in zip(source_sections, c['categories']):
                 ms = {'@type': 'MenuSection', '@id': url + '#' + s['id'], 'name': label, 'hasMenuItem': []}

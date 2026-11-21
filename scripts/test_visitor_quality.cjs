@@ -67,7 +67,9 @@ const address='Katip Mustafa Çelebi Mahallesi, Küçük Parmak Kapı Sokak, Sin
     assert.equal(await page.locator('[data-copy-address]').isVisible(),false);
     assert.equal(await page.locator('[data-print-visit]').isVisible(),false);
     assert.equal((await page.locator('[data-visit-address]').textContent()).trim(),address);
-    assert.equal(await page.locator('.arrival-guide a[href^="https://www.google.com/maps/dir/"]').count(),1);
+    const routes = await page.locator('.arrival-guide a[href^="https://www.google.com/maps/dir/"]').evaluateAll(
+      links => links.map(link => new URL(link.href).searchParams.get('origin')));
+    assert.deepEqual(routes, [null, 'Taksim Meydanı, Beyoğlu, İstanbul']);
   }
   await page.goto(base+'/en/');
   assert.equal(await page.locator('.visit-intro a[href="/en/reservation/?visit=breakfast"]').isVisible(),true);

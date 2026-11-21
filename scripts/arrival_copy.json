@@ -1,5 +1,7 @@
 {
   "tr": {
+    "squareDirections": "Taksim Meydanı’ndan yürüyüş yol tarifi",
+    "squareIntro": "Zaten Taksim Meydanı’ndaysanız, başlangıcı meydan olarak seçilmiş rotayı açın.",
     "heading": "Pusula’ya ulaşım planınız",
     "intro": "Önce Taksim’e ulaşımı, ardından Sinek Çıkmazı No:3’teki son yürüyüş bölümünü planlayın. Aşağıdaki seçenekler resmî hat bağlantılarını özetler; ziyaret gününüzde sefer duyurularını kontrol edin.",
     "routes": [
@@ -14,6 +16,8 @@
     "reservation": "Kahvaltı için masa talep edin", "menu": "Menü ve fiyatlar"
   },
   "en": {
+    "squareDirections": "Walk from Taksim Square",
+    "squareIntro": "Already in Taksim Square? Open the walking route with the square set as your starting point.",
     "heading": "Plan your journey to Pusula",
     "intro": "Plan your connection to Taksim first, then the final walk to Sinek Çıkmazı No:3. These options summarize the official line connections; check service notices on the day you travel.",
     "routes": [
@@ -28,6 +32,8 @@
     "reservation": "Request a breakfast table", "menu": "Menu and prices"
   },
   "ru": {
+    "squareDirections": "Пешком от площади Таксим",
+    "squareIntro": "Если вы уже на площади Таксим, откройте пеший маршрут от площади до ресторана.",
     "heading": "Как доехать до Pusula",
     "intro": "Сначала спланируйте поездку до Таксима, затем пеший участок до Sinek Çıkmazı No:3. Ниже — пересадки по официальным схемам линий. В день поездки проверьте сообщения об изменениях движения.",
     "routes": [
@@ -42,6 +48,8 @@
     "reservation": "Запросить столик на завтрак", "menu": "Меню и цены"
   },
   "ar": {
+    "squareDirections": "مسار المشي من ميدان تقسيم",
+    "squareIntro": "إذا كنت في ميدان تقسيم، افتح مسار المشي من الميدان إلى المطعم.",
     "heading": "خطط للوصول إلى Pusula",
     "intro": "خطط أولاً للوصول إلى تقسيم، ثم للمشي إلى Sinek Çıkmazı No:3. تلخص الخيارات التالية الربط بين الخطوط وفق المعلومات الرسمية. تحقق من تنبيهات الخدمة يوم الزيارة.",
     "routes": [

@@ -80,8 +80,8 @@ metadata = {
  'en/menu/index.html': ('Taksim Breakfast Menu & Prices in TRY | Pusula Lounge', 'Read Pusula Lounge’s English breakfast menu in Taksim: shared Van breakfast for 2, 3 or 4, individual plates, menemen and gözleme. Prices in Turkish lira.'),
  'kahvalti/index.html': ('Taksim Serpme Van Kahvaltısı ve Fiyatları | Pusula Lounge', 'Taksim’de serpme Van kahvaltısı: 2, 3 ve 4 kişilik porsiyon fiyatları, sınırsız çay ve tek tabak seçenekleri. Kahvaltı 08:00–17:00; WhatsApp ile masa talebi.'),
  'en/breakfast/index.html': ('Van Breakfast in Taksim: Portions & Prices | Pusula Lounge', 'Compare shared Van breakfast for 2, 3 or 4 in Taksim, Istanbul. Menu prices, unlimited tea and individual plates. Breakfast 08:00–17:00; request a table.'),
- 'konum/index.html': ('Pusula Lounge Nerede? Taksim Yol Tarifi ve İletişim', 'Pusula Lounge adresi: Sinek Çıkmazı No:3, Beyoğlu. Taksim ve İstiklal’den ulaşım, harita, telefon ve kahvaltı saatleriyle ziyaretinizi planlayın.'),
- 'en/location/index.html': ('Find Pusula Lounge in Taksim | Directions & Contact', 'Visit Pusula Lounge near İstiklal Avenue: Sinek Çıkmazı No:3, Beyoğlu, Istanbul. Taksim directions, map, phone and breakfast hours in one place.'),
+ 'konum/index.html': ('Taksim’den Pusula Lounge’a Yol Tarifi ve Adres', 'Pusula Lounge adresi: Sinek Çıkmazı No:3, Beyoğlu. Taksim Meydanı’ndan yürüyüş rotası, metro ve fünikülerle ulaşım, telefon ve kahvaltı saatleri.'),
+ 'en/location/index.html': ('Walk from Taksim Square to Pusula Lounge | Directions', 'Follow walking directions from Taksim Square to Pusula Lounge, Sinek Çıkmazı No:3, Beyoğlu. Find the entrance, transit connections and breakfast hours.'),
 }
 for rel, (title, description) in metadata.items():
     file = ROOT/rel
@@ -101,11 +101,19 @@ for rel, (title, description) in metadata.items():
         text, intro_count = re.subn(r'(<div class="visit-intro">.*?<p class="lead">.*?</p>)(</div>)',
                                     lambda m: m.group(1)+actions+m.group(2), text, count=1, flags=re.S)
         assert intro_count == 1, rel
-        if not en:
-            text, faq_count = re.subn(r'(<details><summary>Kahvaltı saat kaçta servis ediliyor\?</summary>).*?(</details>)',
-                r'\1<p>Kahvaltı her gün 08:00–17:00 arasında servis edilir. Özel gün saatlerini ve masa uygunluğunu ekibimizle teyit edin.</p>\2',
-                text, count=1, flags=re.S)
-            assert faq_count == 1, rel
+        question, answer = (
+            ('What time is breakfast served?',
+             'Breakfast is served daily from 08:00 to 17:00. Confirm holiday hours and table availability with our team.')
+            if en else
+            ('Kahvaltı saat kaçta servis ediliyor?',
+             'Kahvaltı her gün 08:00–17:00 arasında servis edilir. Özel gün saatlerini ve masa uygunluğunu ekibimizle teyit edin.')
+        )
+        text, faq_count = re.subn(
+            rf'(<details><summary>{re.escape(question)}</summary>).*?(</details>)',
+            lambda match: f'{match[1]}<p>{answer}</p>{match[2]}',
+            text, count=1, flags=re.S,
+        )
+        assert faq_count == 1, rel
         text = re.sub(r'<!-- SEARCH-DECISION:START -->.*?<!-- SEARCH-DECISION:END -->', '', text, flags=re.S)
         rows = ''.join('<li><strong>'+ (f'{n} people' if en else f'{n} kişilik')+'</strong>'+money(price,en)+'</li>' for n,price in portions)
         block = '<!-- SEARCH-DECISION:START --><section class="visit-section" aria-labelledby="breakfast-prices"><h2 id="breakfast-prices">'+('Shared breakfast: portion prices' if en else 'Serpme kahvaltı porsiyon fiyatları')+'</h2><p>'+('Breakfast is served daily 08:00–17:00. The shared Van breakfast lists unlimited tea, menemen and pan-fried eggs alongside cheeses and accompaniments.' if en else 'Kahvaltı her gün 08:00–17:00 arasında servis edilir. Serpme Van kahvaltısında peynir ve eşlikçilerin yanında menemen, sahanda yumurta ve sınırsız çay listelenir.')+'</p><ul class="portion-list">'+rows+'</ul><p class="note">'+('Prices shown are the total for each portion in our web menu, not per person. Extras are separate; confirm current prices and availability before ordering.' if en else 'Fiyatlar web menümüzdeki porsiyon toplamıdır; kişi başı değildir. İlave siparişler ayrıdır; güncel fiyat ve uygunluğu sipariş öncesinde teyit edin.')+'</p><div class="visit-actions"><a class="visit-button" href="'+reserve+'">'+('Request a breakfast table' if en else 'Kahvaltı için masa isteyin')+'</a><a href="'+prefix+'menu/#serpme-van-kahvaltisi">'+('See the full breakfast menu' if en else 'Kahvaltı menüsünü inceleyin')+'</a><a href="'+escape(WALKING_DIRECTIONS, quote=True)+'">'+('Open walking directions' if en else 'Yürüyüş yol tarifini açın')+'</a></div><p>'+('Send the request in WhatsApp and wait for our team to confirm your table.' if en else 'Talebinizi WhatsApp’ta gönderin; masanız ekibimizin onayıyla kesinleşir.')+'</p></section><!-- SEARCH-DECISION:END -->'

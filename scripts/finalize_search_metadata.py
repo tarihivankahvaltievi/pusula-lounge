@@ -97,6 +97,11 @@ for entry in tree.getroot():
         for node in graph:
             if node.get('@type') == 'Restaurant':
                 node['hasMap'] = MAPS_PROFILE
+                if route in HOME_PATHS:
+                    # Expose Google's URL field alongside Schema.org's localized menu entities.
+                    language = soup.html['lang']
+                    node['menu'] = next(item['url'] for item in node['hasMenu']
+                                        if item['inLanguage'] == language)
                 # Connect the site’s verified social profile to its canonical
                 # business entity for search and knowledge graph consumers.
                 profiles = node.get('sameAs', [])
